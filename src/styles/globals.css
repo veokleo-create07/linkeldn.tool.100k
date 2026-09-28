@@ -93,6 +93,10 @@
     animation-delay: 240ms;
   }
 
+  .stage-transition {
+    animation: stage-transition 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
   .metallic-cta {
     position: relative;
     isolation: isolate;
@@ -144,8 +148,23 @@
   }
 }
 
+@keyframes stage-transition {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-reveal {
+    animation: none;
+  }
+
+  .stage-transition {
     animation: none;
   }
 
