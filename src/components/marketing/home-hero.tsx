@@ -31,7 +31,7 @@ export function HomeHero() {
             The #1 Personal Brand Decision Engine for LinkedIn
           </h1>
           <p className="mt-6 max-w-xl text-balance text-base font-medium leading-7 text-white/90 sm:mt-7 sm:text-lg sm:leading-8">
-            Clonao understands your knowledge, content, and performance, then tells you what to create, improve, and focus on next.
+            Clonao analyzes your personal brand, identifies the gaps, builds the strategy and tells you exactly what to focus on next.
           </p>
         </div>
 
