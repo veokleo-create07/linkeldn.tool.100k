@@ -15,17 +15,8 @@ const navigation = [
 ];
 
 export function MarketingNavbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const currentPath = usePathname();
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 8);
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -44,10 +35,7 @@ export function MarketingNavbar() {
 
   return (
     <header
-      className={cn(
-        "sticky top-0 z-50 w-full border-b border-transparent transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300",
-        isScrolled && "border-white/10 bg-[#102a46]/85 shadow-[0_8px_30px_-24px_rgb(4_18_36_/_0.55)] backdrop-blur-md",
-      )}
+      className="sticky top-0 z-50 w-full bg-[#20466d]"
     >
       <div className="marketing-container flex h-16 items-center justify-between sm:h-20">
         <Link
