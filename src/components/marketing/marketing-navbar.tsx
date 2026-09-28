@@ -34,9 +34,7 @@ export function MarketingNavbar() {
   }, [currentPath]);
 
   return (
-    <header
-      className="sticky top-0 z-50 w-full bg-[#20466d]"
-    >
+    <header className="sticky top-0 z-50 w-full border-b border-transparent bg-transparent">
       <div className="marketing-container flex h-16 items-center justify-between sm:h-20">
         <Link
           href="/"
@@ -80,7 +78,7 @@ export function MarketingNavbar() {
       </div>
 
       {isMenuOpen && (
-        <div id="mobile-navigation" className="bg-[#102a46]/95 backdrop-blur-md lg:hidden">
+        <div id="mobile-navigation" className="bg-transparent lg:hidden">
           <MobileNav currentPath={currentPath} onNavigate={() => setIsMenuOpen(false)} />
         </div>
       )}
