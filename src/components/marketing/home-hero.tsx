@@ -28,7 +28,7 @@ export function HomeHero() {
             id="hero-heading"
             className="max-w-4xl text-balance text-[2.75rem] font-semibold leading-[1.04] tracking-tightest text-white sm:text-6xl lg:text-[4.5rem]"
           >
-            Know exactly what to do next with your personal brand.
+            The #1 Personal Brand Decision Engine for LinkedIn
           </h1>
           <p className="mt-6 max-w-xl text-balance text-base font-medium leading-7 text-white/90 sm:mt-7 sm:text-lg sm:leading-8">
             Clonao understands your knowledge, content, and performance, then tells you what to create, improve, and focus on next.
