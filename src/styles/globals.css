@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 99%;
+    --foreground: 222 34% 12%;
+    --surface: 0 0% 100%;
+    --primary: 222 34% 12%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 35% 96%;
+    --secondary-foreground: 222 34% 12%;
+    --muted: 210 27% 95%;
+    --muted-foreground: 216 15% 44%;
+    --accent: 209 97% 68%;
+    --accent-foreground: 222 34% 12%;
+    --brand: 209 97% 68%;
+    --brand-foreground: 222 34% 12%;
+    --border: 214 24% 88%;
+    --input: 214 24% 88%;
+    --ring: 209 97% 60%;
+    --shadow-soft: 0 12px 40px -24px hsl(222 34% 12% / 0.22);
+    --shadow-medium: 0 20px 55px -28px hsl(222 34% 12% / 0.24);
+    --radius: 0.75rem;
+
+    /* Clonao atmospheric palette */
+    --clonao-blue-top: #5fadfd;
+    --clonao-blue-upper: #6fb7fd;
+    --clonao-blue-middle: #acd8fc;
+    --clonao-blue-lower: #e6f3fd;
+    --clonao-white: #fdfdfd;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  ::selection {
+    background: hsl(var(--brand) / 0.28);
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .marketing-container {
+    @apply container w-full;
+  }
+
+  .marketing-section {
+    @apply py-20 sm:py-24 lg:py-32;
+  }
+}
