@@ -1,9 +1,15 @@
 import type { ReactNode } from "react";
+import { MarketingNavbar } from "@/components/marketing/marketing-navbar";
 
 type MarketingShellProps = {
   children: ReactNode;
 };
 
 export function MarketingShell({ children }: MarketingShellProps) {
-  return <main className="min-h-screen overflow-x-clip">{children}</main>;
+  return (
+    <>
+      <MarketingNavbar />
+      <main className="min-h-screen overflow-x-clip">{children}</main>
+    </>
+  );
 }
