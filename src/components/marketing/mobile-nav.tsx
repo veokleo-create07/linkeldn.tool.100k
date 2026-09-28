@@ -31,22 +31,6 @@ export function MobileNav({ currentPath, onNavigate }: MobileNavProps) {
             {link.label}
           </Link>
         ))}
-        <div className="flex items-center gap-4 pt-5">
-          <Link
-            href="/sign-in"
-            onClick={onNavigate}
-            className="text-[0.9375rem] font-medium text-white/75 transition-colors hover:text-white"
-          >
-            Log in
-          </Link>
-          <Link
-            href="/sign-up"
-            onClick={onNavigate}
-            className="metallic-cta rounded-md px-4 py-2.5 text-[0.9375rem] font-medium text-white"
-          >
-            Start for free
-          </Link>
-        </div>
       </div>
     </nav>
   );

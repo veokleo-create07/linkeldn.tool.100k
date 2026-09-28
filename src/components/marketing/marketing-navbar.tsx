@@ -63,7 +63,7 @@ export function MarketingNavbar() {
           Clonao
         </Link>
 
-        <nav aria-label="Main navigation" className="hidden items-center gap-7 lg:flex">
+        <nav aria-label="Main navigation" className="ml-auto hidden items-center gap-7 lg:flex">
           {navigation.map((link) => (
             <Link
               key={link.href}
@@ -78,21 +78,6 @@ export function MarketingNavbar() {
             </Link>
           ))}
         </nav>
-
-        <div className="hidden items-center gap-5 lg:flex">
-          <Link
-            href="/sign-in"
-            className="text-sm font-medium text-white/80 transition-colors hover:text-white"
-          >
-            Log in
-          </Link>
-          <Link
-            href="/sign-up"
-            className="metallic-cta rounded-md px-4 py-2.5 text-sm font-medium text-white"
-          >
-            Start for free
-          </Link>
-        </div>
 
         <button
           type="button"
