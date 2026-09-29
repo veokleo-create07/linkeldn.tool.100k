@@ -187,40 +187,25 @@
   }
 }
 
-@keyframes grounding-flow {
-  to {
-    stroke-dashoffset: -30;
+.grounding-signal-particle {
+  fill: #334155;
+  opacity: 0;
+}
+
+@keyframes grounding-card-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.018);
   }
 }
 
-.grounding-flow-group path {
-  stroke-dasharray: 5 9;
-  animation: grounding-flow 3.2s linear infinite;
-  will-change: stroke-dashoffset;
-}
-
-.grounding-flow-group path:nth-of-type(2) {
-  animation-delay: -0.2s;
-}
-
-.grounding-flow-group path:nth-of-type(3) {
-  animation-delay: -0.4s;
-}
-
-.grounding-flow-group path:nth-of-type(4) {
-  animation-delay: -0.6s;
-}
-
-.grounding-flow-group path:nth-of-type(5) {
-  animation-delay: -0.8s;
-}
-
-.grounding-flow-group path:nth-of-type(6) {
-  animation-delay: -1s;
-}
-
-.grounding-flow-group path:nth-of-type(7) {
-  animation-delay: -1.2s;
+.grounding-card-pulse {
+  animation: grounding-card-pulse 760ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center;
+  will-change: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -237,7 +222,8 @@
     display: none;
   }
 
-  .grounding-flow-group path {
+  .grounding-signal-particle,
+  .grounding-card-pulse {
     animation: none;
   }
 
