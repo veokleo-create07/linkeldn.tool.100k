@@ -230,21 +230,43 @@ function MobileCardSequence() {
       <div className="sticky top-16 flex h-[70vh] items-center overflow-hidden">
         <div className="relative min-h-[26rem] w-full">
           {showcaseCards.map((Card, index) => {
-            const distance = index - sequencePosition;
-            const visibility = Math.max(0, 1 - Math.abs(distance) * 1.45);
-            const translateY = distance * 20;
-            const scale = 1 - Math.min(0.035, Math.abs(distance) * 0.035);
+            const currentIndex = Math.min(showcaseCards.length - 1, Math.floor(sequencePosition));
+            const transitionProgress = sequencePosition - currentIndex;
+            const isOutgoing = index === currentIndex && currentIndex < showcaseCards.length - 1;
+            const isIncoming = index === currentIndex + 1;
+            const outgoingProgress = isOutgoing ? Math.min(1, transitionProgress / 0.55) : 0;
+            const incomingProgress = isIncoming ? Math.max(0, Math.min(1, (transitionProgress - 0.35) / 0.65)) : 0;
+            const isCurrent = index === currentIndex;
+            const opacity = isOutgoing
+              ? 1 - outgoingProgress
+              : isIncoming
+                ? incomingProgress
+                : isCurrent
+                  ? 1
+                  : 0;
+            const translateY = isOutgoing
+              ? -16 * outgoingProgress
+              : isIncoming
+                ? 16 * (1 - incomingProgress)
+                : 16;
+            const scale = isOutgoing
+              ? 1 - 0.03 * outgoingProgress
+              : isIncoming
+                ? 0.97 + 0.03 * incomingProgress
+                : isCurrent
+                  ? 1
+                  : 0.97;
 
             return (
               <div
                 key={Card.name}
-                className="absolute inset-0 transition-[opacity,transform,filter] duration-300 ease-out motion-reduce:transition-none"
+                className="absolute inset-0 transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
                 style={{
-                  opacity: visibility,
+                  opacity,
                   transform: `translateY(${translateY}px) scale(${scale})`,
-                  filter: `blur(${Math.min(3, Math.abs(distance) * 3)}px)`,
-                  pointerEvents: Math.abs(distance) < 0.5 ? "auto" : "none",
-                  zIndex: Math.round(100 - Math.abs(distance) * 10),
+                  pointerEvents: opacity > 0.5 ? "auto" : "none",
+                  willChange: "transform, opacity",
+                  zIndex: isIncoming || isCurrent ? 2 : 1,
                 }}
               >
                 <Card />
