@@ -1,90 +1,72 @@
-const sourceRows = [
-  ["LinkedIn history", "Connected"],
-  ["Website", "Indexed"],
-  ["Case studies", "Processed"],
-  ["PDFs", "Processed"],
-  ["Videos", "Transcribed"],
-  ["Notes", "Indexed"],
-  ["Podcasts", "Transcribed"],
-  ["Offers", "Connected"],
-] as const;
+import Image from "next/image";
+import { FileText, Globe2, Mic2, NotebookPen, Tag, UserRound } from "lucide-react";
 
-const extractedContext = ["Expertise", "Stories", "Opinions", "Proof", "Offers", "Topics"];
+const sourceCards = [
+  { label: "LinkedIn history", icon: UserRound },
+  { label: "Website", icon: Globe2 },
+  { label: "Case studies", icon: FileText },
+  { label: "Notes", icon: NotebookPen },
+  { label: "Podcasts", icon: Mic2 },
+  { label: "Offers", icon: Tag },
+] as const;
 
 export function KnowledgeSourcesSection() {
   return (
-    <section aria-labelledby="knowledge-sources-heading" className="bg-[#fbfdff] py-24 sm:py-28 lg:py-36">
+    <section aria-labelledby="knowledge-sources-heading" className="bg-[#f8fbfd] py-24 sm:py-28 lg:py-36">
       <div className="marketing-container">
-        <div className="grid items-start gap-14 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-24">
-          <div className="max-w-xl lg:pt-10">
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-[#3275ae]">Grounded in your real knowledge</p>
-            <h2 id="knowledge-sources-heading" className="mt-5 max-w-lg text-balance text-4xl font-semibold leading-[1.04] tracking-[-0.045em] text-foreground sm:text-5xl">
-              Clonao learns what you actually know.
-            </h2>
-            <p className="mt-6 max-w-md text-base leading-7 text-foreground/60 sm:text-lg sm:leading-8">
-              Connect the sources that contain your experience, ideas, stories, proof, and offers. Clonao turns them into context it can use across every recommendation and piece of content.
-            </p>
-            <p className="mt-8 max-w-sm border-l-2 border-[#8dc8ed] pl-4 text-sm font-medium leading-6 text-foreground/70">
-              Your recommendations are grounded in your sources, not generic AI memory.
-            </p>
-          </div>
-
-          <SourceInterface />
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#101826]">Grounding layer</p>
+          <h2 id="knowledge-sources-heading" className="text-balance mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.06em] text-[#101826] sm:text-5xl lg:text-[4.1rem]">
+            Everything you know, organized into one decision layer.
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-[#647384] sm:text-lg sm:leading-8">
+            Connect your sources and Clonao turns them into context you can use across every recommendation.
+          </p>
         </div>
+
+        <KnowledgeFlowDiagram />
       </div>
     </section>
   );
 }
 
-function SourceInterface() {
+function KnowledgeFlowDiagram() {
   return (
-    <div className="overflow-hidden rounded-[1.25rem] border border-[#dce6ef] bg-white shadow-[0_24px_70px_-44px_rgba(24,54,83,0.38)]">
-      <div className="flex items-center justify-between border-b border-[#e6edf3] px-5 py-4 sm:px-7">
-        <div>
-          <p className="text-[0.625rem] font-medium uppercase tracking-[0.16em] text-foreground/35">Clonao workspace</p>
-          <p className="mt-1 text-sm font-medium text-foreground">Knowledge sources</p>
-        </div>
-        <span className="flex items-center gap-2 text-xs text-foreground/45">
-          <span className="size-1.5 rounded-full bg-[#65b3ed]" aria-hidden="true" />
-          Context connected
-        </span>
-      </div>
+    <div className="relative mx-auto mt-14 max-w-6xl overflow-hidden rounded-[1.75rem] border border-white/90 bg-[radial-gradient(circle_at_50%_18%,rgba(222,237,247,0.78),transparent_52%),linear-gradient(135deg,rgba(242,248,252,0.98),rgba(225,235,242,0.86))] p-5 shadow-[0_30px_80px_-48px_rgba(27,58,83,0.38)] sm:mt-16 sm:p-8 lg:p-12">
+      <div className="pointer-events-none absolute -left-24 top-1/3 size-72 rounded-full bg-[#d9eaf4]/40 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute -right-24 bottom-0 size-80 rounded-full bg-[#edf5f9]/75 blur-3xl" aria-hidden="true" />
 
-      <div className="p-5 sm:p-7">
-        <div className="flex items-center justify-between border-b border-[#e6edf3] pb-4">
-          <p className="text-xs font-medium text-foreground/50">Your sources</p>
-          <span className="text-[0.625rem] font-medium uppercase tracking-[0.14em] text-foreground/30">8 connected</span>
-        </div>
-
-        <div className="divide-y divide-[#edf1f5]">
-          {sourceRows.map(([source, status]) => (
-            <div key={source} className="flex items-center gap-4 py-3.5">
-              <span className="flex size-7 shrink-0 items-center justify-center bg-[#f0f7fc] text-[0.625rem] font-semibold uppercase text-[#3275ae]" aria-hidden="true">
-                {source.slice(0, 2)}
+      <div className="relative z-10 lg:grid lg:grid-cols-[minmax(0,1fr)_4.5rem_14rem_4.5rem_minmax(0,1fr)] lg:items-center">
+        <div className="flex flex-col gap-3">
+          {sourceCards.map(({ label, icon: Icon }) => (
+            <div
+              key={label}
+              className="relative flex items-center gap-3 rounded-xl border border-white/95 bg-white/90 px-3.5 py-3 shadow-[0_12px_26px_-22px_rgba(17,39,58,0.55)] lg:after:absolute lg:after:right-[-4.5rem] lg:after:top-1/2 lg:after:h-px lg:after:w-[4.5rem] lg:after:bg-[#aebbc5]"
+            >
+              <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-[#101826] text-white" aria-hidden="true">
+                <Icon className="size-4" strokeWidth={1.7} />
               </span>
-              <span className="min-w-0 flex-1 text-sm font-medium text-foreground/75">{source}</span>
-              <span className="flex shrink-0 items-center gap-2 text-xs text-foreground/45">
-                <span className="size-1.5 rounded-full bg-[#70b8e9]" aria-hidden="true" />
-                {status}
-              </span>
+              <span className="min-w-0 flex-1 text-sm font-medium text-[#101826]">{label}</span>
             </div>
           ))}
         </div>
 
-        <div className="mt-7 border-t border-[#e6edf3] pt-6">
-          <div className="flex items-center gap-3">
-            <span className="text-[0.625rem] font-medium uppercase tracking-[0.14em] text-foreground/35">Sources</span>
-            <span className="h-px flex-1 bg-[#dce9f2]" aria-hidden="true" />
-            <span className="text-[0.625rem] font-medium uppercase tracking-[0.14em] text-[#3275ae]">Clonao extracts</span>
+        <div className="mx-auto h-8 w-px bg-[#aebbc5] lg:hidden" aria-hidden="true" />
+
+        <div className="relative mx-auto flex w-full max-w-[14rem] flex-col items-center rounded-[1.35rem] border border-white bg-white/95 px-5 py-8 text-center shadow-[0_24px_46px_-30px_rgba(17,39,58,0.55)] lg:col-start-3">
+          <div className="flex size-16 items-center justify-center rounded-2xl bg-[#101826] p-3 shadow-[0_10px_20px_-12px_rgba(16,24,38,0.5)]">
+            <Image src="/clonao-logo.png" alt="" width={64} height={64} className="size-full object-contain brightness-0 invert" />
           </div>
-          <div className="mt-4 flex flex-wrap gap-x-3 gap-y-2">
-            {extractedContext.map((item, index) => (
-              <span key={item} className="inline-flex items-center gap-2 text-sm font-medium text-foreground/70">
-                {index > 0 && <span className="text-[#8dc8ed]" aria-hidden="true">·</span>}
-                {item}
-              </span>
-            ))}
-          </div>
+          <p className="mt-4 text-lg font-semibold tracking-[-0.04em] text-[#101826]">Clonao</p>
+        </div>
+
+        <div className="mx-auto h-8 w-px bg-[#aebbc5] lg:hidden" aria-hidden="true" />
+
+        <div className="relative mx-auto mt-0 flex w-full max-w-[13rem] items-center gap-3 rounded-xl border border-white/95 bg-white/90 px-4 py-4 shadow-[0_12px_26px_-22px_rgba(17,39,58,0.55)] lg:col-start-5 lg:after:absolute lg:after:left-[-4.5rem] lg:after:top-1/2 lg:after:h-px lg:after:w-[4.5rem] lg:after:bg-[#aebbc5]">
+          <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-[#101826] text-white" aria-hidden="true">
+            <span className="relative block size-4 border-b border-l border-white/80"><span className="absolute bottom-0 left-1 h-2 w-px bg-white/80" /><span className="absolute bottom-0 left-2.5 h-3 w-px bg-white/80" /><span className="absolute bottom-0 left-4 h-4 w-px bg-white/80" /></span>
+          </span>
+          <span className="text-sm font-semibold text-[#101826]">Brand Graph</span>
         </div>
       </div>
     </div>
