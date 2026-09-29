@@ -1,30 +1,30 @@
-import {
-  ArrowUpRight,
-} from "lucide-react";
-
 type SourceKind = "linkedin" | "website" | "pdf" | "notes" | "video" | "podcast";
 
 const sources = [
-  { name: "LinkedIn", kind: "linkedin", color: "#0A66C2", count: "128 posts", status: "Connected", statusColor: "#16A34A" },
-  { name: "Website", kind: "website", color: "#2563EB", count: "24 pages", status: "Indexed", statusColor: "#2563EB" },
-  { name: "PDFs", kind: "pdf", color: "#E53935", count: "12 files", status: "Processed", statusColor: "#16A34A" },
-  { name: "Notes", kind: "notes", color: "#F4B400", count: "86 notes", status: "Syncing", statusColor: "#2563EB" },
-  { name: "Videos", kind: "video", color: "#FF0000", count: "18 files", status: "Processing", statusColor: "#2563EB" },
-  { name: "Podcasts", kind: "podcast", color: "#A855F7", count: "7 episodes", status: "Connected", statusColor: "#16A34A" },
+  { name: "LinkedIn", kind: "linkedin", color: "#0A66C2" },
+  { name: "Website", kind: "website", color: "#2563EB" },
+  { name: "PDFs", kind: "pdf", color: "#E53935" },
+  { name: "Notes", kind: "notes", color: "#F4B400" },
+  { name: "Videos", kind: "video", color: "#FF0000" },
+  { name: "Podcasts", kind: "podcast", color: "#A855F7" },
+] as const;
+
+const sourceGroups = [
+  [sources[0], sources[1]],
+  [sources[2], sources[3]],
+  [sources[4], sources[5]],
 ] as const;
 
 const diagnosis = [
-  { title: "Positioning", detail: "Clear expertise signal", status: "Strength", kind: "positioning", color: "#2563EB", statusColor: "#16A34A" },
-  { title: "Content coverage", detail: "Proof is underused", status: "Gap", kind: "coverage", color: "#38BDF8", statusColor: "#F59E0B" },
-  { title: "Audience alignment", detail: "Strong relevance", status: "Strong", kind: "audience", color: "#14B8A6", statusColor: "#16A34A" },
-  { title: "Opportunities", detail: "Three high-impact paths", status: "High potential", kind: "opportunities", color: "#8B5CF6", statusColor: "#8B5CF6" },
+  { title: "Positioning", detail: "Clear expertise signal", kind: "positioning", color: "#2563EB" },
+  { title: "Content coverage", detail: "Proof is underused", kind: "coverage", color: "#38BDF8" },
+  { title: "Opportunities", detail: "Three high-impact paths", kind: "opportunities", color: "#8B5CF6" },
 ] as const;
 
 const recommendations = [
   { title: "Turn a client case study into a post", detail: "Build trust with proof", kind: "document", color: "#2563EB" },
   { title: "Create a short-form video", detail: "Make the method easier to remember", kind: "video", color: "#EF4444" },
   { title: "Explore your take on AI strategy", detail: "Clarify your point of view", kind: "insight", color: "#8B5CF6" },
-  { title: "Build a simple content series", detail: "Create a consistent signal", kind: "series", color: "#0EA5E9" },
 ] as const;
 
 function CardShell({
@@ -32,14 +32,12 @@ function CardShell({
   title,
   description,
   children,
-  footer,
   surface = "default",
 }: {
   label: string;
   title: string;
   description: string;
   children: React.ReactNode;
-  footer?: React.ReactNode;
   surface?: "default" | "understand" | "diagnose" | "recommend";
 }) {
   const surfaceClass = surface === "understand"
@@ -51,16 +49,15 @@ function CardShell({
       : "bg-[linear-gradient(145deg,rgba(241,247,250,0.9),rgba(202,215,223,0.72))] shadow-[0_28px_62px_-38px_rgba(30,55,73,0.52)]";
 
   return (
-    <article className={`group relative flex h-full min-h-[31rem] flex-col overflow-hidden rounded-[1.625rem] border border-white/80 ${surfaceClass} p-5 backdrop-blur-2xl transition-transform duration-500 hover:-translate-y-1 sm:min-h-[32rem] sm:p-6`}>
+    <article className={`group relative flex h-full min-h-[26rem] flex-col overflow-hidden rounded-[1.625rem] border border-white/80 ${surfaceClass} p-5 backdrop-blur-2xl transition-transform duration-500 hover:-translate-y-1 sm:min-h-[27rem] sm:p-6`}>
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.62),rgba(255,255,255,0.08)_48%,rgba(133,157,173,0.16))]" />
       <div className="relative z-10 flex h-full flex-col">
         <div>
           <p className="text-[0.67rem] font-semibold uppercase tracking-[0.2em] text-[#3977a9]">{label}</p>
           <h3 className="mt-3 max-w-[17rem] text-[1.55rem] font-semibold leading-[1.08] tracking-[-0.055em] text-[#132238] sm:text-[1.75rem]">{title}</h3>
-          <p className="mt-2.5 max-w-[18rem] text-[0.88rem] leading-5 text-[#536779]">{description}</p>
+          <p className="mt-2 max-w-[18rem] text-[0.86rem] leading-5 text-[#536779]">{description}</p>
         </div>
-        <div className="mt-5 flex flex-1 flex-col">{children}</div>
-        {footer}
+        <div className="mt-4 flex flex-1 flex-col">{children}</div>
       </div>
     </article>
   );
@@ -94,29 +91,24 @@ function SourceIcon({ kind, color }: { kind: SourceKind; color: string }) {
 
 function UnderstandCard() {
   return (
-    <CardShell surface="understand" label="Understand" title="Bring your real knowledge together." description="Connect your content and let Clonao organize it.">
+    <CardShell surface="understand" label="Understand" title="Bring your real knowledge together." description="Connect your sources. Clonao organizes the signal.">
       <div className="divide-y divide-[#6f8797]/20 border-y border-[#6f8797]/20">
-        {sources.map(({ name, kind, color, count, status, statusColor }) => (
-          <div key={name} className="flex min-h-[2.85rem] items-center gap-2.5 py-2">
-            <SourceIcon kind={kind} color={color} />
-            <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-medium text-[#1d3044]">{name}</p>
-              <p className="mt-0.5 text-[0.7rem] text-[#748494]">{count}</p>
-            </div>
-            <span className="hidden text-[0.68rem] min-[390px]:block" style={{ color: statusColor }}>{status}</span>
-            <ArrowUpRight aria-hidden="true" className="size-3.5 shrink-0 text-[#7b93a3] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={1.7} />
+        {sourceGroups.map((group) => (
+          <div key={group[0].name} className="flex min-h-[3.1rem] items-center gap-3 py-2.5">
+            {group.map(({ name, kind, color }) => (
+              <div key={name} className="flex min-w-0 flex-1 items-center gap-2">
+                <SourceIcon kind={kind} color={color} />
+                <span className="truncate text-sm font-medium text-[#1d3044]">{name}</span>
+              </div>
+            ))}
           </div>
         ))}
       </div>
-      <button type="button" className="mt-auto flex items-center gap-2 border-b border-[#3977a9]/35 pb-1.5 pt-4 text-left text-sm font-medium text-[#286b9f] transition-colors hover:text-[#174d78] focus-visible:border-[#174d78]">
-        <span className="text-lg leading-none">+</span>
-        Add a source
-      </button>
     </CardShell>
   );
 }
 
-type DiagnosisKind = "positioning" | "coverage" | "audience" | "opportunities";
+type DiagnosisKind = "positioning" | "coverage" | "opportunities";
 
 function DiagnosisIcon({ kind, color }: { kind: DiagnosisKind; color: string }) {
   const common = { "aria-hidden": true, className: "size-[1.35rem] shrink-0", style: { color } };
@@ -129,26 +121,20 @@ function DiagnosisIcon({ kind, color }: { kind: DiagnosisKind; color: string }) 
     return <svg {...common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5V13M9.3 19.5V8M14.7 19.5V10.5M20 19.5V4.5" /><path d="M4 19.5h16" opacity=".45" /></svg>;
   }
 
-  if (kind === "audience") {
-    return <svg {...common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="8" r="2.75" /><path d="M3.8 18.5c.35-3.05 2.1-4.55 5.2-4.55s4.85 1.5 5.2 4.55M16.2 10.4a2.4 2.4 0 1 0 0-4.65M16.35 14.15c2.6.2 4 1.62 4.25 4.35" /></svg>;
-  }
-
   return <svg {...common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.65" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3 1.2 4.8L18 9l-4.8 1.2L12 15l-1.2-4.8L6 9l4.8-1.2L12 3ZM18.5 15.5l.65 2.35 2.35.65-2.35.65-.65 2.35-.65-2.35-2.35-.65 2.35-.65.65-2.35Z" /></svg>;
 }
 
 function DiagnoseCard() {
   return (
-    <CardShell surface="diagnose" label="Diagnose & Strategize" title="See what’s working, what’s missing." description="Clonao analyzes your content to find opportunities.">
+    <CardShell surface="diagnose" label="Diagnose & Strategize" title="See what’s working, what’s missing." description="See the gaps shaping your brand.">
       <div className="divide-y divide-[#6f8797]/20 border-y border-[#6f8797]/20">
-        {diagnosis.map(({ title, detail, status, kind, color, statusColor }) => (
-          <div key={title} className="flex min-h-[3.7rem] items-center gap-2.5 py-2">
+        {diagnosis.map(({ title, detail, kind, color }) => (
+          <div key={title} className="flex min-h-[3.45rem] items-center gap-2.5 py-2">
             <DiagnosisIcon kind={kind} color={color} />
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-medium text-[#1d3044]">{title}</p>
               <p className="mt-1 truncate text-[0.72rem] text-[#748494]">{detail}</p>
             </div>
-            <span className="hidden max-w-[5.1rem] text-right text-[0.66rem] leading-4 min-[390px]:block" style={{ color: statusColor }}>{status}</span>
-            <ArrowUpRight aria-hidden="true" className="size-3.5 shrink-0 text-[#7b93a3] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={1.7} />
           </div>
         ))}
       </div>
@@ -156,7 +142,7 @@ function DiagnoseCard() {
   );
 }
 
-type RecommendationKind = "document" | "video" | "insight" | "series";
+type RecommendationKind = "document" | "video" | "insight";
 
 function RecommendationIcon({ kind, color }: { kind: RecommendationKind; color: string }) {
   const common = { "aria-hidden": true, className: "size-[1.35rem] shrink-0", style: { color } };
@@ -178,7 +164,7 @@ function RecommendationIcon({ kind, color }: { kind: RecommendationKind; color: 
 
 function RecommendCard() {
   return (
-    <CardShell surface="recommend" label="Get your next moves" title="Get your next best moves." description="Receive a focused plan based on your content.">
+    <CardShell surface="recommend" label="Get your next moves" title="Get your next best moves." description="Three actions, grounded in your strategy.">
       <div>
         <p className="mb-2 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#6e8291]">Top next moves</p>
         <div className="divide-y divide-[#6f8797]/20 border-y border-[#6f8797]/20">
@@ -189,7 +175,6 @@ function RecommendCard() {
                 <p className="text-sm font-medium leading-5 text-[#1d3044]">{title}</p>
                 <p className="mt-1 truncate text-[0.72rem] text-[#748494]">{detail}</p>
               </div>
-              <ArrowUpRight aria-hidden="true" className="size-3.5 shrink-0 text-[#7b93a3] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={1.7} />
             </div>
           ))}
         </div>
