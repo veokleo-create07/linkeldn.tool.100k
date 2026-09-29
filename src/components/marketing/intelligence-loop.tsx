@@ -40,7 +40,7 @@ export function IntelligenceLoop() {
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-medium uppercase tracking-[0.14em] text-foreground/45 sm:text-sm">How Clonao thinks</p>
           <h2 id="intelligence-loop-heading" className="mt-5 text-balance text-4xl font-semibold leading-[1.08] tracking-tightest text-foreground sm:text-5xl">From scattered knowledge to your next best move.</h2>
-          <p className="mt-6 text-balance text-base leading-7 text-foreground/60 sm:mt-7 sm:text-lg sm:leading-8">Clonao continuously turns what you know, what you publish, and what performs into a clearer personal-brand strategy.</p>
+          <p className="mt-6 text-balance text-base leading-7 text-foreground/60 sm:mt-7 sm:text-lg sm:leading-8">Clonao continuously turns what you know, what you publish, and what performs into a clearer personal brand strategy.</p>
         </div>
 
         <div className="mx-auto mt-16 hidden max-w-6xl lg:mt-24 lg:grid lg:grid-cols-[minmax(0,0.68fr)_minmax(0,1.32fr)] lg:gap-14">
