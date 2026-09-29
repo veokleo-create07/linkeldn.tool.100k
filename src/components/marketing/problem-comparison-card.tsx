@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const existingTools = ["AI writing", "Scheduling", "Analytics", "Inspiration", "Content libraries"];
-const decisionsLeftToMake = ["What topic matters now", "Which story to tell", "Where you need more proof", "What to stop repeating", "What will move your positioning forward"];
+const decisionsLeftToMake = ["What matters now.", "What story to tell.", "Where you need proof.", "What to stop repeating.", "What moves your positioning forward."];
 
 export function ProblemComparisonCard() {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -34,38 +34,38 @@ export function ProblemComparisonCard() {
     <div
       ref={cardRef}
       className={cn(
-        "overflow-hidden rounded-[1.125rem] border border-[#d7e8f0] bg-[linear-gradient(145deg,#fafdff_0%,#f4fbfc_52%,#eefaf8_100%)] p-6 shadow-[0_20px_55px_-38px_rgba(31,77,102,0.34)] transition-all duration-700 ease-out motion-reduce:transition-none sm:p-8",
+        "relative overflow-hidden rounded-[1.125rem] border border-[#2b628b] bg-[linear-gradient(145deg,#0d3b66_0%,#0f4c81_100%)] p-6 text-white shadow-[0_24px_64px_-38px_rgba(7,34,62,0.72)] transition-all duration-700 ease-out motion-reduce:transition-none sm:p-9",
         isVisible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0 motion-reduce:translate-y-0 motion-reduce:opacity-100",
       )}
     >
-      <div className={cn("transition-opacity duration-700 ease-out motion-reduce:transition-none", isVisible ? "opacity-[0.55]" : "opacity-[0.45]")}>
-        <p className="text-[0.6875rem] font-medium uppercase tracking-[0.16em] text-foreground/45">You already have</p>
-        <ul className="mt-4 space-y-3">
+      <span className="problem-reflection" aria-hidden="true" />
+
+      <div className={cn("relative transition-opacity duration-700 ease-out motion-reduce:transition-none", isVisible ? "opacity-[0.52]" : "opacity-[0.4]")}>
+        <p className="text-[0.625rem] font-medium uppercase tracking-[0.2em] text-white/65">You already have</p>
+        <div className="mt-5 divide-y divide-white/[0.1]">
           {existingTools.map((tool) => (
-            <li key={tool} className="flex items-center gap-3 text-sm font-medium text-foreground/55 sm:text-[0.9375rem]">
-              <span className="size-1.5 shrink-0 rounded-full bg-[#b8cedb]" aria-hidden="true" />
+            <div key={tool} className="py-2.5 text-sm font-medium text-white/70 sm:text-[0.9375rem]">
               {tool}
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
 
-      <div className="my-7 h-px bg-[#cfe0e8]" aria-hidden="true" />
+      <div className="my-8 h-px bg-white/20" aria-hidden="true" />
 
-      <div className={cn("transition-all delay-100 duration-700 ease-out motion-reduce:transition-none", isVisible ? "translate-y-0 opacity-100" : "translate-y-2 opacity-70 motion-reduce:translate-y-0 motion-reduce:opacity-100")}>
-        <p className="text-[0.6875rem] font-medium uppercase tracking-[0.16em] text-[#3275ae]">But you still have to decide</p>
-        <ul className="mt-4 space-y-3">
+      <div className={cn("relative transition-all delay-100 duration-700 ease-out motion-reduce:transition-none", isVisible ? "translate-y-0 opacity-100" : "translate-y-2 opacity-70 motion-reduce:translate-y-0 motion-reduce:opacity-100")}>
+        <p className="text-[0.625rem] font-medium uppercase tracking-[0.2em] text-[#a9ddff]">You still have to decide</p>
+        <div className="mt-5">
           {decisionsLeftToMake.map((decision) => (
-            <li key={decision} className="flex items-start gap-3 text-sm font-medium leading-5 text-foreground/80 sm:text-[0.9375rem]">
-              <span className="mt-2 size-1.5 shrink-0 rounded-full bg-[#65b3e7]" aria-hidden="true" />
+            <div key={decision} className="border-b border-white/[0.14] py-3 text-lg font-medium leading-6 tracking-[-0.02em] text-white sm:text-xl sm:leading-7">
               {decision}
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
 
-      <p className="mt-8 border-t border-[#cfe0e8] pt-6 text-base font-semibold leading-6 tracking-[-0.015em] text-foreground sm:text-lg">
-        That decision layer is what Clonao is built for.
+      <p className="relative mt-8 border-t border-white/25 pt-6 text-base font-semibold leading-6 tracking-[-0.015em] text-white sm:text-lg">
+        Clonao is the decision layer.
       </p>
     </div>
   );
