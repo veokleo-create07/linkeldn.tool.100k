@@ -3,112 +3,120 @@
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
-const decisions = [
-  "What matters now?",
-  "What story should you tell?",
-  "Where are you missing proof?",
-  "What should you stop repeating?",
-  "What moves your positioning forward?",
-];
-
-const scatter = [
-  { x: -18, y: 0 },
-  { x: 14, y: 10 },
-  { x: -8, y: 4 },
-  { x: 18, y: -8 },
-  { x: -2, y: 12 },
+const pillars = [
+  {
+    question: "What matters now",
+    detail: "Identify the signal that deserves your attention before you publish again.",
+    image: "/dreamy-blue-gradient.jpg",
+  },
+  {
+    question: "What story should you tell",
+    detail: "Turn the experience behind your work into something your audience can remember.",
+    image: "/ethereal-aqua-gradient.jpg",
+  },
+  {
+    question: "Where are you missing proof",
+    detail: "See where your point of view needs evidence, examples, or a stronger result.",
+    image: "/lavender-blue-gradient.jpg",
+  },
+  {
+    question: "What should you stop repeating",
+    detail: "Make room for the ideas that strengthen your positioning instead of blurring it.",
+    image: "/coral-lavender-gradient.jpg",
+  },
+  {
+    question: "What moves your positioning forward",
+    detail: "Choose the action that compounds your authority over the next few weeks.",
+    image: "/pastel-aqua-gradient.jpg",
+  },
 ];
 
 export function ProblemComparisonCard() {
-  const fieldRef = useRef<HTMLDivElement>(null);
-  const pillRefs = useRef<Array<HTMLDivElement | null>>([]);
-  const [isVisible, setIsVisible] = useState(false);
-  const [revealedCount, setRevealedCount] = useState(0);
+  const pillarRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const [activePillar, setActivePillar] = useState(0);
 
   useEffect(() => {
-    const field = fieldRef.current;
-    if (!field) return;
+    if (!("IntersectionObserver" in window)) return;
 
-    if (!("IntersectionObserver" in window)) {
-      setIsVisible(true);
-      setRevealedCount(decisions.length);
-      return;
-    }
-
-    const fieldObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-        fieldObserver.disconnect();
-      }
-    }, { threshold: 0.15 });
-
-    const pillObserver = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       (entries) => {
-        const newlyVisible = entries
+        const visible = entries
           .filter((entry) => entry.isIntersecting)
-          .map((entry) => Number((entry.target as HTMLElement).dataset.decision))
-          .filter((index) => !Number.isNaN(index));
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
 
-        if (newlyVisible.length > 0) {
-          setRevealedCount((current) => Math.max(current, ...newlyVisible.map((index) => index + 1)));
-        }
+        const index = Number((visible.target as HTMLElement).dataset.pillar);
+        if (!Number.isNaN(index)) setActivePillar(index);
       },
-      { threshold: 0.55 },
+      { rootMargin: "-35% 0px -45% 0px", threshold: [0.25, 0.6, 0.9] },
     );
 
-    fieldObserver.observe(field);
-    pillRefs.current.forEach((pill) => pill && pillObserver.observe(pill));
-
-    return () => {
-      fieldObserver.disconnect();
-      pillObserver.disconnect();
-    };
+    pillarRefs.current.forEach((pillar) => pillar && observer.observe(pillar));
+    return () => observer.disconnect();
   }, []);
 
-  const clarity = Math.min(revealedCount / decisions.length, 1);
-
   return (
-    <div ref={fieldRef} className="relative min-h-[31rem] py-2 sm:min-h-[34rem] sm:py-4">
+    <div className="relative min-w-0">
       <p className="text-[0.625rem] font-medium uppercase tracking-[0.19em] text-foreground/40 sm:text-[0.6875rem]">
         You still have to decide
       </p>
 
-      <div className="relative mt-8 sm:mt-12">
-        {decisions.map((decision, index) => {
-          const isRevealed = index < revealedCount;
-          const distance = 1 - clarity;
-          const offset = scatter[index];
+      <div className="relative mt-7 overflow-hidden rounded-[1.5rem] bg-[#f7fafc] px-4 py-3 sm:mt-9 sm:px-6 sm:py-5">
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.85),rgba(236,247,251,0.56))]" aria-hidden="true" />
+        <div className="relative">
+          {pillars.map((pillar, index) => {
+            const isActive = activePillar === index;
 
-          return (
-            <div
-              key={decision}
-              ref={(node) => { pillRefs.current[index] = node; }}
-              data-decision={index}
-              className={cn(
-                "relative w-fit max-w-full transition-all duration-700 ease-out motion-reduce:transition-none",
-                index > 0 && "mt-5 sm:mt-7",
-                index % 2 === 1 && "ml-auto",
-                !isRevealed && "translate-y-3 opacity-0",
-                isRevealed && "translate-y-0 opacity-100",
-              )}
-              style={{
-                transform: isRevealed ? "translate(" + (offset.x * distance).toString() + "px, " + (offset.y * distance).toString() + "px) scale(" + (0.98 + clarity * 0.02).toString() + ")" : undefined,
-                transitionDelay: isVisible ? (index * 110).toString() + "ms" : "0ms",
-              }}
-            >
-              <span className="inline-flex max-w-full rounded-full border border-[#dce8ef] bg-white px-4 py-3 text-sm font-medium leading-5 tracking-[-0.01em] text-foreground/75 shadow-[0_8px_20px_-18px_rgba(24,54,83,0.5)] sm:px-5 sm:py-3.5 sm:text-base">
-                {decision}
-              </span>
-            </div>
-          );
-        })}
+            return (
+              <button
+                key={pillar.question}
+                ref={(node) => { pillarRefs.current[index] = node; }}
+                type="button"
+                data-pillar={index}
+                onMouseEnter={() => setActivePillar(index)}
+                onFocus={() => setActivePillar(index)}
+                aria-pressed={isActive}
+                className={cn(
+                  "group relative flex w-full items-start gap-4 overflow-hidden border-b border-foreground/[0.08] px-2 py-5 text-left transition-all duration-500 ease-out last:border-b-0 motion-reduce:transition-none sm:gap-5 sm:px-3 sm:py-6",
+                  isActive ? "translate-x-1" : "opacity-65 hover:opacity-100",
+                )}
+              >
+                <span
+                  className={cn(
+                    "pointer-events-none absolute inset-0 -z-0 bg-cover bg-center blur-2xl transition-opacity duration-700 motion-reduce:transition-none",
+                    isActive ? "opacity-35" : "opacity-10",
+                  )}
+                  style={{ backgroundImage: "url(" + pillar.image + ")" }}
+                  aria-hidden="true"
+                />
+                <span className={cn(
+                  "relative z-10 pt-1 text-[0.625rem] font-medium tracking-[0.16em] transition-colors duration-500 sm:text-xs",
+                  isActive ? "text-[#3275ae]" : "text-foreground/35",
+                )}>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="relative z-10 min-w-0">
+                  <span className={cn(
+                    "block text-lg font-semibold leading-tight tracking-[-0.035em] transition-colors duration-500 sm:text-[1.45rem]",
+                    isActive ? "text-foreground" : "text-foreground/65",
+                  )}>
+                    {pillar.question}
+                  </span>
+                  <span className={cn(
+                    "mt-2 block max-w-md text-xs leading-5 transition-colors duration-500 sm:text-sm sm:leading-6",
+                    isActive ? "text-foreground/60" : "text-foreground/38",
+                  )}>
+                    {pillar.detail}
+                  </span>
+                </span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
-      <p className={cn(
-        "mt-10 max-w-sm text-sm font-medium leading-6 tracking-[-0.01em] text-foreground/65 transition-all duration-700 ease-out motion-reduce:transition-none sm:mt-14 sm:text-base",
-        revealedCount === decisions.length ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0",
-      )}>
-        Clonao turns those decisions into direction.
+      <p className="mt-8 max-w-sm text-sm font-medium leading-6 tracking-[-0.01em] text-foreground/65 sm:mt-10 sm:text-base">
+        Clonao becomes the decision layer for your personal brand.
       </p>
     </div>
   );
