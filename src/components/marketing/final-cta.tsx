@@ -6,10 +6,10 @@ export function FinalCta() {
       <div className="marketing-container">
         <div className="mx-auto max-w-3xl text-center">
           <h2 id="final-cta-heading" className="text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.07em] text-[#101826] sm:text-6xl lg:text-[5.25rem]">
-            Know what to do next.
+            Turn your knowledge into the personal brand you should be known for.
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-[#5f7080] sm:text-lg sm:leading-8">
-            Build your personal brand with direction, not guesswork.
+            Try Clonao today and get your personal brand diagnosis.
           </p>
 
           <div className="mt-9 flex flex-col items-center justify-center gap-5 sm:flex-row sm:gap-7">
