@@ -53,7 +53,7 @@ function CardShell({
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.62),rgba(255,255,255,0.08)_48%,rgba(133,157,173,0.16))]" />
       <div className="relative z-10 flex h-full flex-col">
         <div>
-          <h4 className="max-w-[17rem] text-[1.55rem] font-semibold leading-[1.08] tracking-[-0.055em] text-[#132238] sm:text-[1.75rem]">{title}</h4>
+          <h4 className="mx-auto max-w-[17rem] text-center text-[1.55rem] font-semibold leading-[1.08] tracking-[-0.055em] text-[#132238] sm:text-[1.75rem]">{title}</h4>
         </div>
         <div className="mt-6 flex flex-1 flex-col">{children}</div>
       </div>
@@ -63,8 +63,8 @@ function CardShell({
 
 function ShowcaseCard({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div className="flex h-full flex-col gap-3">
-      <h3 className="text-balance px-1 font-serif text-[2.6rem] font-medium leading-[0.92] tracking-[-0.045em] text-[#101826] sm:text-[3rem] lg:text-[3.35rem]">{label}</h3>
+    <div className="flex h-full flex-col gap-8 sm:gap-10">
+      <h3 className="text-balance px-1 text-center font-sans text-[2.6rem] font-semibold leading-[0.92] tracking-[-0.06em] text-[#101826] sm:text-[3rem] lg:text-[3.35rem]">{label}</h3>
       {children}
     </div>
   );
@@ -235,7 +235,7 @@ function MobileCardSequence() {
   return (
     <div ref={sequenceRef} className="relative h-[210vh] lg:hidden">
       <div className="sticky top-16 flex h-[70vh] items-center overflow-hidden">
-        <div className="relative min-h-[27rem] w-full">
+        <div className="relative min-h-[29rem] w-full">
           {showcaseCards.map((Card, index) => {
             const currentIndex = Math.min(showcaseCards.length - 1, Math.floor(sequencePosition));
             const transitionProgress = sequencePosition - currentIndex;
