@@ -1,10 +1,5 @@
 import {
   ArrowUpRight,
-  FileText,
-  Sparkles,
-  StickyNote,
-  Target,
-  Video,
 } from "lucide-react";
 
 type SourceKind = "linkedin" | "website" | "pdf" | "notes" | "video" | "podcast";
@@ -26,10 +21,10 @@ const diagnosis = [
 ] as const;
 
 const recommendations = [
-  { title: "Turn a client case study into a post", detail: "Build trust with proof", icon: FileText },
-  { title: "Create a short-form video", detail: "Make the method easier to remember", icon: Video },
-  { title: "Explore your take on AI strategy", detail: "Clarify your point of view", icon: Sparkles },
-  { title: "Build a simple content series", detail: "Create a consistent signal", icon: Target },
+  { title: "Turn a client case study into a post", detail: "Build trust with proof", kind: "document", color: "#2563EB" },
+  { title: "Create a short-form video", detail: "Make the method easier to remember", kind: "video", color: "#EF4444" },
+  { title: "Explore your take on AI strategy", detail: "Clarify your point of view", kind: "insight", color: "#8B5CF6" },
+  { title: "Build a simple content series", detail: "Create a consistent signal", kind: "series", color: "#0EA5E9" },
 ] as const;
 
 function CardShell({
@@ -45,12 +40,14 @@ function CardShell({
   description: string;
   children: React.ReactNode;
   footer?: React.ReactNode;
-  surface?: "default" | "understand" | "diagnose";
+  surface?: "default" | "understand" | "diagnose" | "recommend";
 }) {
   const surfaceClass = surface === "understand"
     ? "bg-[linear-gradient(145deg,rgba(230,240,247,0.96),rgba(169,190,204,0.86))] shadow-[0_30px_66px_-36px_rgba(20,65,103,0.6)]"
     : surface === "diagnose"
       ? "bg-[linear-gradient(145deg,rgba(224,237,245,0.96),rgba(179,196,208,0.88))] shadow-[0_30px_66px_-36px_rgba(28,67,91,0.58)]"
+      : surface === "recommend"
+        ? "bg-[linear-gradient(145deg,rgba(228,242,246,0.96),rgba(178,201,208,0.87))] shadow-[0_30px_66px_-36px_rgba(21,77,92,0.58)]"
       : "bg-[linear-gradient(145deg,rgba(241,247,250,0.9),rgba(202,215,223,0.72))] shadow-[0_28px_62px_-38px_rgba(30,55,73,0.52)]";
 
   return (
@@ -160,15 +157,35 @@ function DiagnoseCard() {
   );
 }
 
+type RecommendationKind = "document" | "video" | "insight" | "series";
+
+function RecommendationIcon({ kind, color }: { kind: RecommendationKind; color: string }) {
+  const common = { "aria-hidden": true, className: "size-[1.35rem] shrink-0", style: { color } };
+
+  if (kind === "document") {
+    return <svg {...common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M6 3.5h8.25L18 7.25v13.25H6V3.5Z" /><path d="M14 3.5v4h4M9 11h6M9 14.5h6M9 18h3.5" /></svg>;
+  }
+
+  if (kind === "video") {
+    return <svg {...common} viewBox="0 0 24 24" fill="none"><rect x="3" y="5.5" width="18" height="13" rx="3" fill="currentColor" opacity=".13" /><rect x="3" y="5.5" width="18" height="13" rx="3" stroke="currentColor" strokeWidth="1.55" /><path d="m10 9 5 3.05L10 15.1V9Z" fill="currentColor" /></svg>;
+  }
+
+  if (kind === "insight") {
+    return <svg {...common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3 1.35 5.25L18.5 9.5l-5.15 1.25L12 16l-1.35-5.25L5.5 9.5l5.15-1.25L12 3ZM18 15.5l.65 2.35 2.35.65-2.35.65-.65 2.35-.65-2.35-2.35-.65 2.35-.65.65-2.35Z" /></svg>;
+  }
+
+  return <svg {...common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 7.5h14M5 12h14M5 16.5h9" /><circle cx="18" cy="16.5" r="2.5" /><path d="M18 15.3v1.2l.8.5" /></svg>;
+}
+
 function RecommendCard() {
   return (
-    <CardShell label="Get your next moves" title="Get your next best moves." description="Receive a focused plan based on your content.">
+    <CardShell surface="recommend" label="Get your next moves" title="Get your next best moves." description="Receive a focused plan based on your content.">
       <div>
         <p className="mb-3 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#6e8291]">Top next moves</p>
         <div className="divide-y divide-[#6f8797]/20 border-y border-[#6f8797]/20">
-          {recommendations.map(({ title, detail, icon: Icon }) => (
+          {recommendations.map(({ title, detail, kind, color }) => (
             <div key={title} className="flex min-h-[4.25rem] items-center gap-3 py-3">
-              <Icon aria-hidden="true" className="size-[1.05rem] shrink-0 text-[#3977a9]" strokeWidth={1.7} />
+              <RecommendationIcon kind={kind} color={color} />
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-medium leading-5 text-[#1d3044]">{title}</p>
                 <p className="mt-1 truncate text-[0.72rem] text-[#748494]">{detail}</p>
