@@ -1,7 +1,7 @@
 import { HomeHero } from "@/components/marketing/home-hero";
+import { FaqSection } from "@/components/marketing/faq-section";
 import { IntelligenceLoop } from "@/components/marketing/intelligence-loop";
 import { KnowledgeSourcesSection } from "@/components/marketing/knowledge-sources-section";
-import { PricingSection } from "@/components/marketing/pricing-section";
 import { ProblemSection } from "@/components/marketing/problem-section";
 import { FinalCta } from "@/components/marketing/final-cta";
 
@@ -12,7 +12,7 @@ export default function HomePage() {
       <ProblemSection />
       <IntelligenceLoop />
       <KnowledgeSourcesSection />
-      <PricingSection />
+      <FaqSection />
       <FinalCta />
     </>
   );
