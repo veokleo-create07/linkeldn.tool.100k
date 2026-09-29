@@ -13,7 +13,7 @@ const extractedContext = ["Expertise", "Stories", "Opinions", "Proof", "Offers",
 
 export function KnowledgeSourcesSection() {
   return (
-    <section aria-labelledby="knowledge-sources-heading" className="border-b border-[#e2eaf1] bg-[#fbfdff] py-24 sm:py-28 lg:py-36">
+    <section aria-labelledby="knowledge-sources-heading" className="bg-[#fbfdff] py-24 sm:py-28 lg:py-36">
       <div className="marketing-container">
         <div className="grid items-start gap-14 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-24">
           <div className="max-w-xl lg:pt-10">

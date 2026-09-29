@@ -200,7 +200,7 @@ function RecommendCard() {
 
 export function IntelligenceLoop() {
   return (
-    <section aria-labelledby="intelligence-loop-heading" className="border-y border-foreground/[0.07] bg-[#f5f9fc] py-24 sm:py-28 lg:py-36">
+    <section aria-labelledby="intelligence-loop-heading" className="bg-[#f5f9fc] py-24 sm:py-28 lg:py-36">
       <div className="marketing-container">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#3977a9]">How Clonao thinks</p>
