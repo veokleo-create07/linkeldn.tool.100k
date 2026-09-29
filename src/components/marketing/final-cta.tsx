@@ -6,7 +6,7 @@ export function FinalCta() {
       <div className="marketing-container">
         <div className="ml-auto max-w-[78rem] text-right">
           <h2 id="final-cta-heading" className="text-balance text-xl font-semibold leading-[1.1] tracking-[-0.045em] text-black sm:text-2xl lg:whitespace-nowrap lg:text-[2.15rem]">
-            Turn your knowledge into the personal brand you should be known for.
+            Turn your knowledge into the brand you should be known for.
           </h2>
           <p className="ml-auto mt-4 max-w-none text-xl leading-[1.1] tracking-[-0.045em] text-[#7893a6] sm:text-2xl lg:whitespace-nowrap lg:text-[2.15rem]">
             Try Clonao today and get your personal brand diagnosis.
