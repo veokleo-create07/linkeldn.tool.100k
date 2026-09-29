@@ -32,25 +32,15 @@ const questions = [
     question: "Can I edit what Clonao learns about me?",
     answer: "Yes. Users should be able to review and correct the Brand Graph so Clonao stays aligned with how they want to position themselves.",
   },
-  {
-    question: "Is there a free trial?",
-    answer: "Yes. Clonao has a 7-day free trial with no permanent free plan.",
-  },
 ] as const;
 
 export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section aria-labelledby="faq-heading" className="py-24 sm:py-28 lg:py-36">
+    <section aria-label="Frequently asked questions" className="py-24 sm:py-28 lg:py-36">
       <div className="marketing-container">
-        <div className="mx-auto max-w-6xl">
-          <h2 id="faq-heading" className="max-w-3xl text-balance text-4xl font-semibold leading-[0.98] tracking-[-0.065em] text-[#101826] sm:text-5xl lg:text-[4.75rem]">
-            Frequently asked questions
-          </h2>
-        </div>
-
-        <div className="mx-auto mt-16 max-w-5xl border-t border-[#d7dde3] sm:mt-20">
+        <div className="mx-auto max-w-5xl border-t border-[#d7dde3]">
           {questions.map(({ question, answer }, index) => {
             const isOpen = openIndex === index;
             const answerId = `faq-answer-${index}`;
@@ -62,7 +52,7 @@ export function FaqSection() {
                   aria-expanded={isOpen}
                   aria-controls={answerId}
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="flex w-full items-center justify-between gap-8 py-6 text-left text-base font-medium text-[#101826] transition-colors hover:text-[#536273] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#101826] focus-visible:ring-offset-4 sm:py-7 sm:text-lg"
+                  className="flex w-full items-center justify-between gap-8 py-6 text-left text-base font-semibold text-[#101826] transition-colors hover:text-[#536273] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#101826] focus-visible:ring-offset-4 sm:py-7 sm:text-lg"
                 >
                   <span>{question}</span>
                   <ChevronDown aria-hidden="true" className={`size-4 shrink-0 text-[#101826] transition-transform duration-300 ease-out ${isOpen ? "rotate-180" : ""}`} strokeWidth={1.5} />
@@ -74,7 +64,7 @@ export function FaqSection() {
                   style={{ gridTemplateRows: isOpen ? "1fr" : "0fr", opacity: isOpen ? 1 : 0 }}
                 >
                   <div className="min-h-0 overflow-hidden">
-                    <p className="max-w-3xl pb-6 pr-10 text-sm leading-6 text-[#536273] sm:pb-7 sm:text-base sm:leading-7">{answer}</p>
+                    <p className="max-w-3xl pb-6 pr-10 text-sm font-medium leading-6 text-[#536273] sm:pb-7 sm:text-base sm:leading-7">{answer}</p>
                   </div>
                 </div>
               </div>
