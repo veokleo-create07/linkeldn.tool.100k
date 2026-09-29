@@ -20,27 +20,25 @@ const sourceGroups = [
 ] as const;
 
 const diagnosis = [
-  { title: "Positioning", detail: "Clear expertise signal", kind: "positioning", color: "#2563EB" },
-  { title: "Content coverage", detail: "Proof is underused", kind: "coverage", color: "#38BDF8" },
-  { title: "Opportunities", detail: "Three high-impact paths", kind: "opportunities", color: "#8B5CF6" },
+  { title: "Positioning", kind: "positioning", color: "#2563EB" },
+  { title: "Content coverage", kind: "coverage", color: "#38BDF8" },
+  { title: "Opportunities", kind: "opportunities", color: "#8B5CF6" },
 ] as const;
 
 const recommendations = [
-  { title: "Turn a client case study into a post", detail: "Build trust with proof", kind: "document", color: "#2563EB" },
-  { title: "Create a short-form video", detail: "Make the method easier to remember", kind: "video", color: "#EF4444" },
-  { title: "Explore your take on AI strategy", detail: "Clarify your point of view", kind: "insight", color: "#8B5CF6" },
+  { title: "Turn a client case study into a post", kind: "document", color: "#2563EB" },
+  { title: "Create a short-form video", kind: "video", color: "#EF4444" },
+  { title: "Explore your take on AI strategy", kind: "insight", color: "#8B5CF6" },
 ] as const;
 
 function CardShell({
   label,
   title,
-  description,
   children,
   surface = "default",
 }: {
   label: string;
   title: string;
-  description: string;
   children: React.ReactNode;
   surface?: "default" | "understand" | "diagnose" | "recommend";
 }) {
@@ -57,9 +55,8 @@ function CardShell({
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.62),rgba(255,255,255,0.08)_48%,rgba(133,157,173,0.16))]" />
       <div className="relative z-10 flex h-full flex-col">
         <div>
-          <p className="text-[0.67rem] font-semibold uppercase tracking-[0.2em] text-[#3977a9]">{label}</p>
+          <p className="text-[0.67rem] font-semibold uppercase tracking-[0.2em] text-[#132238]">{label}</p>
           <h3 className="mt-3 max-w-[17rem] text-[1.55rem] font-semibold leading-[1.08] tracking-[-0.055em] text-[#132238] sm:text-[1.75rem]">{title}</h3>
-          <p className="mt-2 max-w-[18rem] text-[0.86rem] leading-5 text-[#536779]">{description}</p>
         </div>
         <div className="mt-4 flex flex-1 flex-col">{children}</div>
       </div>
@@ -95,7 +92,7 @@ function SourceIcon({ kind, color }: { kind: SourceKind; color: string }) {
 
 function UnderstandCard() {
   return (
-    <CardShell surface="understand" label="Understand" title="Bring your real knowledge together." description="Connect your sources. Clonao organizes the signal.">
+    <CardShell surface="understand" label="Understand" title="Bring your real knowledge together.">
       <div className="divide-y divide-[#6f8797]/20 border-y border-[#6f8797]/20">
         {sourceGroups.map((group) => (
           <div key={group[0].name} className="flex min-h-[3.1rem] items-center gap-3 py-2.5">
@@ -130,14 +127,13 @@ function DiagnosisIcon({ kind, color }: { kind: DiagnosisKind; color: string }) 
 
 function DiagnoseCard() {
   return (
-    <CardShell surface="diagnose" label="Diagnose & Strategize" title="See what’s working, what’s missing." description="See the gaps shaping your brand.">
+    <CardShell surface="diagnose" label="Diagnose & Strategize" title="See what’s working, what’s missing.">
       <div className="divide-y divide-[#6f8797]/20 border-y border-[#6f8797]/20">
-        {diagnosis.map(({ title, detail, kind, color }) => (
+        {diagnosis.map(({ title, kind, color }) => (
           <div key={title} className="flex min-h-[3.45rem] items-center gap-2.5 py-2">
             <DiagnosisIcon kind={kind} color={color} />
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-medium text-[#1d3044]">{title}</p>
-              <p className="mt-1 truncate text-[0.72rem] text-[#748494]">{detail}</p>
             </div>
           </div>
         ))}
@@ -168,16 +164,15 @@ function RecommendationIcon({ kind, color }: { kind: RecommendationKind; color: 
 
 function RecommendCard() {
   return (
-    <CardShell surface="recommend" label="Get your next moves" title="Get your next best moves." description="Three actions, grounded in your strategy.">
+    <CardShell surface="recommend" label="Get your next moves" title="Get your next best moves.">
       <div>
         <p className="mb-2 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#6e8291]">Top next moves</p>
         <div className="divide-y divide-[#6f8797]/20 border-y border-[#6f8797]/20">
-          {recommendations.map(({ title, detail, kind, color }) => (
+          {recommendations.map(({ title, kind, color }) => (
             <div key={title} className="flex min-h-[3.65rem] items-center gap-2.5 py-2">
               <RecommendationIcon kind={kind} color={color} />
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-medium leading-5 text-[#1d3044]">{title}</p>
-                <p className="mt-1 truncate text-[0.72rem] text-[#748494]">{detail}</p>
               </div>
             </div>
           ))}
