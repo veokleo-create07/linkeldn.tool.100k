@@ -32,12 +32,10 @@ const recommendations = [
 ] as const;
 
 function CardShell({
-  label,
   title,
   children,
   surface = "default",
 }: {
-  label: string;
   title: string;
   children: React.ReactNode;
   surface?: "default" | "understand" | "diagnose" | "recommend";
@@ -51,16 +49,24 @@ function CardShell({
       : "bg-[linear-gradient(145deg,rgba(241,247,250,0.9),rgba(202,215,223,0.72))] shadow-[0_28px_62px_-38px_rgba(30,55,73,0.52)]";
 
   return (
-    <article className={`group relative flex h-full min-h-[26rem] flex-col overflow-hidden rounded-[1.625rem] border border-white/80 ${surfaceClass} p-5 backdrop-blur-2xl transition-transform duration-500 hover:-translate-y-1 sm:min-h-[27rem] sm:p-6`}>
+    <article className={`group relative flex h-full min-h-[24rem] flex-col overflow-hidden rounded-[1.625rem] border border-white/80 ${surfaceClass} p-5 backdrop-blur-2xl transition-transform duration-500 hover:-translate-y-1 sm:min-h-[25rem] sm:p-6`}>
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.62),rgba(255,255,255,0.08)_48%,rgba(133,157,173,0.16))]" />
       <div className="relative z-10 flex h-full flex-col">
         <div>
-          <p className="text-[0.67rem] font-semibold uppercase tracking-[0.2em] text-[#132238]">{label}</p>
-          <h3 className="mt-3 max-w-[17rem] text-[1.55rem] font-semibold leading-[1.08] tracking-[-0.055em] text-[#132238] sm:text-[1.75rem]">{title}</h3>
+          <h4 className="max-w-[17rem] text-[1.55rem] font-semibold leading-[1.08] tracking-[-0.055em] text-[#132238] sm:text-[1.75rem]">{title}</h4>
         </div>
-        <div className="mt-4 flex flex-1 flex-col">{children}</div>
+        <div className="mt-6 flex flex-1 flex-col">{children}</div>
       </div>
     </article>
+  );
+}
+
+function ShowcaseCard({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="flex h-full flex-col gap-3">
+      <h3 className="px-1 text-[1.2rem] font-semibold tracking-[-0.035em] text-[#132238] sm:text-[1.3rem]">{label}</h3>
+      {children}
+    </div>
   );
 }
 
@@ -92,7 +98,8 @@ function SourceIcon({ kind, color }: { kind: SourceKind; color: string }) {
 
 function UnderstandCard() {
   return (
-    <CardShell surface="understand" label="Understand" title="Bring your real knowledge together.">
+    <ShowcaseCard label="Understand">
+      <CardShell surface="understand" title="Bring your real knowledge together.">
       <div className="divide-y divide-[#6f8797]/20 border-y border-[#6f8797]/20">
         {sourceGroups.map((group) => (
           <div key={group[0].name} className="flex min-h-[3.1rem] items-center gap-3 py-2.5">
@@ -105,7 +112,8 @@ function UnderstandCard() {
           </div>
         ))}
       </div>
-    </CardShell>
+      </CardShell>
+    </ShowcaseCard>
   );
 }
 
@@ -127,7 +135,8 @@ function DiagnosisIcon({ kind, color }: { kind: DiagnosisKind; color: string }) 
 
 function DiagnoseCard() {
   return (
-    <CardShell surface="diagnose" label="Diagnose & Strategize" title="See what’s working, what’s missing.">
+    <ShowcaseCard label="Diagnose & Strategize">
+      <CardShell surface="diagnose" title="See what’s working, what’s missing.">
       <div className="divide-y divide-[#6f8797]/20 border-y border-[#6f8797]/20">
         {diagnosis.map(({ title, kind, color }) => (
           <div key={title} className="flex min-h-[3.45rem] items-center gap-2.5 py-2">
@@ -138,7 +147,8 @@ function DiagnoseCard() {
           </div>
         ))}
       </div>
-    </CardShell>
+      </CardShell>
+    </ShowcaseCard>
   );
 }
 
@@ -164,7 +174,8 @@ function RecommendationIcon({ kind, color }: { kind: RecommendationKind; color: 
 
 function RecommendCard() {
   return (
-    <CardShell surface="recommend" label="Get your next moves" title="Get your next best moves.">
+    <ShowcaseCard label="Get Your Next Moves">
+      <CardShell surface="recommend" title="Get your next best moves.">
       <div>
         <p className="mb-2 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#6e8291]">Top next moves</p>
         <div className="divide-y divide-[#6f8797]/20 border-y border-[#6f8797]/20">
@@ -178,7 +189,8 @@ function RecommendCard() {
           ))}
         </div>
       </div>
-    </CardShell>
+      </CardShell>
+    </ShowcaseCard>
   );
 }
 
@@ -223,7 +235,7 @@ function MobileCardSequence() {
   return (
     <div ref={sequenceRef} className="relative h-[210vh] lg:hidden">
       <div className="sticky top-16 flex h-[70vh] items-center overflow-hidden">
-        <div className="relative min-h-[26rem] w-full">
+        <div className="relative min-h-[27rem] w-full">
           {showcaseCards.map((Card, index) => {
             const currentIndex = Math.min(showcaseCards.length - 1, Math.floor(sequencePosition));
             const transitionProgress = sequencePosition - currentIndex;
