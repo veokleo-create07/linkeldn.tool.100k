@@ -8,25 +8,17 @@ export function FinalCta() {
           <h2 id="final-cta-heading" className="text-balance text-xl font-semibold leading-[1.1] tracking-[-0.045em] text-black sm:text-2xl lg:whitespace-nowrap lg:text-[2.15rem]">
             Turn your knowledge into the brand you should be known for.
           </h2>
+          <div className="mt-6 flex justify-end">
+            <Link
+              href="/sign-up"
+              className="metallic-cta inline-flex min-h-11 items-center justify-center rounded-md px-5 text-sm font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563a6] focus-visible:ring-offset-2"
+            >
+              Free Brand Diagnos
+            </Link>
+          </div>
           <p className="ml-auto mt-4 max-w-none text-xl leading-[1.1] tracking-[-0.045em] text-[#7893a6] sm:text-2xl lg:whitespace-nowrap lg:text-[2.15rem]">
             Try Clonao today and get your personal brand diagnosis.
           </p>
-
-          <div className="mt-8 flex flex-col items-end justify-end gap-5 sm:flex-row sm:gap-7">
-            <Link
-              href="/sign-up"
-              className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#101826] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#1d3044] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563a6] focus-visible:ring-offset-2"
-            >
-              Start your 7-day free trial
-            </Link>
-            <Link
-              href="/how-it-works"
-              className="inline-flex items-center gap-2 text-sm font-medium text-[#26394d] transition-colors hover:text-[#2563a6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563a6] focus-visible:ring-offset-2"
-            >
-              See how Clonao works
-              <span aria-hidden="true">→</span>
-            </Link>
-          </div>
         </div>
       </div>
     </section>
