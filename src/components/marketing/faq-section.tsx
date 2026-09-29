@@ -42,31 +42,30 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section aria-labelledby="faq-heading" className="bg-[#fbfdff] py-24 sm:py-28 lg:py-36">
+    <section aria-labelledby="faq-heading" className="py-24 sm:py-28 lg:py-36">
       <div className="marketing-container">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#3977a9]">FAQ</p>
-          <h2 id="faq-heading" className="text-balance mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.06em] text-[#101826] sm:text-5xl lg:text-[4.1rem]">
-            Questions, answered.
+        <div className="mx-auto max-w-6xl">
+          <h2 id="faq-heading" className="max-w-3xl text-balance text-4xl font-semibold leading-[0.98] tracking-[-0.065em] text-[#101826] sm:text-5xl lg:text-[4.75rem]">
+            Frequently asked questions
           </h2>
         </div>
 
-        <div className="mx-auto mt-14 max-w-4xl border-t border-[#dce6ee] sm:mt-16">
+        <div className="mx-auto mt-16 max-w-5xl border-t border-[#d7dde3] sm:mt-20">
           {questions.map(({ question, answer }, index) => {
             const isOpen = openIndex === index;
             const answerId = `faq-answer-${index}`;
 
             return (
-              <div key={question} className="border-b border-[#dce6ee]">
+              <div key={question} className="border-b border-[#d7dde3]">
                 <button
                   type="button"
                   aria-expanded={isOpen}
                   aria-controls={answerId}
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="flex w-full items-center justify-between gap-6 py-6 text-left text-base font-medium text-[#101826] transition-colors hover:text-[#2563a6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563a6] focus-visible:ring-offset-4 sm:py-7 sm:text-lg"
+                  className="flex w-full items-center justify-between gap-8 py-6 text-left text-base font-medium text-[#101826] transition-colors hover:text-[#536273] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#101826] focus-visible:ring-offset-4 sm:py-7 sm:text-lg"
                 >
                   <span>{question}</span>
-                  <ChevronDown aria-hidden="true" className={`size-5 shrink-0 text-[#3977a9] transition-transform duration-300 ease-out ${isOpen ? "rotate-180" : ""}`} strokeWidth={1.7} />
+                  <ChevronDown aria-hidden="true" className={`size-4 shrink-0 text-[#101826] transition-transform duration-300 ease-out ${isOpen ? "rotate-180" : ""}`} strokeWidth={1.5} />
                 </button>
                 <div
                   id={answerId}
@@ -75,7 +74,7 @@ export function FaqSection() {
                   style={{ gridTemplateRows: isOpen ? "1fr" : "0fr", opacity: isOpen ? 1 : 0 }}
                 >
                   <div className="min-h-0 overflow-hidden">
-                    <p className="max-w-3xl pb-6 pr-10 text-sm leading-6 text-[#647384] sm:pb-7 sm:text-base sm:leading-7">{answer}</p>
+                    <p className="max-w-3xl pb-6 pr-10 text-sm leading-6 text-[#536273] sm:pb-7 sm:text-base sm:leading-7">{answer}</p>
                   </div>
                 </div>
               </div>
