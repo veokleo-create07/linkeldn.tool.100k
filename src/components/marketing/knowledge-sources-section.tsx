@@ -38,30 +38,42 @@ function KnowledgeFlowDiagram() {
     >
       <div className="pointer-events-none absolute inset-0 bg-white/10" aria-hidden="true" />
 
+      <svg aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 h-full w-full sm:hidden" viewBox="0 0 1000 500" preserveAspectRatio="none" fill="none">
+        <path d="M340 104C355 104 356 250 380 250M340 162C355 162 360 250 380 250M340 220C358 220 365 250 380 250M340 278C358 278 365 250 380 250M340 336C355 336 360 250 380 250M340 394C355 394 356 250 380 250" stroke="#101826" strokeWidth="1.7" strokeLinecap="round" opacity="0.72" />
+        <path d="M660 250C675 250 684 250 700 250" stroke="#101826" strokeWidth="1.7" strokeLinecap="round" opacity="0.72" />
+        <circle cx="380" cy="250" r="4" fill="#101826" opacity="0.88" />
+        <circle cx="660" cy="250" r="3" fill="#101826" opacity="0.88" />
+      </svg>
+      <svg aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 hidden h-full w-full sm:block" viewBox="0 0 1000 500" preserveAspectRatio="none" fill="none">
+        <path d="M327 104C350 104 365 250 390 250M327 162C350 162 370 250 390 250M327 220C355 220 378 250 390 250M327 278C355 278 378 250 390 250M327 336C350 336 370 250 390 250M327 394C350 394 365 250 390 250" stroke="#101826" strokeWidth="1.5" strokeLinecap="round" opacity="0.72" />
+        <path d="M610 250C650 250 680 250 700 250" stroke="#101826" strokeWidth="1.5" strokeLinecap="round" opacity="0.72" />
+        <circle cx="390" cy="250" r="4" fill="#101826" opacity="0.88" />
+        <circle cx="610" cy="250" r="3" fill="#101826" opacity="0.88" />
+      </svg>
+
       <div className="relative z-10 grid min-h-[25rem] grid-cols-[minmax(0,1fr)_0.75rem_6.25rem_0.75rem_minmax(0,0.9fr)] items-center sm:min-h-[28rem] sm:grid-cols-[minmax(0,1fr)_2.5rem_10rem_2.5rem_minmax(0,1fr)] lg:min-h-0 lg:grid-cols-[minmax(0,1fr)_3rem_12rem_3rem_minmax(0,1fr)]">
-        <div className="relative flex flex-col gap-2 after:absolute after:bottom-5 after:right-[-0.75rem] after:top-5 after:w-px after:bg-[#9eaab5] sm:gap-2.5 sm:after:right-[-2.5rem] lg:after:right-[-3rem]">
+        <div className="relative flex flex-col gap-2 sm:gap-2.5">
           {sourceCards.map(({ label, icon: Icon }) => (
             <div
               key={label}
-              className="relative z-10 flex w-full max-w-[10.5rem] items-center gap-1.5 rounded-lg border border-white/95 bg-white/90 px-2 py-2 shadow-[0_12px_26px_-22px_rgba(17,39,58,0.55)] after:absolute after:right-[-0.75rem] after:top-1/2 after:h-px after:w-[0.75rem] after:bg-[#9eaab5] sm:gap-2.5 sm:rounded-xl sm:px-3 sm:py-2.5 sm:after:right-[-2.5rem] sm:after:w-[2.5rem] lg:after:right-[-3rem] lg:after:w-[3rem]"
+              className="relative z-10 flex w-full max-w-[10.5rem] items-center gap-1.5 rounded-lg border border-white/95 bg-white/90 px-2 py-2 shadow-[0_12px_26px_-22px_rgba(17,39,58,0.55)] sm:gap-2.5 sm:rounded-xl sm:px-3 sm:py-2.5"
             >
               <span className="flex size-6 shrink-0 items-center justify-center rounded-md bg-[#101826] text-white sm:size-8 sm:rounded-lg" aria-hidden="true">
                 <Icon className="size-3.5 sm:size-4" strokeWidth={1.7} />
               </span>
               <span className="min-w-0 flex-1 text-[0.68rem] font-medium leading-[1.15] text-[#101826] sm:text-sm sm:leading-5">{label}</span>
-              <span className="absolute right-[-1.05rem] top-1/2 size-1.5 -translate-y-1/2 rounded-full border border-[#9eaab5] bg-[#eef3f7] sm:right-[-2.8rem] lg:right-[-3.3rem]" aria-hidden="true" />
             </div>
           ))}
         </div>
 
-        <div className="relative col-start-3 mx-auto flex w-full max-w-[4.75rem] flex-col items-center rounded-lg border border-white/90 bg-white/70 px-1 py-3 text-center shadow-[0_24px_46px_-30px_rgba(17,39,58,0.55)] backdrop-blur-sm after:absolute after:right-[-0.75rem] after:top-1/2 after:h-px after:w-[0.75rem] after:bg-[#9eaab5] sm:max-w-[7rem] sm:rounded-xl sm:px-3 sm:py-4 sm:after:right-[-2.5rem] sm:after:w-[2.5rem] lg:max-w-[8.5rem] lg:rounded-[1.15rem] lg:px-4 lg:py-5 lg:after:right-[-3rem] lg:after:w-[3rem]">
+        <div className="relative col-start-3 mx-auto flex w-full max-w-[4.75rem] flex-col items-center rounded-lg border border-white/90 bg-white/70 px-1 py-3 text-center shadow-[0_24px_46px_-30px_rgba(17,39,58,0.55)] backdrop-blur-sm sm:max-w-[7rem] sm:rounded-xl sm:px-3 sm:py-4 lg:max-w-[8.5rem] lg:rounded-[1.15rem] lg:px-4 lg:py-5">
           <div className="flex size-6 items-center justify-center rounded-md bg-white/70 p-0.5 shadow-[0_10px_20px_-12px_rgba(16,24,38,0.35)] sm:size-10 sm:rounded-lg sm:p-1">
             <Image src="/clonao-logo.png" alt="Clonao" width={40} height={40} className="size-full object-contain brightness-0 drop-shadow-[0_2px_3px_rgba(56,68,82,0.15)]" />
           </div>
           <p className="mt-1 text-[0.65rem] font-semibold tracking-[-0.04em] text-[#101826] sm:mt-2 sm:text-sm">Clonao</p>
         </div>
 
-        <div className="relative col-start-5 mx-auto flex w-full max-w-[7rem] items-center gap-2 rounded-lg border border-white/95 bg-white/90 px-2 py-3 shadow-[0_12px_26px_-22px_rgba(17,39,58,0.55)] before:absolute before:left-[-0.75rem] before:top-1/2 before:h-px before:w-[0.75rem] before:bg-[#9eaab5] sm:max-w-[11rem] sm:gap-3 sm:rounded-xl sm:px-4 sm:py-4 sm:before:left-[-2.5rem] sm:before:w-[2.5rem] lg:before:left-[-3rem] lg:before:w-[3rem]">
+        <div className="relative col-start-5 mx-auto flex w-full max-w-[7rem] items-center gap-2 rounded-lg border border-white/95 bg-white/90 px-2 py-3 shadow-[0_12px_26px_-22px_rgba(17,39,58,0.55)] sm:max-w-[11rem] sm:gap-3 sm:rounded-xl sm:px-4 sm:py-4">
           <span className="flex size-6 shrink-0 items-center justify-center rounded-md bg-[#101826] text-white sm:size-8 sm:rounded-lg" aria-hidden="true">
             <svg viewBox="0 0 24 24" className="size-3.5 sm:size-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="2.25" /><circle cx="6" cy="18" r="2.25" /><circle cx="18" cy="18" r="2.25" /><path d="m10.8 6.8-3.5 8.9M13.2 6.8l3.5 8.9M8.2 18h7.6" /></svg>
           </span>
