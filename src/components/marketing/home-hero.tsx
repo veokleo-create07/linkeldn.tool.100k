@@ -6,7 +6,7 @@ export function HomeHero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="hero-atmosphere -mt-16 overflow-hidden pb-16 pt-28 sm:-mt-20 sm:pb-24 sm:pt-36 lg:pb-32 lg:pt-44"
+      className="hero-atmosphere -mt-16 overflow-hidden pb-12 pt-20 sm:-mt-20 sm:pb-16 sm:pt-24 lg:pb-20 lg:pt-28"
     >
       <div className="marketing-container flex flex-col items-center text-center">
         <div className="hero-reveal hero-reveal-delay-1 flex flex-col items-center">
@@ -16,19 +16,19 @@ export function HomeHero() {
           >
             The #1 Personal Brand Decision Engine for LinkedIn
           </h1>
-          <p className="mt-6 max-w-xl text-balance text-base font-medium leading-7 text-white/90 sm:mt-7 sm:text-lg sm:leading-8">
+          <p className="mt-4 max-w-xl text-balance text-base font-medium leading-7 text-white/90 sm:mt-5 sm:text-lg sm:leading-8">
             Clonao analyzes your personal brand, identifies the gaps, builds the strategy and tells you exactly what to focus on next.
           </p>
         </div>
 
-        <div className="hero-reveal hero-reveal-delay-2 mt-7 flex items-center justify-center sm:mt-8">
+        <div className="hero-reveal hero-reveal-delay-2 mt-5 flex items-center justify-center sm:mt-6">
           <Link href="/sign-up" className="metallic-cta inline-flex h-11 items-center justify-center gap-1.5 rounded-md px-5 text-sm font-medium text-white">
             Start for free
             <ArrowUpRight aria-hidden="true" className="size-4" />
           </Link>
         </div>
 
-        <div className="hero-reveal hero-reveal-delay-3 mt-8 w-full max-w-[1040px] sm:mt-10 lg:mt-12">
+        <div className="hero-reveal hero-reveal-delay-3 mt-4 w-full max-w-[1040px] sm:mt-5 lg:mt-6">
           <ProductPreview />
         </div>
       </div>
