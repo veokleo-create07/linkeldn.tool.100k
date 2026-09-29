@@ -8,7 +8,7 @@ export function FinalCta() {
           <h2 id="final-cta-heading" className="text-balance text-3xl font-semibold leading-[1.05] tracking-[-0.065em] text-black sm:text-4xl lg:whitespace-nowrap lg:text-[3.25rem]">
             Turn your knowledge into the personal brand you should be known for.
           </h2>
-          <p className="ml-auto mt-4 max-w-2xl text-xl leading-7 text-[#7893a6] sm:text-2xl sm:leading-8">
+          <p className="ml-auto mt-4 max-w-none text-3xl leading-[1.05] tracking-[-0.065em] text-[#7893a6] sm:text-4xl lg:whitespace-nowrap lg:text-[3.25rem]">
             Try Clonao today and get your personal brand diagnosis.
           </p>
 
