@@ -44,8 +44,8 @@ export function FaqSection() {
   return (
     <section aria-labelledby="faq-heading" className="py-24 sm:py-28 lg:py-36">
       <div className="marketing-container">
-        <div className="mx-auto max-w-6xl">
-          <h2 id="faq-heading" className="max-w-3xl text-balance text-4xl font-semibold leading-[0.98] tracking-[-0.065em] text-[#101826] sm:text-5xl lg:text-[4.75rem]">
+        <div className="mx-auto max-w-5xl">
+          <h2 id="faq-heading" className="text-balance text-4xl font-semibold leading-[1] tracking-[-0.06em] text-[#101826] sm:text-5xl lg:text-[3.2rem]">
             Frequently asked questions
           </h2>
         </div>
@@ -62,10 +62,10 @@ export function FaqSection() {
                   aria-expanded={isOpen}
                   aria-controls={answerId}
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="flex w-full items-center justify-between gap-8 py-6 text-left text-base font-medium text-[#101826] transition-colors hover:text-[#536273] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#101826] focus-visible:ring-offset-4 sm:py-7 sm:text-lg"
+                  className="flex w-full items-center justify-between gap-8 py-6 text-left text-base font-medium text-[#101826] transition-colors hover:text-[#536273] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#101826] focus-visible:ring-offset-4 sm:py-7 sm:text-[1.35rem] sm:leading-tight"
                 >
                   <span>{question}</span>
-                  <ChevronDown aria-hidden="true" className={`size-4 shrink-0 text-[#101826] transition-transform duration-300 ease-out ${isOpen ? "rotate-180" : ""}`} strokeWidth={1.5} />
+                  <ChevronDown aria-hidden="true" className={`size-[1.15rem] shrink-0 text-[#6b7280] transition-transform duration-300 ease-out ${isOpen ? "rotate-180" : ""}`} strokeWidth={1.5} />
                 </button>
                 <div
                   id={answerId}
