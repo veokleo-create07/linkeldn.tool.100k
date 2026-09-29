@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
-const availableTools = "AI writing · Scheduling · Analytics · Inspiration · Libraries";
 const decisions = [
   "What matters now?",
   "What story should you tell?",
@@ -12,114 +11,104 @@ const decisions = [
   "What moves your positioning forward?",
 ];
 
+const scatter = [
+  { x: -18, y: 0 },
+  { x: 14, y: 10 },
+  { x: -8, y: 4 },
+  { x: 18, y: -8 },
+  { x: -2, y: 12 },
+];
+
 export function ProblemComparisonCard() {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const decisionRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const fieldRef = useRef<HTMLDivElement>(null);
+  const pillRefs = useRef<Array<HTMLDivElement | null>>([]);
   const [isVisible, setIsVisible] = useState(false);
-  const [activeDecision, setActiveDecision] = useState(0);
+  const [revealedCount, setRevealedCount] = useState(0);
 
   useEffect(() => {
-    const card = cardRef.current;
-    if (!card) return;
+    const field = fieldRef.current;
+    if (!field) return;
 
     if (!("IntersectionObserver" in window)) {
       setIsVisible(true);
+      setRevealedCount(decisions.length);
       return;
     }
 
-    const revealObserver = new IntersectionObserver(([entry]) => {
+    const fieldObserver = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         setIsVisible(true);
-        revealObserver.disconnect();
+        fieldObserver.disconnect();
       }
-    }, { threshold: 0.2 });
+    }, { threshold: 0.15 });
 
-    const decisionObserver = new IntersectionObserver(
+    const pillObserver = new IntersectionObserver(
       (entries) => {
-        const visible = entries
+        const newlyVisible = entries
           .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (!visible) return;
+          .map((entry) => Number((entry.target as HTMLElement).dataset.decision))
+          .filter((index) => !Number.isNaN(index));
 
-        const index = Number((visible.target as HTMLElement).dataset.decision);
-        if (!Number.isNaN(index)) setActiveDecision(index);
+        if (newlyVisible.length > 0) {
+          setRevealedCount((current) => Math.max(current, ...newlyVisible.map((index) => index + 1)));
+        }
       },
-      { rootMargin: "-35% 0px -45% 0px", threshold: [0, 0.4, 0.8] },
+      { threshold: 0.55 },
     );
 
-    revealObserver.observe(card);
-    decisionRefs.current.forEach((decision) => decision && decisionObserver.observe(decision));
+    fieldObserver.observe(field);
+    pillRefs.current.forEach((pill) => pill && pillObserver.observe(pill));
 
     return () => {
-      revealObserver.disconnect();
-      decisionObserver.disconnect();
+      fieldObserver.disconnect();
+      pillObserver.disconnect();
     };
   }, []);
 
-  return (
-    <div
-      ref={cardRef}
-      className={cn(
-        "relative overflow-hidden rounded-[1.125rem] border border-[#2b628b] bg-[linear-gradient(145deg,#0d3b66_0%,#0f4c81_100%)] px-6 py-8 text-white shadow-[0_24px_64px_-38px_rgba(7,34,62,0.72)] transition-all duration-700 ease-out motion-reduce:transition-none sm:px-9 sm:py-10",
-        isVisible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0 motion-reduce:translate-y-0 motion-reduce:opacity-100",
-      )}
-    >
-      <span className="problem-reflection" aria-hidden="true" />
+  const clarity = Math.min(revealedCount / decisions.length, 1);
 
-      <p className="relative text-[0.625rem] font-medium uppercase tracking-[0.16em] text-white/45 sm:text-[0.6875rem]">
-        {availableTools}
+  return (
+    <div ref={fieldRef} className="relative min-h-[31rem] py-2 sm:min-h-[34rem] sm:py-4">
+      <p className="text-[0.625rem] font-medium uppercase tracking-[0.19em] text-foreground/40 sm:text-[0.6875rem]">
+        You still have to decide
       </p>
 
-      <div className="relative mt-10 pl-8 sm:mt-14 sm:pl-12">
-        <div className="absolute bottom-2 left-0 top-2 w-px bg-white/15" aria-hidden="true">
-          <div
-            className="absolute left-0 top-0 w-px bg-[#a9ddff] transition-all duration-500 ease-out motion-reduce:transition-none"
-            style={{ height: ((activeDecision + 1) / decisions.length * 100).toString() + "%" }}
-          />
-        </div>
+      <div className="relative mt-8 sm:mt-12">
+        {decisions.map((decision, index) => {
+          const isRevealed = index < revealedCount;
+          const distance = 1 - clarity;
+          const offset = scatter[index];
 
-        <p className="mb-6 text-[0.625rem] font-medium uppercase tracking-[0.2em] text-[#a9ddff] sm:mb-8">
-          You still have to decide
-        </p>
-
-        <div className="space-y-7 sm:space-y-9">
-          {decisions.map((decision, index) => {
-            const isActive = index === activeDecision;
-            const isPast = index < activeDecision;
-
-            return (
-              <div
-                key={decision}
-                ref={(node) => { decisionRefs.current[index] = node; }}
-                data-decision={index}
-                className={cn(
-                  "relative transition-all duration-500 ease-out motion-reduce:transition-none",
-                  isActive ? "translate-x-0 opacity-100" : isPast ? "-translate-y-0.5 opacity-[0.55]" : "translate-y-1 opacity-[0.45]",
-                )}
-              >
-                <p className={cn(
-                  "text-[0.625rem] font-medium tracking-[0.16em] transition-colors duration-500 sm:text-xs",
-                  isActive ? "text-[#a9ddff]" : "text-white/35",
-                )}>
-                  {String(index + 1).padStart(2, "0")}
-                </p>
-                <p className={cn(
-                  "mt-1.5 max-w-md font-medium leading-[1.12] tracking-[-0.035em] transition-all duration-500 sm:mt-2 sm:text-[1.75rem] sm:leading-[1.08]",
-                  isActive ? "text-[1.55rem] text-white" : "text-[1.35rem] text-white/75",
-                )}>
-                  {decision}
-                </p>
-              </div>
-            );
-          })}
-        </div>
+          return (
+            <div
+              key={decision}
+              ref={(node) => { pillRefs.current[index] = node; }}
+              data-decision={index}
+              className={cn(
+                "relative w-fit max-w-full transition-all duration-700 ease-out motion-reduce:transition-none",
+                index > 0 && "mt-5 sm:mt-7",
+                index % 2 === 1 && "ml-auto",
+                !isRevealed && "translate-y-3 opacity-0",
+                isRevealed && "translate-y-0 opacity-100",
+              )}
+              style={{
+                transform: isRevealed ? "translate(" + (offset.x * distance).toString() + "px, " + (offset.y * distance).toString() + "px) scale(" + (0.98 + clarity * 0.02).toString() + ")" : undefined,
+                transitionDelay: isVisible ? (index * 110).toString() + "ms" : "0ms",
+              }}
+            >
+              <span className="inline-flex max-w-full rounded-full border border-[#dce8ef] bg-white px-4 py-3 text-sm font-medium leading-5 tracking-[-0.01em] text-foreground/75 shadow-[0_8px_20px_-18px_rgba(24,54,83,0.5)] sm:px-5 sm:py-3.5 sm:text-base">
+                {decision}
+              </span>
+            </div>
+          );
+        })}
       </div>
 
       <p className={cn(
-        "relative mt-12 border-t border-white/20 pt-6 text-base font-semibold tracking-[-0.02em] text-white transition-all delay-300 duration-700 ease-out motion-reduce:transition-none sm:mt-16 sm:text-lg",
-        activeDecision === decisions.length - 1 && isVisible ? "translate-y-0 opacity-100" : "translate-y-2 opacity-45",
+        "mt-10 max-w-sm text-sm font-medium leading-6 tracking-[-0.01em] text-foreground/65 transition-all duration-700 ease-out motion-reduce:transition-none sm:mt-14 sm:text-base",
+        revealedCount === decisions.length ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0",
       )}>
-        Clonao becomes the decision layer.
+        Clonao turns those decisions into direction.
       </p>
     </div>
   );
