@@ -1,18 +1,4 @@
-const existingTools = [
-  "AI writing",
-  "Scheduling",
-  "Analytics",
-  "Inspiration",
-  "Content libraries",
-];
-
-const decisionsLeftToMake = [
-  "What topic matters now",
-  "Which story to tell",
-  "Where you need more proof",
-  "What to stop repeating",
-  "What will move your positioning forward",
-];
+import { ProblemComparisonCard } from "@/components/marketing/problem-comparison-card";
 
 export function ProblemSection() {
   return (
@@ -31,33 +17,7 @@ export function ProblemSection() {
           </p>
         </div>
 
-        <div className="min-w-0 border-y border-foreground/10">
-          <div className="py-6 sm:py-7">
-            <p className="text-xs font-medium uppercase tracking-[0.14em] text-foreground/40">You already have</p>
-            <ul className="mt-4 divide-y divide-foreground/[0.08]">
-              {existingTools.map((tool) => (
-                <li key={tool} className="py-3 text-sm font-medium text-foreground/65 sm:text-base">
-                  {tool}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="border-t border-foreground/10 py-6 sm:py-7">
-            <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#3275ae]">But you still have to decide</p>
-            <ul className="mt-4 divide-y divide-foreground/[0.08]">
-              {decisionsLeftToMake.map((decision) => (
-                <li key={decision} className="py-3 text-sm font-medium text-foreground sm:text-base">
-                  {decision}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <p className="border-t border-foreground/10 py-6 text-base font-semibold leading-6 text-foreground sm:py-7 sm:text-lg">
-            That decision layer is what Clonao is built for.
-          </p>
-        </div>
+        <ProblemComparisonCard />
       </div>
     </section>
   );
