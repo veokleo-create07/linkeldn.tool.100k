@@ -54,11 +54,11 @@ function KnowledgeFlowDiagram() {
           ))}
         </div>
 
-        <div className="relative col-start-3 mx-auto flex w-full max-w-[5.5rem] flex-col items-center rounded-lg border border-white/90 bg-white/70 px-1.5 py-4 text-center shadow-[0_24px_46px_-30px_rgba(17,39,58,0.55)] backdrop-blur-sm after:absolute after:right-[-0.75rem] after:top-1/2 after:h-px after:w-[0.75rem] after:bg-[#9eaab5] sm:max-w-[8.5rem] sm:rounded-xl sm:px-4 sm:py-6 sm:after:right-[-2.5rem] sm:after:w-[2.5rem] lg:max-w-[10rem] lg:rounded-[1.15rem] lg:px-5 lg:py-6 lg:after:right-[-3rem] lg:after:w-[3rem]">
-          <div className="flex size-8 items-center justify-center rounded-lg bg-white/70 p-1 shadow-[0_10px_20px_-12px_rgba(16,24,38,0.35)] sm:size-12 sm:rounded-xl sm:p-1.5">
-            <Image src="/clonao-logo.png" alt="Clonao" width={48} height={48} className="size-full object-contain brightness-0 drop-shadow-[0_2px_3px_rgba(56,68,82,0.15)]" />
+        <div className="relative col-start-3 mx-auto flex w-full max-w-[4.75rem] flex-col items-center rounded-lg border border-white/90 bg-white/70 px-1 py-3 text-center shadow-[0_24px_46px_-30px_rgba(17,39,58,0.55)] backdrop-blur-sm after:absolute after:right-[-0.75rem] after:top-1/2 after:h-px after:w-[0.75rem] after:bg-[#9eaab5] sm:max-w-[7rem] sm:rounded-xl sm:px-3 sm:py-4 sm:after:right-[-2.5rem] sm:after:w-[2.5rem] lg:max-w-[8.5rem] lg:rounded-[1.15rem] lg:px-4 lg:py-5 lg:after:right-[-3rem] lg:after:w-[3rem]">
+          <div className="flex size-6 items-center justify-center rounded-md bg-white/70 p-0.5 shadow-[0_10px_20px_-12px_rgba(16,24,38,0.35)] sm:size-10 sm:rounded-lg sm:p-1">
+            <Image src="/clonao-logo.png" alt="Clonao" width={40} height={40} className="size-full object-contain brightness-0 drop-shadow-[0_2px_3px_rgba(56,68,82,0.15)]" />
           </div>
-          <p className="mt-1.5 text-xs font-semibold tracking-[-0.04em] text-[#101826] sm:mt-3 sm:text-base">Clonao</p>
+          <p className="mt-1 text-[0.65rem] font-semibold tracking-[-0.04em] text-[#101826] sm:mt-2 sm:text-sm">Clonao</p>
         </div>
 
         <div className="relative col-start-5 mx-auto flex w-full max-w-[7rem] items-center gap-2 rounded-lg border border-white/95 bg-white/90 px-2 py-3 shadow-[0_12px_26px_-22px_rgba(17,39,58,0.55)] before:absolute before:left-[-0.75rem] before:top-1/2 before:h-px before:w-[0.75rem] before:bg-[#9eaab5] sm:max-w-[11rem] sm:gap-3 sm:rounded-xl sm:px-4 sm:py-4 sm:before:left-[-2.5rem] sm:before:w-[2.5rem] lg:before:left-[-3rem] lg:before:w-[3rem]">
