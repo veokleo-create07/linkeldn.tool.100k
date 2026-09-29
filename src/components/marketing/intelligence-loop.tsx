@@ -64,7 +64,7 @@ function CardShell({
 function ShowcaseCard({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex h-full flex-col gap-3">
-      <h3 className="px-1 text-[1.2rem] font-semibold tracking-[-0.035em] text-[#132238] sm:text-[1.3rem]">{label}</h3>
+      <h3 className="text-balance px-1 font-serif text-[2.6rem] font-medium leading-[0.92] tracking-[-0.045em] text-[#101826] sm:text-[3rem] lg:text-[3.35rem]">{label}</h3>
       {children}
     </div>
   );
