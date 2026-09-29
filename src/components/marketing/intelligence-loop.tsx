@@ -51,15 +51,15 @@ function CardShell({
       : "bg-[linear-gradient(145deg,rgba(241,247,250,0.9),rgba(202,215,223,0.72))] shadow-[0_28px_62px_-38px_rgba(30,55,73,0.52)]";
 
   return (
-    <article className={`group relative flex h-full min-h-[42rem] flex-col overflow-hidden rounded-[1.625rem] border border-white/80 ${surfaceClass} p-6 backdrop-blur-2xl transition-transform duration-500 hover:-translate-y-1 sm:p-7`}>
+    <article className={`group relative flex h-full min-h-[31rem] flex-col overflow-hidden rounded-[1.625rem] border border-white/80 ${surfaceClass} p-5 backdrop-blur-2xl transition-transform duration-500 hover:-translate-y-1 sm:min-h-[32rem] sm:p-6`}>
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.62),rgba(255,255,255,0.08)_48%,rgba(133,157,173,0.16))]" />
       <div className="relative z-10 flex h-full flex-col">
         <div>
           <p className="text-[0.67rem] font-semibold uppercase tracking-[0.2em] text-[#3977a9]">{label}</p>
-          <h3 className="mt-4 max-w-[17rem] text-[1.7rem] font-semibold leading-[1.08] tracking-[-0.055em] text-[#132238] sm:text-[1.85rem]">{title}</h3>
-          <p className="mt-3 max-w-[18rem] text-[0.92rem] leading-6 text-[#536779]">{description}</p>
+          <h3 className="mt-3 max-w-[17rem] text-[1.55rem] font-semibold leading-[1.08] tracking-[-0.055em] text-[#132238] sm:text-[1.75rem]">{title}</h3>
+          <p className="mt-2.5 max-w-[18rem] text-[0.88rem] leading-5 text-[#536779]">{description}</p>
         </div>
-        <div className="mt-8 flex flex-1 flex-col">{children}</div>
+        <div className="mt-5 flex flex-1 flex-col">{children}</div>
         {footer}
       </div>
     </article>
@@ -97,7 +97,7 @@ function UnderstandCard() {
     <CardShell surface="understand" label="Understand" title="Bring your real knowledge together." description="Connect your content and let Clonao organize it.">
       <div className="divide-y divide-[#6f8797]/20 border-y border-[#6f8797]/20">
         {sources.map(({ name, kind, color, count, status, statusColor }) => (
-          <div key={name} className="flex min-h-[3.35rem] items-center gap-3 py-2.5">
+          <div key={name} className="flex min-h-[2.85rem] items-center gap-2.5 py-2">
             <SourceIcon kind={kind} color={color} />
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-medium text-[#1d3044]">{name}</p>
@@ -108,7 +108,7 @@ function UnderstandCard() {
           </div>
         ))}
       </div>
-      <button type="button" className="mt-auto flex items-center gap-2 border-b border-[#3977a9]/35 pb-2 pt-6 text-left text-sm font-medium text-[#286b9f] transition-colors hover:text-[#174d78] focus-visible:border-[#174d78]">
+      <button type="button" className="mt-auto flex items-center gap-2 border-b border-[#3977a9]/35 pb-1.5 pt-4 text-left text-sm font-medium text-[#286b9f] transition-colors hover:text-[#174d78] focus-visible:border-[#174d78]">
         <span className="text-lg leading-none">+</span>
         Add a source
       </button>
@@ -141,7 +141,7 @@ function DiagnoseCard() {
     <CardShell surface="diagnose" label="Diagnose & Strategize" title="See what’s working, what’s missing." description="Clonao analyzes your content to find opportunities.">
       <div className="divide-y divide-[#6f8797]/20 border-y border-[#6f8797]/20">
         {diagnosis.map(({ title, detail, status, kind, color, statusColor }) => (
-          <div key={title} className="flex min-h-[4.65rem] items-center gap-3 py-3">
+          <div key={title} className="flex min-h-[3.7rem] items-center gap-2.5 py-2">
             <DiagnosisIcon kind={kind} color={color} />
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-medium text-[#1d3044]">{title}</p>
@@ -152,7 +152,6 @@ function DiagnoseCard() {
           </div>
         ))}
       </div>
-      <p className="mt-auto pt-6 text-[0.72rem] leading-5 text-[#718593]">Your strategy starts with a clearer view of the signals already in your work.</p>
     </CardShell>
   );
 }
@@ -181,10 +180,10 @@ function RecommendCard() {
   return (
     <CardShell surface="recommend" label="Get your next moves" title="Get your next best moves." description="Receive a focused plan based on your content.">
       <div>
-        <p className="mb-3 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#6e8291]">Top next moves</p>
+        <p className="mb-2 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-[#6e8291]">Top next moves</p>
         <div className="divide-y divide-[#6f8797]/20 border-y border-[#6f8797]/20">
           {recommendations.map(({ title, detail, kind, color }) => (
-            <div key={title} className="flex min-h-[4.25rem] items-center gap-3 py-3">
+            <div key={title} className="flex min-h-[3.65rem] items-center gap-2.5 py-2">
               <RecommendationIcon kind={kind} color={color} />
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-medium leading-5 text-[#1d3044]">{title}</p>
@@ -195,7 +194,6 @@ function RecommendCard() {
           ))}
         </div>
       </div>
-      <p className="mt-auto pt-6 text-[0.72rem] leading-5 text-[#718593]">A short list of actions, grounded in what your brand needs now.</p>
     </CardShell>
   );
 }
@@ -210,7 +208,7 @@ export function IntelligenceLoop() {
           <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-[#657789] sm:text-lg">Clonao turns what you know into a clearer personal brand strategy.</p>
         </div>
 
-        <div className="mx-auto mt-14 grid max-w-6xl items-stretch gap-5 sm:mt-16 lg:grid-cols-3 lg:gap-6">
+        <div className="mx-auto mt-12 grid max-w-7xl items-stretch gap-4 sm:mt-14 lg:grid-cols-3 lg:gap-5">
           <UnderstandCard />
           <DiagnoseCard />
           <RecommendCard />
