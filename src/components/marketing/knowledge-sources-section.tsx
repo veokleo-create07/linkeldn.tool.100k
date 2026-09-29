@@ -49,20 +49,21 @@ function KnowledgeFlowDiagram() {
                 <Icon className="size-3.5 sm:size-4" strokeWidth={1.7} />
               </span>
               <span className="min-w-0 flex-1 text-[0.68rem] font-medium leading-[1.15] text-[#101826] sm:text-sm sm:leading-5">{label}</span>
+              <span className="absolute right-[-1.05rem] top-1/2 size-1.5 -translate-y-1/2 rounded-full border border-[#9eaab5] bg-[#eef3f7] sm:right-[-2.8rem] lg:right-[-3.3rem]" aria-hidden="true" />
             </div>
           ))}
         </div>
 
-        <div className="relative col-start-3 mx-auto flex w-full max-w-[6.25rem] flex-col items-center rounded-xl border border-white/90 bg-white/70 px-2 py-5 text-center shadow-[0_24px_46px_-30px_rgba(17,39,58,0.55)] backdrop-blur-sm after:absolute after:right-[-0.75rem] after:top-1/2 after:h-px after:w-[0.75rem] after:bg-[#9eaab5] sm:max-w-[10rem] sm:rounded-[1.35rem] sm:px-5 sm:py-7 sm:after:right-[-2.5rem] sm:after:w-[2.5rem] lg:max-w-[12rem] lg:px-6 lg:py-8 lg:after:right-[-3rem] lg:after:w-[3rem]">
-          <div className="flex size-10 items-center justify-center rounded-xl bg-white/70 p-1.5 shadow-[0_10px_20px_-12px_rgba(16,24,38,0.35)] sm:size-16 sm:rounded-2xl sm:p-2">
-            <Image src="/clonao-logo.png" alt="Clonao" width={64} height={64} className="size-full object-contain drop-shadow-[0_4px_5px_rgba(56,68,82,0.2)]" />
+        <div className="relative col-start-3 mx-auto flex w-full max-w-[5.5rem] flex-col items-center rounded-lg border border-white/90 bg-white/70 px-1.5 py-4 text-center shadow-[0_24px_46px_-30px_rgba(17,39,58,0.55)] backdrop-blur-sm after:absolute after:right-[-0.75rem] after:top-1/2 after:h-px after:w-[0.75rem] after:bg-[#9eaab5] sm:max-w-[8.5rem] sm:rounded-xl sm:px-4 sm:py-6 sm:after:right-[-2.5rem] sm:after:w-[2.5rem] lg:max-w-[10rem] lg:rounded-[1.15rem] lg:px-5 lg:py-6 lg:after:right-[-3rem] lg:after:w-[3rem]">
+          <div className="flex size-8 items-center justify-center rounded-lg bg-white/70 p-1 shadow-[0_10px_20px_-12px_rgba(16,24,38,0.35)] sm:size-12 sm:rounded-xl sm:p-1.5">
+            <Image src="/clonao-logo.png" alt="Clonao" width={48} height={48} className="size-full object-contain brightness-0 drop-shadow-[0_2px_3px_rgba(56,68,82,0.15)]" />
           </div>
-          <p className="mt-2 text-sm font-semibold tracking-[-0.04em] text-[#101826] sm:mt-4 sm:text-lg">Clonao</p>
+          <p className="mt-1.5 text-xs font-semibold tracking-[-0.04em] text-[#101826] sm:mt-3 sm:text-base">Clonao</p>
         </div>
 
         <div className="relative col-start-5 mx-auto flex w-full max-w-[7rem] items-center gap-2 rounded-lg border border-white/95 bg-white/90 px-2 py-3 shadow-[0_12px_26px_-22px_rgba(17,39,58,0.55)] before:absolute before:left-[-0.75rem] before:top-1/2 before:h-px before:w-[0.75rem] before:bg-[#9eaab5] sm:max-w-[11rem] sm:gap-3 sm:rounded-xl sm:px-4 sm:py-4 sm:before:left-[-2.5rem] sm:before:w-[2.5rem] lg:before:left-[-3rem] lg:before:w-[3rem]">
           <span className="flex size-6 shrink-0 items-center justify-center rounded-md bg-[#101826] text-white sm:size-8 sm:rounded-lg" aria-hidden="true">
-            <span className="relative block size-3.5 border-b border-l border-white/80 sm:size-4"><span className="absolute bottom-0 left-1 h-2 w-px bg-white/80" /><span className="absolute bottom-0 left-2.5 h-3 w-px bg-white/80" /><span className="absolute bottom-0 left-4 h-4 w-px bg-white/80" /></span>
+            <svg viewBox="0 0 24 24" className="size-3.5 sm:size-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="2.25" /><circle cx="6" cy="18" r="2.25" /><circle cx="18" cy="18" r="2.25" /><path d="m10.8 6.8-3.5 8.9M13.2 6.8l3.5 8.9M8.2 18h7.6" /></svg>
           </span>
           <span className="text-[0.68rem] font-semibold leading-tight text-[#101826] sm:text-sm">Brand Graph</span>
         </div>
