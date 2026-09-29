@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
 type SourceKind = "linkedin" | "website" | "pdf" | "notes" | "video" | "podcast";
 
 const sources = [
@@ -183,6 +187,76 @@ function RecommendCard() {
   );
 }
 
+const showcaseCards = [UnderstandCard, DiagnoseCard, RecommendCard];
+
+function MobileCardSequence() {
+  const sequenceRef = useRef<HTMLDivElement>(null);
+  const [sequencePosition, setSequencePosition] = useState(0);
+
+  useEffect(() => {
+    let frame = 0;
+
+    const updatePosition = () => {
+      frame = 0;
+      const sequence = sequenceRef.current;
+      if (!sequence) return;
+
+      const sticky = sequence.firstElementChild as HTMLElement | null;
+      if (!sticky) return;
+
+      const stickyTop = 64;
+      const travel = Math.max(sequence.offsetHeight - sticky.offsetHeight, 1);
+      const progress = Math.min(1, Math.max(0, (stickyTop - sequence.getBoundingClientRect().top) / travel));
+      setSequencePosition(progress * (showcaseCards.length - 1));
+    };
+
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(updatePosition);
+    };
+
+    updatePosition();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  return (
+    <div ref={sequenceRef} className="relative h-[210vh] lg:hidden">
+      <div className="sticky top-16 flex h-[70vh] items-center overflow-hidden">
+        <div className="relative min-h-[26rem] w-full">
+          {showcaseCards.map((Card, index) => {
+            const distance = index - sequencePosition;
+            const visibility = Math.max(0, 1 - Math.abs(distance) * 1.45);
+            const translateY = distance * 20;
+            const scale = 1 - Math.min(0.035, Math.abs(distance) * 0.035);
+
+            return (
+              <div
+                key={Card.name}
+                className="absolute inset-0 transition-[opacity,transform,filter] duration-300 ease-out motion-reduce:transition-none"
+                style={{
+                  opacity: visibility,
+                  transform: `translateY(${translateY}px) scale(${scale})`,
+                  filter: `blur(${Math.min(3, Math.abs(distance) * 3)}px)`,
+                  pointerEvents: Math.abs(distance) < 0.5 ? "auto" : "none",
+                  zIndex: Math.round(100 - Math.abs(distance) * 10),
+                }}
+              >
+                <Card />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function IntelligenceLoop() {
   return (
     <section aria-labelledby="intelligence-loop-heading" className="bg-[#f5f9fc] py-24 sm:py-28 lg:py-36">
@@ -193,10 +267,13 @@ export function IntelligenceLoop() {
           <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-[#657789] sm:text-lg">Clonao turns what you know into a clearer personal brand strategy.</p>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-7xl items-stretch gap-4 sm:mt-14 lg:grid-cols-3 lg:gap-5">
+        <div className="mx-auto mt-12 hidden max-w-7xl items-stretch gap-4 sm:mt-14 lg:grid lg:grid-cols-3 lg:gap-5">
           <UnderstandCard />
           <DiagnoseCard />
           <RecommendCard />
+        </div>
+        <div className="mx-auto mt-10 max-w-xl sm:mt-12 lg:hidden">
+          <MobileCardSequence />
         </div>
       </div>
     </section>
