@@ -28,7 +28,7 @@ export function HomeHero() {
           </Link>
         </div>
 
-        <div className="hero-reveal hero-reveal-delay-3 mt-2 w-full max-w-[1040px] sm:mt-3 lg:mt-4">
+        <div className="hero-reveal hero-reveal-delay-3 mt-0 w-full max-w-[1040px]">
           <ProductPreview />
         </div>
       </div>
