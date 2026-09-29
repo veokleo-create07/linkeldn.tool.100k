@@ -187,6 +187,42 @@
   }
 }
 
+@keyframes grounding-flow {
+  to {
+    stroke-dashoffset: -30;
+  }
+}
+
+.grounding-flow-group path {
+  stroke-dasharray: 5 9;
+  animation: grounding-flow 3.2s linear infinite;
+  will-change: stroke-dashoffset;
+}
+
+.grounding-flow-group path:nth-of-type(2) {
+  animation-delay: -0.2s;
+}
+
+.grounding-flow-group path:nth-of-type(3) {
+  animation-delay: -0.4s;
+}
+
+.grounding-flow-group path:nth-of-type(4) {
+  animation-delay: -0.6s;
+}
+
+.grounding-flow-group path:nth-of-type(5) {
+  animation-delay: -0.8s;
+}
+
+.grounding-flow-group path:nth-of-type(6) {
+  animation-delay: -1s;
+}
+
+.grounding-flow-group path:nth-of-type(7) {
+  animation-delay: -1.2s;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-reveal {
     animation: none;
@@ -199,6 +235,10 @@
   .problem-reflection {
     animation: none;
     display: none;
+  }
+
+  .grounding-flow-group path {
+    animation: none;
   }
 
   .metallic-cta,
