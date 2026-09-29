@@ -6,7 +6,7 @@ export function HomeHero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="hero-atmosphere -mt-16 overflow-hidden pb-20 pt-36 sm:-mt-20 sm:pb-28 sm:pt-44 lg:pb-36 lg:pt-52"
+      className="hero-atmosphere -mt-16 overflow-hidden pb-16 pt-28 sm:-mt-20 sm:pb-24 sm:pt-36 lg:pb-32 lg:pt-44"
     >
       <div className="marketing-container flex flex-col items-center text-center">
         <div className="hero-reveal hero-reveal-delay-1 flex flex-col items-center">
@@ -21,14 +21,14 @@ export function HomeHero() {
           </p>
         </div>
 
-        <div className="hero-reveal hero-reveal-delay-2 mt-8 flex items-center justify-center sm:mt-9">
+        <div className="hero-reveal hero-reveal-delay-2 mt-7 flex items-center justify-center sm:mt-8">
           <Link href="/sign-up" className="metallic-cta inline-flex h-11 items-center justify-center gap-1.5 rounded-md px-5 text-sm font-medium text-white">
             Start for free
             <ArrowUpRight aria-hidden="true" className="size-4" />
           </Link>
         </div>
 
-        <div className="hero-reveal hero-reveal-delay-3 mt-16 w-full max-w-[1040px] sm:mt-20 lg:mt-24">
+        <div className="hero-reveal hero-reveal-delay-3 mt-12 w-full max-w-[1040px] sm:mt-14 lg:mt-16">
           <ProductPreview />
         </div>
       </div>
