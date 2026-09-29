@@ -1,8 +1,6 @@
 import {
   ArrowUpRight,
-  BarChart3,
   FileText,
-  ScanSearch,
   Sparkles,
   StickyNote,
   Target,
@@ -21,10 +19,10 @@ const sources = [
 ] as const;
 
 const diagnosis = [
-  { title: "Positioning", detail: "Clear expertise signal", status: "Strength", icon: Target },
-  { title: "Content coverage", detail: "Proof is underused", status: "Gap", icon: ScanSearch },
-  { title: "Audience alignment", detail: "Strong relevance", status: "Strong", icon: BarChart3 },
-  { title: "Opportunities", detail: "Three high-impact paths", status: "High potential", icon: Sparkles },
+  { title: "Positioning", detail: "Clear expertise signal", status: "Strength", kind: "positioning", color: "#2563EB", statusColor: "#16A34A" },
+  { title: "Content coverage", detail: "Proof is underused", status: "Gap", kind: "coverage", color: "#38BDF8", statusColor: "#F59E0B" },
+  { title: "Audience alignment", detail: "Strong relevance", status: "Strong", kind: "audience", color: "#14B8A6", statusColor: "#16A34A" },
+  { title: "Opportunities", detail: "Three high-impact paths", status: "High potential", kind: "opportunities", color: "#8B5CF6", statusColor: "#8B5CF6" },
 ] as const;
 
 const recommendations = [
@@ -47,11 +45,13 @@ function CardShell({
   description: string;
   children: React.ReactNode;
   footer?: React.ReactNode;
-  surface?: "default" | "understand";
+  surface?: "default" | "understand" | "diagnose";
 }) {
   const surfaceClass = surface === "understand"
     ? "bg-[linear-gradient(145deg,rgba(230,240,247,0.96),rgba(169,190,204,0.86))] shadow-[0_30px_66px_-36px_rgba(20,65,103,0.6)]"
-    : "bg-[linear-gradient(145deg,rgba(241,247,250,0.9),rgba(202,215,223,0.72))] shadow-[0_28px_62px_-38px_rgba(30,55,73,0.52)]";
+    : surface === "diagnose"
+      ? "bg-[linear-gradient(145deg,rgba(224,237,245,0.96),rgba(179,196,208,0.88))] shadow-[0_30px_66px_-36px_rgba(28,67,91,0.58)]"
+      : "bg-[linear-gradient(145deg,rgba(241,247,250,0.9),rgba(202,215,223,0.72))] shadow-[0_28px_62px_-38px_rgba(30,55,73,0.52)]";
 
   return (
     <article className={`group relative flex h-full min-h-[42rem] flex-col overflow-hidden rounded-[1.625rem] border border-white/80 ${surfaceClass} p-6 backdrop-blur-2xl transition-transform duration-500 hover:-translate-y-1 sm:p-7`}>
@@ -119,18 +119,38 @@ function UnderstandCard() {
   );
 }
 
+type DiagnosisKind = "positioning" | "coverage" | "audience" | "opportunities";
+
+function DiagnosisIcon({ kind, color }: { kind: DiagnosisKind; color: string }) {
+  const common = { "aria-hidden": true, className: "size-[1.35rem] shrink-0", style: { color } };
+
+  if (kind === "positioning") {
+    return <svg {...common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.65" strokeLinecap="round"><circle cx="12" cy="12" r="7.75" /><circle cx="12" cy="12" r="2.25" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3" /></svg>;
+  }
+
+  if (kind === "coverage") {
+    return <svg {...common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5V13M9.3 19.5V8M14.7 19.5V10.5M20 19.5V4.5" /><path d="M4 19.5h16" opacity=".45" /></svg>;
+  }
+
+  if (kind === "audience") {
+    return <svg {...common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="8" r="2.75" /><path d="M3.8 18.5c.35-3.05 2.1-4.55 5.2-4.55s4.85 1.5 5.2 4.55M16.2 10.4a2.4 2.4 0 1 0 0-4.65M16.35 14.15c2.6.2 4 1.62 4.25 4.35" /></svg>;
+  }
+
+  return <svg {...common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.65" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3 1.2 4.8L18 9l-4.8 1.2L12 15l-1.2-4.8L6 9l4.8-1.2L12 3ZM18.5 15.5l.65 2.35 2.35.65-2.35.65-.65 2.35-.65-2.35-2.35-.65 2.35-.65.65-2.35Z" /></svg>;
+}
+
 function DiagnoseCard() {
   return (
-    <CardShell label="Diagnose & Strategize" title="See what’s working, what’s missing." description="Clonao analyzes your content to find opportunities.">
+    <CardShell surface="diagnose" label="Diagnose & Strategize" title="See what’s working, what’s missing." description="Clonao analyzes your content to find opportunities.">
       <div className="divide-y divide-[#6f8797]/20 border-y border-[#6f8797]/20">
-        {diagnosis.map(({ title, detail, status, icon: Icon }) => (
+        {diagnosis.map(({ title, detail, status, kind, color, statusColor }) => (
           <div key={title} className="flex min-h-[4.65rem] items-center gap-3 py-3">
-            <Icon aria-hidden="true" className="size-[1.05rem] shrink-0 text-[#3977a9]" strokeWidth={1.7} />
+            <DiagnosisIcon kind={kind} color={color} />
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-medium text-[#1d3044]">{title}</p>
               <p className="mt-1 truncate text-[0.72rem] text-[#748494]">{detail}</p>
             </div>
-            <span className="hidden max-w-[5.1rem] text-right text-[0.66rem] leading-4 text-[#61798a] min-[390px]:block">{status}</span>
+            <span className="hidden max-w-[5.1rem] text-right text-[0.66rem] leading-4 min-[390px]:block" style={{ color: statusColor }}>{status}</span>
             <ArrowUpRight aria-hidden="true" className="size-3.5 shrink-0 text-[#7b93a3] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={1.7} />
           </div>
         ))}
