@@ -32,9 +32,11 @@ export function KnowledgeSourcesSection() {
 
 function KnowledgeFlowDiagram() {
   return (
-    <div className="relative mx-auto mt-14 min-h-[27rem] max-w-4xl overflow-hidden rounded-[1.75rem] border border-white/90 bg-[radial-gradient(circle_at_58%_46%,rgba(90,128,225,0.64),transparent_29%),radial-gradient(circle_at_52%_76%,rgba(164,197,241,0.58),transparent_41%),linear-gradient(140deg,rgba(218,233,245,0.98),rgba(188,205,231,0.94))] p-3 shadow-[0_30px_80px_-48px_rgba(27,58,83,0.5)] sm:mt-16 sm:min-h-[30rem] sm:p-6 lg:min-h-[31rem] lg:p-8">
-      <div className="pointer-events-none absolute -left-24 top-1/2 size-72 -translate-y-1/2 rounded-full bg-[#f4f8fc]/55 blur-3xl" aria-hidden="true" />
-      <div className="pointer-events-none absolute -right-16 top-1/4 size-80 rounded-full bg-[#6d8de8]/25 blur-3xl" aria-hidden="true" />
+    <div
+      className="relative mx-auto mt-14 min-h-[27rem] max-w-4xl overflow-hidden rounded-[1.75rem] border border-white/90 bg-cover bg-center p-3 shadow-[0_30px_80px_-48px_rgba(27,58,83,0.5)] sm:mt-16 sm:min-h-[30rem] sm:p-6 lg:min-h-[31rem] lg:p-8"
+      style={{ backgroundImage: "url('/ethereal-aqua-gradient.jpg')" }}
+    >
+      <div className="pointer-events-none absolute inset-0 bg-white/10" aria-hidden="true" />
 
       <div className="relative z-10 grid min-h-[25rem] grid-cols-[minmax(0,1fr)_0.75rem_6.25rem_0.75rem_minmax(0,0.9fr)] items-center sm:min-h-[28rem] sm:grid-cols-[minmax(0,1fr)_2.5rem_10rem_2.5rem_minmax(0,1fr)] lg:min-h-0 lg:grid-cols-[minmax(0,1fr)_3rem_12rem_3rem_minmax(0,1fr)]">
         <div className="relative flex flex-col gap-2 after:absolute after:bottom-5 after:right-[-0.75rem] after:top-5 after:w-px after:bg-[#9eaab5] sm:gap-2.5 sm:after:right-[-2.5rem] lg:after:right-[-3rem]">
