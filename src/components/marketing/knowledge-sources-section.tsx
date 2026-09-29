@@ -39,16 +39,14 @@ function KnowledgeFlowDiagram() {
       <div className="pointer-events-none absolute inset-0 bg-white/10" aria-hidden="true" />
 
       <svg aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 h-full w-full sm:hidden" viewBox="0 0 1000 500" preserveAspectRatio="none" fill="none">
-        <path d="M340 104C355 104 356 250 380 250M340 162C355 162 360 250 380 250M340 220C358 220 365 250 380 250M340 278C358 278 365 250 380 250M340 336C355 336 360 250 380 250M340 394C355 394 356 250 380 250" stroke="#101826" strokeWidth="1.7" strokeLinecap="round" opacity="0.72" />
-        <path d="M660 250C675 250 684 250 700 250" stroke="#101826" strokeWidth="1.7" strokeLinecap="round" opacity="0.72" />
-        <circle cx="380" cy="250" r="4" fill="#101826" opacity="0.88" />
-        <circle cx="660" cy="250" r="3" fill="#101826" opacity="0.88" />
+        <path d="M340 104C349 104 357 104 365 104M340 162C349 162 357 162 365 162M340 220C349 220 357 220 365 220M340 278C349 278 357 278 365 278M340 336C349 336 357 336 365 336M340 394C349 394 357 394 365 394M365 104V394M365 250C371 250 376 250 380 250" stroke="#334155" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" opacity="0.82" />
+        <path d="M660 250H700" stroke="#334155" strokeWidth="1.35" strokeLinecap="round" opacity="0.82" />
+        <circle cx="365" cy="250" r="2" fill="#334155" opacity="0.82" />
       </svg>
       <svg aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 hidden h-full w-full sm:block" viewBox="0 0 1000 500" preserveAspectRatio="none" fill="none">
-        <path d="M327 104C350 104 365 250 390 250M327 162C350 162 370 250 390 250M327 220C355 220 378 250 390 250M327 278C355 278 378 250 390 250M327 336C350 336 370 250 390 250M327 394C350 394 365 250 390 250" stroke="#101826" strokeWidth="1.5" strokeLinecap="round" opacity="0.72" />
-        <path d="M610 250C650 250 680 250 700 250" stroke="#101826" strokeWidth="1.5" strokeLinecap="round" opacity="0.72" />
-        <circle cx="390" cy="250" r="4" fill="#101826" opacity="0.88" />
-        <circle cx="610" cy="250" r="3" fill="#101826" opacity="0.88" />
+        <path d="M327 104C342 104 354 104 365 104M327 162C342 162 354 162 365 162M327 220C342 220 354 220 365 220M327 278C342 278 354 278 365 278M327 336C342 336 354 336 365 336M327 394C342 394 354 394 365 394M365 104V394M365 250C375 250 384 250 390 250" stroke="#334155" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" opacity="0.82" />
+        <path d="M610 250H700" stroke="#334155" strokeWidth="1.3" strokeLinecap="round" opacity="0.82" />
+        <circle cx="365" cy="250" r="2" fill="#334155" opacity="0.82" />
       </svg>
 
       <div className="relative z-10 grid min-h-[25rem] grid-cols-[minmax(0,1fr)_0.75rem_6.25rem_0.75rem_minmax(0,0.9fr)] items-center sm:min-h-[28rem] sm:grid-cols-[minmax(0,1fr)_2.5rem_10rem_2.5rem_minmax(0,1fr)] lg:min-h-0 lg:grid-cols-[minmax(0,1fr)_3rem_12rem_3rem_minmax(0,1fr)]">
