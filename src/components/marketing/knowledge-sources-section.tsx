@@ -43,10 +43,15 @@ function KnowledgeFlowDiagram() {
         <path d="M660 250H700" stroke="#334155" strokeWidth="1.35" strokeLinecap="round" opacity="0.82" />
         <circle cx="365" cy="250" r="2" fill="#334155" opacity="0.82" />
       </svg>
-      <svg aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 hidden h-full w-full sm:block" viewBox="0 0 1000 500" preserveAspectRatio="none" fill="none">
-        <path d="M327 104C342 104 354 104 365 104M327 162C342 162 354 162 365 162M327 220C342 220 354 220 365 220M327 278C342 278 354 278 365 278M327 336C342 336 354 336 365 336M327 394C342 394 354 394 365 394M365 104V394M365 250C375 250 384 250 390 250" stroke="#334155" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" opacity="0.82" />
-        <path d="M610 250H700" stroke="#334155" strokeWidth="1.3" strokeLinecap="round" opacity="0.82" />
-        <circle cx="365" cy="250" r="2" fill="#334155" opacity="0.82" />
+      <svg aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 hidden h-full w-full sm:block lg:hidden" viewBox="0 0 1000 500" preserveAspectRatio="none" fill="none">
+        <path d="M338 104C356 104 376 104 395 104M338 162C356 162 376 162 395 162M338 220C356 220 376 220 395 220M338 278C356 278 376 278 395 278M338 336C356 336 376 336 395 336M338 394C356 394 376 394 395 394M395 104V394M395 250C402 250 409 250 415 250" stroke="#334155" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" opacity="0.82" />
+        <path d="M660 250H725" stroke="#334155" strokeWidth="1.3" strokeLinecap="round" opacity="0.82" />
+        <circle cx="395" cy="250" r="2" fill="#334155" opacity="0.82" />
+      </svg>
+      <svg aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 hidden h-full w-full lg:block" viewBox="0 0 1000 500" preserveAspectRatio="none" fill="none">
+        <path d="M223 104C260 104 310 104 350 104M223 162C260 162 310 162 350 162M223 220C260 220 310 220 350 220M223 278C260 278 310 278 350 278M223 336C260 336 310 336 350 336M223 394C260 394 310 394 350 394M350 104V394M350 250C365 250 380 250 393 250" stroke="#334155" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" opacity="0.82" />
+        <path d="M607 250H661" stroke="#334155" strokeWidth="1.3" strokeLinecap="round" opacity="0.82" />
+        <circle cx="350" cy="250" r="2" fill="#334155" opacity="0.82" />
       </svg>
 
       <div className="relative z-10 grid min-h-[25rem] grid-cols-[minmax(0,1fr)_0.75rem_6.25rem_0.75rem_minmax(0,0.9fr)] items-center sm:min-h-[28rem] sm:grid-cols-[minmax(0,1fr)_2.5rem_10rem_2.5rem_minmax(0,1fr)] lg:min-h-0 lg:grid-cols-[minmax(0,1fr)_3rem_12rem_3rem_minmax(0,1fr)]">
