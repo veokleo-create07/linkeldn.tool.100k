@@ -25,11 +25,11 @@
     --radius: 0.75rem;
 
     /* Clonao atmospheric palette */
-    --clonao-blue-top: #5fadfd;
-    --clonao-blue-upper: #6fb7fd;
-    --clonao-blue-middle: #acd8fc;
-    --clonao-blue-lower: #e6f3fd;
-    --clonao-white: #fdfdfd;
+    --clonao-blue-top: #0b4dff;
+    --clonao-blue-upper: #2d7cff;
+    --clonao-blue-middle: #8ccbff;
+    --clonao-blue-lower: #dceeff;
+    --clonao-white: #f8fbfd;
   }
 
   * {
@@ -70,9 +70,9 @@
     background: linear-gradient(
       180deg,
       var(--clonao-blue-top) 0%,
-      var(--clonao-blue-upper) 18%,
-      var(--clonao-blue-middle) 44%,
-      var(--clonao-blue-lower) 72%,
+      var(--clonao-blue-upper) 24%,
+      var(--clonao-blue-middle) 52%,
+      var(--clonao-blue-lower) 78%,
       var(--clonao-white) 100%
     );
   }
