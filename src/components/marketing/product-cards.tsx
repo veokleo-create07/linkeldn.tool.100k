@@ -1,10 +1,4 @@
-import { ArrowRight, CalendarDays, Check, Target, Users } from "lucide-react";
-
-const strategyRows = [
-  ["Primary goal", "Build authority", Target],
-  ["Audience", "Operators & founders", Users],
-  ["Weekly focus", "Teach the method behind outcomes", CalendarDays],
-] as const;
+import { Check } from "lucide-react";
 
 const moves = [
   "Share your client onboarding framework",
@@ -57,7 +51,7 @@ function BrandGraphCard() {
 }
 
 function StrategyCard() {
-  return <CardFrame><CardHeading eyebrow="Strategy" title="A clearer direction for the week." description="Diagnosis becomes focus: what to say, who it is for, and why it matters now." /><div className="mt-8 flex-1"><div className="divide-y divide-[#cad9e3] border-y border-[#cad9e3]">{strategyRows.map(([label, value, Icon]) => <div key={label} className="flex items-center gap-3 py-4"><Icon className="size-4 shrink-0 text-[#3977a9]" strokeWidth={1.6} aria-hidden="true" /><div><p className="text-[0.63rem] font-medium uppercase tracking-[0.1em] text-[#7893a6]">{label}</p><p className="mt-1 text-sm font-medium text-[#26394d]">{value}</p></div></div>)}</div><div className="mt-8 flex items-center gap-3 text-xs font-medium text-[#3977a9]"><span className="h-px flex-1 bg-[#71899a]/45" /><ArrowRight className="size-4" strokeWidth={1.5} /><span>Direction</span></div></div><p className="mt-6 text-xs leading-5 text-[#7893a6]">A strategy you can act on, not another content calendar.</p></CardFrame>;
+  return <CardFrame><CardHeading eyebrow="Strategy" title="A clearer direction for the week." description="Diagnosis becomes focus: what to say, who it is for, and why it matters now." /><div className="mt-8 flex flex-1 items-center justify-center overflow-hidden rounded-[1.25rem] border border-white/70 bg-white/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.5)]"><img src="https://i.postimg.cc/mr54tjqd/Chat-GPT-Image-Oct-1-2026-12-26-48-AM.png" alt="Clonao strategy workspace showing a clear weekly direction" className="h-full w-full object-contain" /></div><p className="mt-6 text-xs leading-5 text-[#7893a6]">A strategy you can act on, not another content calendar.</p></CardFrame>;
 }
 
 function NextMovesCard() {
