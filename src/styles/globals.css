@@ -160,40 +160,6 @@
   }
 }
 
-@keyframes waitlist-backdrop-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes waitlist-backdrop-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-
-@keyframes waitlist-panel-in {
-  from { opacity: 0; transform: translateY(18px) scale(0.985); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@keyframes waitlist-panel-out {
-  from { opacity: 1; transform: translateY(0) scale(1); }
-  to { opacity: 0; transform: translateY(12px) scale(0.985); }
-}
-
-.waitlist-backdrop-in,
-.waitlist-backdrop-out,
-.waitlist-panel-in,
-.waitlist-panel-out {
-  animation-duration: 260ms;
-  animation-fill-mode: both;
-  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.waitlist-backdrop-in { animation-name: waitlist-backdrop-in; }
-.waitlist-backdrop-out { animation-name: waitlist-backdrop-out; }
-.waitlist-panel-in { animation-name: waitlist-panel-in; }
-.waitlist-panel-out { animation-name: waitlist-panel-out; }
-
 @keyframes stage-transition {
   from {
     opacity: 0;
@@ -258,13 +224,6 @@
 
   .grounding-signal-particle,
   .grounding-card-pulse {
-    animation: none;
-  }
-
-  .waitlist-backdrop-in,
-  .waitlist-backdrop-out,
-  .waitlist-panel-in,
-  .waitlist-panel-out {
     animation: none;
   }
 

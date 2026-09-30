@@ -1,4 +1,4 @@
-import { WaitlistCta } from "@/components/marketing/waitlist-modal";
+import Link from "next/link";
 
 export function FinalCta() {
   return (
@@ -12,7 +12,12 @@ export function FinalCta() {
             Try Clonao today and get your personal brand diagnosis.
           </p>
           <div className="mt-6 flex justify-end">
-            <WaitlistCta className="metallic-cta inline-flex min-h-11 items-center justify-center rounded-md px-5 text-sm font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563a6] focus-visible:ring-offset-2" />
+            <Link
+              href="/sign-up"
+              className="metallic-cta inline-flex min-h-11 items-center justify-center rounded-md px-5 text-sm font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563a6] focus-visible:ring-offset-2"
+            >
+              Join the waitlist
+            </Link>
           </div>
         </div>
       </div>
