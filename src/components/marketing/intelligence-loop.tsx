@@ -1,7 +1,23 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+
+type SourceKind = "linkedin" | "website" | "pdf" | "notes" | "video" | "podcast";
+
+const sources = [
+  { name: "LinkedIn", kind: "linkedin", color: "#0A66C2" },
+  { name: "Website", kind: "website", color: "#2563EB" },
+  { name: "PDFs", kind: "pdf", color: "#E53935" },
+  { name: "Notes", kind: "notes", color: "#F4B400" },
+  { name: "Videos", kind: "video", color: "#FF0000" },
+  { name: "Podcasts", kind: "podcast", color: "#A855F7" },
+] as const;
+
+const sourceGroups = [
+  [sources[0], sources[1]],
+  [sources[2], sources[3]],
+  [sources[4], sources[5]],
+] as const;
 
 const diagnosis = [
   { title: "Positioning", kind: "positioning", color: "#2563EB" },
@@ -20,7 +36,7 @@ function CardShell({
   children,
   surface = "default",
 }: {
-  title?: string;
+  title: string;
   children: React.ReactNode;
   surface?: "default" | "understand" | "diagnose" | "recommend";
 }) {
@@ -36,7 +52,9 @@ function CardShell({
     <article className={`group relative flex h-full min-h-[24rem] flex-col overflow-hidden rounded-[1.625rem] border border-white/80 ${surfaceClass} p-5 backdrop-blur-2xl transition-transform duration-500 hover:-translate-y-1 sm:min-h-[25rem] sm:p-6`}>
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.62),rgba(255,255,255,0.08)_48%,rgba(133,157,173,0.16))]" />
       <div className="relative z-10 flex h-full flex-col">
-        {title ? <div><h4 className="mx-auto max-w-[17rem] text-center text-[1.55rem] font-semibold leading-[1.08] tracking-[-0.055em] text-[#132238] sm:text-[1.75rem]">{title}</h4></div> : null}
+        <div>
+          <h4 className="mx-auto max-w-[17rem] text-center text-[1.55rem] font-semibold leading-[1.08] tracking-[-0.055em] text-[#132238] sm:text-[1.75rem]">{title}</h4>
+        </div>
         <div className="mt-6 flex flex-1 flex-col">{children}</div>
       </div>
     </article>
@@ -52,30 +70,48 @@ function ShowcaseCard({ label, children }: { label: string; children: React.Reac
   );
 }
 
-function BrandGraphCard() {
+function SourceIcon({ kind, color }: { kind: SourceKind; color: string }) {
+  const common = { "aria-hidden": true, className: "size-[1.35rem] shrink-0", style: { color } };
+
+  if (kind === "linkedin") {
+    return <svg {...common} viewBox="0 0 24 24" fill="currentColor"><path d="M5.2 7.35A2.25 2.25 0 1 0 5.2 2.85a2.25 2.25 0 0 0 0 4.5ZM3.2 21.15h4V9.05h-4v12.1ZM9.65 9.05h3.84v1.65h.06c.54-1.03 1.85-2.12 3.8-2.12 4.06 0 4.81 2.67 4.81 6.15v6.42h-4v-5.69c0-1.36-.03-3.11-1.9-3.11-1.91 0-2.2 1.49-2.2 3.01v5.79h-4V9.05Z" /></svg>;
+  }
+
+  if (kind === "website") {
+    return <svg {...common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="8.5" /><path d="M3.8 12h16.4M12 3.5c2.2 2.3 3.3 5.13 3.3 8.5S14.2 18.2 12 20.5C9.8 18.2 8.7 15.37 8.7 12S9.8 5.8 12 3.5Z" /></svg>;
+  }
+
+  if (kind === "pdf") {
+    return <svg {...common} viewBox="0 0 24 24" fill="none"><path d="M5 2.75h9.1L19 7.65v13.6H5V2.75Z" fill="currentColor" opacity=".16" /><path d="M14 2.75v5h5M7.8 16.8h1.35c1.2 0 1.93-.58 1.93-1.55 0-.96-.73-1.54-1.93-1.54H7.8v4.64m3.35 0v-4.64h1.2c1.55 0 2.45.86 2.45 2.32 0 1.47-.9 2.32-2.45 2.32h-1.2m5.2-4.64h-2.35v4.64" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" /><path d="M5 2.75h9.1L19 7.65v13.6H5V2.75Z" stroke="currentColor" strokeWidth="1.45" strokeLinejoin="round" /></svg>;
+  }
+
+  if (kind === "notes") {
+    return <svg {...common} viewBox="0 0 24 24" fill="none"><path d="M5 3.5h14v17H5z" fill="currentColor" opacity=".18" /><path d="M5 3.5h14v17H5zM8 8h8M8 11.5h8M8 15h5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+  }
+
+  if (kind === "video") {
+    return <svg {...common} viewBox="0 0 24 24" fill="none"><rect x="3" y="5.5" width="18" height="13" rx="3" fill="currentColor" opacity=".14" /><rect x="3" y="5.5" width="18" height="13" rx="3" stroke="currentColor" strokeWidth="1.5" /><path d="m10 9 5 3.05L10 15.1V9Z" fill="currentColor" /></svg>;
+  }
+
+  return <svg {...common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.55"><circle cx="12" cy="12" r="8.5" fill="currentColor" opacity=".12" /><path d="M8.8 14.2a4.8 4.8 0 0 1 6.4 0M6.5 16.7a8.2 8.2 0 0 1 11 0M12 8.2h.01" strokeLinecap="round" /><circle cx="12" cy="8.2" r=".8" fill="currentColor" stroke="none" /></svg>;
+}
+
+function UnderstandCard() {
   return (
-    <ShowcaseCard label="Brand Graph">
-      <CardShell surface="understand">
-        <div className="relative min-h-[13.5rem] overflow-hidden rounded-[1.1rem] border border-white/55 bg-white/18">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(140,203,255,0.34),transparent_58%)]" aria-hidden="true" />
-          <svg className="absolute inset-0 size-full" viewBox="0 0 520 250" fill="none" aria-hidden="true" preserveAspectRatio="none">
-            <path d="M82 54C160 54 180 104 232 124M82 124h150M82 194c78 0 98-50 150-70M438 54C360 54 340 104 288 124M438 124H288M438 194c-78 0-98-50-150-70" stroke="#55758c" strokeOpacity=".42" strokeWidth="1.15" />
-          </svg>
-          <div className="absolute left-3 top-8 flex items-center gap-2 text-[0.68rem] font-medium text-[#26394d] sm:left-5"><span className="size-1.5 rounded-full bg-[#4d9cf3]" />Content</div>
-          <div className="absolute left-3 top-1/2 flex -translate-y-1/2 items-center gap-2 text-[0.68rem] font-medium text-[#26394d] sm:left-5"><span className="size-1.5 rounded-full bg-[#4d9cf3]" />Experience</div>
-          <div className="absolute bottom-8 left-3 flex items-center gap-2 text-[0.68rem] font-medium text-[#26394d] sm:left-5"><span className="size-1.5 rounded-full bg-[#4d9cf3]" />Proof</div>
-          <div className="absolute right-3 top-8 flex flex-row-reverse items-center gap-2 text-[0.68rem] font-medium text-[#26394d] sm:right-5"><span className="size-1.5 rounded-full bg-[#4d9cf3]" />Audience</div>
-          <div className="absolute right-3 top-1/2 flex -translate-y-1/2 flex-row-reverse items-center gap-2 text-[0.68rem] font-medium text-[#26394d] sm:right-5"><span className="size-1.5 rounded-full bg-[#4d9cf3]" />Ideas</div>
-          <div className="absolute bottom-8 right-3 flex flex-row-reverse items-center gap-2 text-[0.68rem] font-medium text-[#26394d] sm:right-5"><span className="size-1.5 rounded-full bg-[#4d9cf3]" />Goals</div>
-          <div className="absolute left-1/2 top-1/2 flex size-[4.8rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-2xl border border-white/80 bg-white/70 shadow-[0_18px_30px_-20px_rgba(20,65,103,0.7)] backdrop-blur-md">
-            <Image src="/clonao-logo.png" alt="" width={28} height={28} className="size-7 object-contain" />
-            <span className="mt-1 text-[0.62rem] font-semibold tracking-[-0.02em] text-[#101826]">Clonao</span>
+    <ShowcaseCard label="Understand">
+      <CardShell surface="understand" title="Bring your real knowledge together.">
+      <div className="divide-y divide-[#6f8797]/20 border-y border-[#6f8797]/20">
+        {sourceGroups.map((group) => (
+          <div key={group[0].name} className="flex min-h-[3.1rem] items-center gap-3 py-2.5">
+            {group.map(({ name, kind, color }) => (
+              <div key={name} className="flex min-w-0 flex-1 items-center gap-2">
+                <SourceIcon kind={kind} color={color} />
+                <span className="truncate text-sm font-medium text-[#1d3044]">{name}</span>
+              </div>
+            ))}
           </div>
-        </div>
-        <div className="mt-4 text-center">
-          <h4 className="text-lg font-semibold tracking-[-0.04em] text-[#132238]">Brand Graph</h4>
-          <p className="mt-1 text-sm text-[#647384]">The complete context of who you are.</p>
-        </div>
+        ))}
+      </div>
       </CardShell>
     </ShowcaseCard>
   );
@@ -158,7 +194,7 @@ function RecommendCard() {
   );
 }
 
-const showcaseCards = [BrandGraphCard, DiagnoseCard, RecommendCard];
+const showcaseCards = [UnderstandCard, DiagnoseCard, RecommendCard];
 
 function MobileCardSequence() {
   const sequenceRef = useRef<HTMLDivElement>(null);
@@ -261,7 +297,7 @@ export function IntelligenceLoop() {
         </div>
 
         <div className="mx-auto mt-12 hidden max-w-7xl items-stretch gap-4 sm:mt-14 lg:grid lg:grid-cols-3 lg:gap-5">
-          <BrandGraphCard />
+          <UnderstandCard />
           <DiagnoseCard />
           <RecommendCard />
         </div>
