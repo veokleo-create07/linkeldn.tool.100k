@@ -1,11 +1,3 @@
-import { Check } from "lucide-react";
-
-const moves = [
-  "Share your client onboarding framework",
-  "Turn your latest case study into a proof post",
-  "Reduce AI tools content this week",
-];
-
 export function ProductCards() {
   return (
     <section aria-labelledby="product-cards-heading" className="bg-[#f8fbfd] pb-24 pt-4 sm:pb-28 sm:pt-8 lg:pb-36 lg:pt-12">
@@ -55,5 +47,5 @@ function StrategyCard() {
 }
 
 function NextMovesCard() {
-  return <CardFrame><CardHeading eyebrow="Next Best Moves" title="Know what to do next." description="Three focused actions, prioritized around your strategy and context." /><div className="mt-8 flex-1"><div className="divide-y divide-[#cad9e3] border-y border-[#cad9e3]">{moves.map((move, index) => <div key={move} className="grid grid-cols-[2.2rem_minmax(0,1fr)] gap-3 py-4"><span className="text-lg font-semibold tracking-[-0.04em] text-[#4d9cf3]">{String(index + 1).padStart(2, "0")}</span><div><p className="text-sm font-semibold leading-5 text-[#172638]">{move}</p><p className="mt-1 flex items-center gap-1.5 text-xs text-[#7893a6]"><Check className="size-3.5 text-[#3977a9]" strokeWidth={1.8} />Grounded in your Brand Graph</p></div></div>)}</div></div><p className="mt-6 text-xs leading-5 text-[#7893a6]">Prioritized recommendations, ready when you are.</p></CardFrame>;
+  return <CardFrame><CardHeading eyebrow="Next Best Moves" title="Know what to do next." description="Three focused actions, prioritized around your strategy and context." /><div className="mt-8 flex flex-1 items-center justify-center overflow-hidden rounded-[1.25rem] border border-white/70 bg-white/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.5)]"><img src="https://i.postimg.cc/MTfSRRJp/Chat-GPT-Image-Oct-1-2026-12-27-14-AM.png" alt="Clonao next best moves workspace with prioritized recommendations" className="h-full w-full object-contain" /></div><p className="mt-6 text-xs leading-5 text-[#7893a6]">Prioritized recommendations, ready when you are.</p></CardFrame>;
 }
