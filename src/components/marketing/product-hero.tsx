@@ -1,11 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Network, Route, Sparkles } from "lucide-react";
-
-const systemStages = [
-  { label: "Brand Graph", detail: "What you know", icon: Network },
-  { label: "Strategy", detail: "What matters next", icon: Route },
-  { label: "Next Best Moves", detail: "What to do now", icon: Sparkles },
-];
+import { ArrowRight } from "lucide-react";
 
 export function ProductHero() {
   return (
@@ -20,29 +14,7 @@ export function ProductHero() {
           <Link href="/sign-up" className="metallic-cta inline-flex h-11 items-center justify-center gap-1.5 rounded-md px-5 text-sm font-medium text-white">Start for free<ArrowRight aria-hidden="true" className="size-4" /></Link>
         </div>
 
-        <div className="hero-reveal hero-reveal-delay-3 mt-14 w-full max-w-[900px] sm:mt-16">
-          <ProductSystemFlow />
-        </div>
       </div>
     </section>
-  );
-}
-
-function ProductSystemFlow() {
-  return (
-    <div aria-label="Clonao product system flow" className="relative py-5 text-left sm:py-7">
-      <div className="absolute inset-x-0 top-1/2 h-px bg-[#101826]/30" aria-hidden="true" />
-      <div className="relative grid gap-8 sm:grid-cols-[1fr_3.5rem_1fr_3.5rem_1fr] sm:items-center sm:gap-0">
-        {systemStages.map(({ label, detail, icon: Icon }, index) => (
-          <div key={label} className="contents">
-            <div className="flex items-center gap-3 sm:block sm:text-center">
-              <span className="flex size-9 shrink-0 items-center justify-center rounded-full border border-[#101826]/30 bg-white/20 text-[#101826] backdrop-blur-sm sm:mx-auto"><Icon className="size-4" strokeWidth={1.6} aria-hidden="true" /></span>
-              <div className="sm:mt-3"><p className="text-sm font-semibold tracking-[-0.02em] text-[#101826]">{label}</p><p className="mt-1 text-xs text-[#26394d]/75">{detail}</p></div>
-            </div>
-            {index < systemStages.length - 1 ? <ArrowRight className="hidden size-4 justify-self-center text-[#101826]/60 sm:block" strokeWidth={1.5} aria-hidden="true" /> : null}
-          </div>
-        ))}
-      </div>
-    </div>
   );
 }
