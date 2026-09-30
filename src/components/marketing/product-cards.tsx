@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { ArrowRight, CalendarDays, Check, FileText, Lightbulb, MessageCircle, Target, UserRound, Users } from "lucide-react";
+import { ArrowRight, CalendarDays, Check, Target, Users } from "lucide-react";
 
 const strategyRows = [
   ["Primary goal", "Build authority", Target],
@@ -49,31 +48,12 @@ function BrandGraphCard() {
         <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#9dbfff]">Brand Graph</p>
         <h3 className="mt-4 max-w-[15rem] text-2xl font-bold leading-[1.04] tracking-[-0.055em] text-white">The complete context of who you are.</h3>
         <p className="mt-3 max-w-[18rem] text-sm leading-6 text-[#c1d0ed]">Clonao connects the knowledge behind your brand into one living system.</p>
-        <div className="relative mt-7 min-h-[14.5rem] flex-1 overflow-hidden rounded-[1.25rem] border border-[#7fa5ff]/35 bg-[#081a3b]/55 shadow-[inset_0_1px_0_rgba(255,255,255,0.16)]">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_52%,rgba(35,102,255,0.38),transparent_38%)]" aria-hidden="true" />
-          <svg className="absolute inset-0 size-full" viewBox="0 0 520 250" fill="none" aria-hidden="true" preserveAspectRatio="none">
-            <path d="M116 39C180 39 188 89 235 119M116 125c53 0 78 0 119 0M116 211c64 0 72-49 119-80M404 39c-64 0-72 50-119 80M404 125c-53 0-78 0-119 0M404 211c-64 0-72-49-119-80" stroke="#8cb4ff" strokeOpacity=".82" strokeWidth="1.05" strokeLinecap="round" />
-            <circle cx="260" cy="125" r="3.5" fill="#dce9ff" /><circle cx="198" cy="81" r="2.5" fill="#8cb4ff" /><circle cx="322" cy="81" r="2.5" fill="#8cb4ff" /><circle cx="198" cy="169" r="2.5" fill="#8cb4ff" /><circle cx="322" cy="169" r="2.5" fill="#8cb4ff" />
-          </svg>
-          <GraphNode label="Content" icon={FileText} className="left-3 top-4 sm:left-5" />
-          <GraphNode label="Experience" icon={UserRound} className="right-3 top-4 flex-row-reverse sm:right-5" />
-          <GraphNode label="Ideas" icon={Lightbulb} className="left-2 top-1/2 -translate-y-1/2 sm:left-4" />
-          <GraphNode label="Audience" icon={Users} className="right-2 top-1/2 -translate-y-1/2 flex-row-reverse sm:right-4" />
-          <GraphNode label="Conversations" icon={MessageCircle} className="bottom-4 left-3 sm:left-5" />
-          <GraphNode label="Goals" icon={Target} className="bottom-4 right-3 flex-row-reverse sm:right-5" />
-          <div className="absolute left-1/2 top-1/2 flex size-[4.6rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-[1.25rem] border border-[#d5e4ff]/75 bg-[radial-gradient(circle_at_32%_25%,#fef4e7,#3c78ff_48%,#102c83)] shadow-[0_0_34px_rgba(62,128,255,0.72),0_16px_25px_-18px_rgba(0,0,0,0.8)]">
-            <Image src="/clonao-logo.png" alt="Clonao" width={31} height={31} className="size-7 object-contain brightness-0 invert" />
-            <span className="mt-1 text-[0.62rem] font-semibold text-white">Clonao</span>
-          </div>
+        <div className="relative mt-7 flex flex-1 items-center justify-center overflow-hidden rounded-[1.25rem] border border-[#7fa5ff]/35 bg-[#081a3b]/55 shadow-[inset_0_1px_0_rgba(255,255,255,0.16)]">
+          <img src="https://i.postimg.cc/xqrBLF3j/Chat-GPT-Image-Oct-1-2026-12-18-26-AM.png" alt="Clonao Brand Graph connecting content, experience, audience, ideas, conversations, and goals" className="h-full w-full object-contain" />
         </div>
-        <p className="mt-4 text-center text-[0.68rem] text-[#9db1d2]">Content · Experience · Audience · Ideas · Goals · Proof</p>
       </div>
     </article>
   );
-}
-
-function GraphNode({ label, icon: Icon, className }: { label: string; icon: typeof FileText; className: string }) {
-  return <span className={`absolute flex items-center gap-2 rounded-full border border-[#8fb4ff]/45 bg-[#1c3972]/70 px-2.5 py-1.5 text-[0.63rem] font-medium text-white shadow-[0_8px_18px_-14px_rgba(74,132,255,0.9)] backdrop-blur-sm sm:px-3 sm:py-2 sm:text-[0.68rem] ${className}`}><Icon className="size-3.5 text-[#dbe7ff]" strokeWidth={1.6} aria-hidden="true" />{label}</span>;
 }
 
 function StrategyCard() {
