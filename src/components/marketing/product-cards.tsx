@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, CalendarDays, Check, Target, Users } from "lucide-react";
+import { ArrowRight, CalendarDays, Check, FileText, Lightbulb, MessageCircle, Target, UserRound, Users } from "lucide-react";
 
 const strategyRows = [
   ["Primary goal", "Build authority", Target],
@@ -42,36 +42,38 @@ function CardHeading({ eyebrow, title, description }: { eyebrow: string; title: 
 
 function BrandGraphCard() {
   return (
-    <article className="relative flex min-h-[30rem] flex-col overflow-hidden rounded-[1.75rem] border border-white/85 bg-[linear-gradient(145deg,#EEF4FA,#DCE9F5)] p-5 shadow-[0_28px_62px_-34px_rgba(20,65,103,0.56)] sm:p-6">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.58),transparent_52%,rgba(133,157,173,0.11))]" aria-hidden="true" />
+    <article className="relative flex min-h-[30rem] flex-col overflow-hidden rounded-[1.75rem] border border-[#86aefe]/35 bg-[#06142e] p-5 shadow-[0_30px_70px_-32px_rgba(13,55,127,0.8)] sm:p-6">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_8%_20%,rgba(255,151,76,0.7),transparent_26%),radial-gradient(circle_at_92%_82%,rgba(255,153,72,0.68),transparent_25%),radial-gradient(circle_at_50%_52%,rgba(28,91,255,0.52),transparent_42%),linear-gradient(140deg,#0a1b3d,#04102a_58%,#071b45)]" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-0 opacity-35 [background-image:radial-gradient(rgba(255,255,255,0.28)_0.6px,transparent_0.6px)] [background-size:5px_5px]" aria-hidden="true" />
       <div className="relative z-10 flex h-full flex-col">
-        <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#3977a9]">Brand Graph</p>
-        <h3 className="mt-4 max-w-[15rem] text-2xl font-bold leading-[1.04] tracking-[-0.055em] text-[#101826]">The complete context of who you are.</h3>
-        <p className="mt-3 max-w-[18rem] text-sm leading-6 text-[#647384]">Clonao connects the knowledge behind your brand into one living system.</p>
-        <div className="relative mt-7 min-h-[14.5rem] flex-1 overflow-hidden rounded-[1.25rem] border border-white/75 bg-white/25 shadow-[inset_0_1px_0_rgba(255,255,255,0.5)]">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(140,203,255,0.3),transparent_58%)]" aria-hidden="true" />
+        <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#9dbfff]">Brand Graph</p>
+        <h3 className="mt-4 max-w-[15rem] text-2xl font-bold leading-[1.04] tracking-[-0.055em] text-white">The complete context of who you are.</h3>
+        <p className="mt-3 max-w-[18rem] text-sm leading-6 text-[#c1d0ed]">Clonao connects the knowledge behind your brand into one living system.</p>
+        <div className="relative mt-7 min-h-[14.5rem] flex-1 overflow-hidden rounded-[1.25rem] border border-[#7fa5ff]/35 bg-[#081a3b]/55 shadow-[inset_0_1px_0_rgba(255,255,255,0.16)]">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_52%,rgba(35,102,255,0.38),transparent_38%)]" aria-hidden="true" />
           <svg className="absolute inset-0 size-full" viewBox="0 0 520 250" fill="none" aria-hidden="true" preserveAspectRatio="none">
-            <path d="M76 46C150 46 176 96 226 124M76 124h150M76 202c74 0 100-50 150-78M444 46c-74 0-100 50-150 78M444 124H294M444 202c-74 0-100-50-150-78" stroke="#4f7088" strokeOpacity=".5" strokeWidth="1.1" strokeLinecap="round" />
+            <path d="M116 39C180 39 188 89 235 119M116 125c53 0 78 0 119 0M116 211c64 0 72-49 119-80M404 39c-64 0-72 50-119 80M404 125c-53 0-78 0-119 0M404 211c-64 0-72-49-119-80" stroke="#8cb4ff" strokeOpacity=".82" strokeWidth="1.05" strokeLinecap="round" />
+            <circle cx="260" cy="125" r="3.5" fill="#dce9ff" /><circle cx="198" cy="81" r="2.5" fill="#8cb4ff" /><circle cx="322" cy="81" r="2.5" fill="#8cb4ff" /><circle cx="198" cy="169" r="2.5" fill="#8cb4ff" /><circle cx="322" cy="169" r="2.5" fill="#8cb4ff" />
           </svg>
-          <Node label="Content" className="left-3 top-6 sm:left-5" />
-          <Node label="Experience" className="left-3 top-1/2 -translate-y-1/2 sm:left-5" />
-          <Node label="Proof" className="bottom-6 left-3 sm:left-5" />
-          <Node label="Audience" className="right-3 top-6 flex-row-reverse sm:right-5" />
-          <Node label="Ideas" className="right-3 top-1/2 -translate-y-1/2 flex-row-reverse sm:right-5" />
-          <Node label="Goals" className="bottom-6 right-3 flex-row-reverse sm:right-5" />
-          <div className="absolute left-1/2 top-1/2 flex size-[4.35rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-[1rem] border border-white/90 bg-[#fafdff]/90 shadow-[0_18px_30px_-20px_rgba(20,65,103,0.7)]">
-            <Image src="/clonao-logo.png" alt="Clonao" width={25} height={25} className="size-6 object-contain" />
-            <span className="mt-1 text-[0.62rem] font-semibold text-[#101826]">Clonao</span>
+          <GraphNode label="Content" icon={FileText} className="left-3 top-4 sm:left-5" />
+          <GraphNode label="Experience" icon={UserRound} className="right-3 top-4 flex-row-reverse sm:right-5" />
+          <GraphNode label="Ideas" icon={Lightbulb} className="left-2 top-1/2 -translate-y-1/2 sm:left-4" />
+          <GraphNode label="Audience" icon={Users} className="right-2 top-1/2 -translate-y-1/2 flex-row-reverse sm:right-4" />
+          <GraphNode label="Conversations" icon={MessageCircle} className="bottom-4 left-3 sm:left-5" />
+          <GraphNode label="Goals" icon={Target} className="bottom-4 right-3 flex-row-reverse sm:right-5" />
+          <div className="absolute left-1/2 top-1/2 flex size-[4.6rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-[1.25rem] border border-[#d5e4ff]/75 bg-[radial-gradient(circle_at_32%_25%,#fef4e7,#3c78ff_48%,#102c83)] shadow-[0_0_34px_rgba(62,128,255,0.72),0_16px_25px_-18px_rgba(0,0,0,0.8)]">
+            <Image src="/clonao-logo.png" alt="Clonao" width={31} height={31} className="size-7 object-contain brightness-0 invert" />
+            <span className="mt-1 text-[0.62rem] font-semibold text-white">Clonao</span>
           </div>
         </div>
-        <p className="mt-4 text-center text-[0.68rem] text-[#7893a6]">Content · Experience · Audience · Ideas · Goals · Proof</p>
+        <p className="mt-4 text-center text-[0.68rem] text-[#9db1d2]">Content · Experience · Audience · Ideas · Goals · Proof</p>
       </div>
     </article>
   );
 }
 
-function Node({ label, className }: { label: string; className: string }) {
-  return <span className={`absolute flex items-center gap-2 text-[0.68rem] font-medium text-[#26394d] ${className}`}><span className="size-1.5 rounded-full bg-[#4d9cf3]" />{label}</span>;
+function GraphNode({ label, icon: Icon, className }: { label: string; icon: typeof FileText; className: string }) {
+  return <span className={`absolute flex items-center gap-2 rounded-full border border-[#8fb4ff]/45 bg-[#1c3972]/70 px-2.5 py-1.5 text-[0.63rem] font-medium text-white shadow-[0_8px_18px_-14px_rgba(74,132,255,0.9)] backdrop-blur-sm sm:px-3 sm:py-2 sm:text-[0.68rem] ${className}`}><Icon className="size-3.5 text-[#dbe7ff]" strokeWidth={1.6} aria-hidden="true" />{label}</span>;
 }
 
 function StrategyCard() {
