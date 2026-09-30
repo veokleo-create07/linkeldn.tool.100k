@@ -42,7 +42,7 @@ export function WaitlistCta({ className = "" }: { className?: string }) {
             role="dialog"
             aria-modal="true"
             aria-labelledby="waitlist-title"
-            className="relative w-full max-w-md rounded-2xl border border-white/80 bg-[#f8fbfd] p-6 shadow-[0_28px_80px_-28px_rgba(16,24,38,0.5)] sm:p-8"
+            className="relative max-h-[calc(100svh-2rem)] w-full max-w-md overflow-y-auto rounded-2xl border border-white/80 bg-[#f8fbfd] p-5 shadow-[0_28px_80px_-28px_rgba(16,24,38,0.5)] sm:p-8"
           >
             <button
               type="button"
@@ -65,7 +65,7 @@ export function WaitlistCta({ className = "" }: { className?: string }) {
                   setSubmitted(true);
                 }}
               >
-                <h2 id="waitlist-title" className="text-xl font-semibold tracking-[-0.04em] text-[#101826]">Join the Clonao waitlist</h2>
+                <h2 id="waitlist-title" className="pr-8 text-xl font-semibold tracking-[-0.04em] text-[#101826]">Join the Clonao waitlist</h2>
                 <label htmlFor="waitlist-email" className="mt-6 block text-sm font-medium text-[#26394d]">Email address</label>
                 <input
                   ref={inputRef}
