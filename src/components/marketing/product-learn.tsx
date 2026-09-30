@@ -16,8 +16,9 @@ const strategyChanges = [
 export function ProductLearn() {
   return (
     <section aria-labelledby="product-learn-heading" className="bg-[#f8fbfd] py-24 sm:py-28 lg:py-36">
-      <div className="marketing-container grid items-center gap-12 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-20">
-        <div className="max-w-xl">
+      <div className="marketing-container grid items-center gap-12 lg:grid-cols-[minmax(0,1.22fr)_minmax(0,0.78fr)] lg:gap-20">
+        <LearnPreview />
+        <div className="max-w-xl lg:order-2">
           <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#3977a9]">Learn</p>
           <h2 id="product-learn-heading" className="text-balance mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.06em] text-[#101826] sm:text-5xl lg:text-[3.8rem]">
             Every post makes the next decision smarter.
@@ -27,7 +28,6 @@ export function ProductLearn() {
           </p>
         </div>
 
-        <LearnPreview />
       </div>
     </section>
   );
