@@ -1,3 +1,5 @@
+import { ProductHero } from "@/components/marketing/product-hero";
+
 export default function ProductPage() {
-  return <h1 className="sr-only">Product</h1>;
+  return <ProductHero />;
 }
