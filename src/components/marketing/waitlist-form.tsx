@@ -1,59 +1,68 @@
 "use client";
 
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useState } from "react";
 
 export function WaitlistForm() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
-  const [started, setStarted] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (started) inputRef.current?.focus();
-  }, [started]);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
     const email = new FormData(form).get("email");
 
-    if (typeof email !== "string" || !email.includes("@")) {
+    if (typeof email !== "string" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setError("Please enter a valid email address.");
       return;
     }
 
     setError("");
-    setSubmitted(true);
-    form.reset();
+    setSubmitting(true);
+    window.setTimeout(() => {
+      setSubmitting(false);
+      setSubmitted(true);
+      form.reset();
+    }, 650);
   };
 
   return (
-    <div className="w-full max-w-[560px]">
-      {!started && !submitted ? (
-        <button type="button" onClick={() => setStarted(true)} className="metallic-cta inline-flex h-11 items-center justify-center rounded-md px-5 text-sm font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent">
-          Get Early Access
-        </button>
-      ) : submitted ? null : (
-        <form onSubmit={handleSubmit} className="flex w-full flex-col gap-2.5 sm:flex-row sm:items-center">
+    <div className="waitlist-enter relative w-full max-w-[600px] rounded-[1.5rem] border border-white/25 bg-[#071d38]/78 p-5 text-left shadow-[0_26px_70px_-28px_rgba(0,27,68,0.85)] backdrop-blur-xl sm:p-6">
+      <div className="pointer-events-none absolute inset-x-0 -mt-5 h-px overflow-hidden sm:-mt-6" aria-hidden="true"><span className="waitlist-sheen block h-full w-1/3 bg-white/45 blur-sm" /></div>
+      {submitted ? (
+        <div className="py-2 text-center sm:py-1">
+          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[#8ccbff]">Early access</p>
+          <p className="mt-2 text-lg font-semibold tracking-[-0.035em] text-white">You’re on the list.</p>
+          <p className="mt-1 text-sm leading-6 text-white/65">We’ll let you know when Clonao is ready.</p>
+        </div>
+      ) : (
+        <>
+          <div className="text-center">
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[#8ccbff]">Early access</p>
+            <h2 className="mt-2 text-xl font-semibold tracking-[-0.04em] text-white sm:text-2xl">Get early access</h2>
+            <p className="mt-1 text-sm leading-6 text-white/65">Be the first to try Clonao when we launch.</p>
+          </div>
+          <form onSubmit={handleSubmit} className="mt-5 flex w-full flex-col gap-2.5 sm:flex-row sm:items-center">
           <label htmlFor="hero-waitlist-email" className="sr-only">Email address</label>
           <input
-            ref={inputRef}
             id="hero-waitlist-email"
             name="email"
             type="email"
             required
             autoComplete="email"
             placeholder="Email address"
-            className="h-11 min-w-0 flex-1 rounded-md border border-white/55 bg-white/90 px-4 text-sm text-[#101826] outline-none transition-shadow placeholder:text-[#7893a6] focus:border-white focus:ring-2 focus:ring-white/55"
+            disabled={submitting}
+            className="h-11 min-w-0 flex-1 rounded-md border border-white/20 bg-white/[0.1] px-4 text-sm text-white outline-none transition-colors placeholder:text-white/45 focus:border-[#8ccbff] focus:bg-white/[0.14] focus:ring-2 focus:ring-[#8ccbff]/30 disabled:opacity-60"
           />
-          <button type="submit" className="metallic-cta inline-flex h-11 shrink-0 items-center justify-center rounded-md px-5 text-sm font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent">
-            Join the waitlist
+          <button type="submit" disabled={submitting} className="metallic-cta inline-flex h-11 shrink-0 items-center justify-center rounded-md px-5 text-sm font-medium text-white transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#071d38] disabled:cursor-wait disabled:opacity-70">
+            {submitting ? "Joining…" : "Join the waitlist"}
           </button>
-        </form>
+          </form>
+          <p aria-live="polite" className={`mt-2 min-h-5 text-center text-xs leading-5 ${error ? "text-[#ffd0c7]" : "text-white/45"}`}>
+            {error || "No spam. Just early access updates."}
+          </p>
+        </>
       )}
-      <p aria-live="polite" className="mt-2 min-h-5 text-center text-xs leading-5 text-white/85 sm:text-left">
-        {submitted ? "You’re in. We’ll send you early access when Clonao is ready." : error}
-      </p>
     </div>
   );
 }
