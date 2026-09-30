@@ -31,14 +31,12 @@ export function WaitlistForm() {
       <div className="pointer-events-none absolute inset-x-0 -mt-5 h-px overflow-hidden sm:-mt-6" aria-hidden="true"><span className="waitlist-sheen block h-full w-1/3 bg-white/45 blur-sm" /></div>
       {submitted ? (
         <div className="py-2 text-center sm:py-1">
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[#8ccbff]">Early access</p>
           <p className="mt-2 text-lg font-semibold tracking-[-0.035em] text-white">You’re on the list.</p>
           <p className="mt-1 text-sm leading-6 text-white/65">We’ll let you know when Clonao is ready.</p>
         </div>
       ) : (
         <>
           <div className="text-center">
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[#8ccbff]">Early access</p>
             <h2 className="mt-2 text-xl font-semibold tracking-[-0.04em] text-white sm:text-2xl">Get early access</h2>
             <p className="mt-1 text-sm leading-6 text-white/65">Be the first to try Clonao when we launch.</p>
           </div>
@@ -59,7 +57,7 @@ export function WaitlistForm() {
           </button>
           </form>
           <p aria-live="polite" className={`mt-2 min-h-5 text-center text-xs leading-5 ${error ? "text-[#ffd0c7]" : "text-white/45"}`}>
-            {error || "No spam. Just early access updates."}
+            {error}
           </p>
         </>
       )}
