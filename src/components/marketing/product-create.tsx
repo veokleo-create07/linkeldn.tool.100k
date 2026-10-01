@@ -24,23 +24,25 @@ export function ProductCreate() {
 
 function DesktopCreateSystem() {
   return (
-    <div className="relative mt-14 hidden h-[38rem] lg:mt-16 lg:block" aria-label="Sources flow into the Brand Graph, next best move, and draft">
+    <div className="relative mt-14 hidden min-h-[34rem] overflow-hidden lg:mt-16 lg:block" aria-label="Sources flow into the Brand Graph, next best move, and draft">
       <DesktopConnectors />
-      <CreateSourcesCard className="absolute left-0 top-20 z-10" />
-      <BrandGraph className="absolute left-[20.5rem] top-12 z-10 w-[25rem]" />
-      <NextMoveCard className="absolute right-[7.5rem] top-24 z-20 lg:w-[17rem]" />
-      <DraftCard className="absolute bottom-2 right-0 z-20 w-[25rem]" />
+      <div className="relative z-10 grid min-h-[34rem] grid-cols-[minmax(0,0.95fr)_minmax(0,1.55fr)_minmax(0,1.05fr)_minmax(0,1.25fr)] items-center gap-[clamp(0.75rem,1.8vw,2rem)]">
+        <CreateSourcesCard className="max-w-none lg:w-full" />
+        <BrandGraph className="w-full justify-self-center" />
+        <NextMoveCard className="w-full lg:w-full" />
+        <DraftCard className="w-full" />
+      </div>
     </div>
   );
 }
 
 function DesktopConnectors() {
   return (
-    <svg className="pointer-events-none absolute inset-0 z-0 h-full w-full" viewBox="0 0 1200 608" fill="none" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M280 156C342 156 350 248 414 304M280 208C344 208 360 265 414 304M280 260C350 260 370 286 414 304M280 312C350 312 370 312 414 304M280 364C348 364 360 330 414 304M280 416C340 416 350 350 414 304" stroke="#86c3ed" strokeWidth="1.35" strokeLinecap="round" />
-      <path d="M718 304C758 304 764 220 808 220" stroke="#8cc9f4" strokeWidth="1.35" strokeLinecap="round" />
-      <path d="M1080 220C1145 220 1120 444 800 444" stroke="#4d9cf3" strokeWidth="1.35" strokeLinecap="round" />
-      <circle cx="280" cy="156" r="3" fill="#4d9cf3" /><circle cx="280" cy="208" r="3" fill="#4d9cf3" /><circle cx="280" cy="260" r="3" fill="#4d9cf3" /><circle cx="280" cy="312" r="3" fill="#4d9cf3" /><circle cx="280" cy="364" r="3" fill="#4d9cf3" /><circle cx="280" cy="416" r="3" fill="#4d9cf3" /><circle cx="414" cy="304" r="3" fill="#4d9cf3" /><circle cx="1080" cy="220" r="3" fill="#4d9cf3" /><circle cx="800" cy="444" r="3" fill="#4d9cf3" />
+    <svg className="pointer-events-none absolute inset-0 z-0 h-full w-full" viewBox="0 0 1000 600" fill="none" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M188 173C222 173 250 248 330 300M188 237C226 237 260 270 330 300M188 301C236 301 275 296 330 300M188 365C236 365 275 320 330 300M188 429C226 429 260 346 330 300M188 493C222 493 250 370 330 300" stroke="#86c3ed" strokeWidth="1.15" strokeLinecap="round" />
+      <path d="M511 300C518 300 522 300 528 300" stroke="#8cc9f4" strokeWidth="1.15" strokeLinecap="round" />
+      <path d="M702 300C710 300 714 300 719 300" stroke="#4d9cf3" strokeWidth="1.15" strokeLinecap="round" />
+      <circle cx="188" cy="173" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="237" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="301" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="365" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="429" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="493" r="2.3" fill="#4d9cf3" /><circle cx="330" cy="300" r="2.3" fill="#4d9cf3" /><circle cx="511" cy="300" r="2.3" fill="#4d9cf3" /><circle cx="528" cy="300" r="2.3" fill="#4d9cf3" /><circle cx="702" cy="300" r="2.3" fill="#4d9cf3" /><circle cx="719" cy="300" r="2.3" fill="#4d9cf3" />
     </svg>
   );
 }
@@ -48,10 +50,10 @@ function DesktopConnectors() {
 function BrandGraph({ className = "" }: { className?: string }) {
   return (
     <section className={className} aria-labelledby="create-brand-graph-heading">
-      <div className="relative h-[23rem] overflow-visible">
+      <div className="relative aspect-[1.08] w-full overflow-hidden">
         <div className="pointer-events-none absolute inset-5 rounded-full bg-[radial-gradient(circle_at_50%_48%,rgba(140,203,255,0.34),transparent_42%)] blur-2xl" aria-hidden="true" />
         <GraphPaths />
-        <div className="absolute left-1/2 top-1/2 flex size-40 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[48%_52%_58%_42%/42%_50%_50%_58%] border border-white/90 bg-[radial-gradient(circle_at_34%_28%,rgba(255,255,255,0.96),rgba(217,235,249,0.8)_52%,rgba(156,204,236,0.58))] shadow-[0_22px_42px_-22px_rgba(34,112,188,0.55)]">
+        <div className="absolute left-1/2 top-1/2 flex size-[clamp(7rem,35%,10rem)] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[48%_52%_58%_42%/42%_50%_50%_58%] border border-white/90 bg-[radial-gradient(circle_at_34%_28%,rgba(255,255,255,0.96),rgba(217,235,249,0.8)_52%,rgba(156,204,236,0.58))] shadow-[0_22px_42px_-22px_rgba(34,112,188,0.55)]">
           <div className="flex size-20 flex-col items-center justify-center rounded-2xl border border-white/85 bg-white/80 shadow-[0_10px_22px_-16px_rgba(20,65,103,0.7)]"><img src="/clonao-logo.png" alt="" className="size-8 object-contain" /><span className="mt-1 text-[0.7rem] font-semibold tracking-[-0.03em] text-[#101826]">Clonao</span></div>
         </div>
         {contextLabels.map((label, index) => <span key={label} className={"absolute inline-flex items-center rounded-full border border-white/90 bg-white/75 px-3 py-1.5 text-[0.66rem] font-medium text-[#314d63] shadow-[0_8px_18px_-14px_rgba(20,65,103,0.58)] " + graphLabelPosition(index)}>{label}</span>)}
