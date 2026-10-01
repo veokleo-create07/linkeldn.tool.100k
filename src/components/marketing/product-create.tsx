@@ -37,7 +37,7 @@ function DesktopCreateSystem() {
 function DesktopConnectors() {
   return (
     <svg className="pointer-events-none absolute inset-0 z-0 h-full w-full" viewBox="0 0 1200 608" fill="none" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M280 156C342 156 346 242 414 270M280 208C344 208 358 260 414 284M280 260C350 260 364 279 414 297M280 312C350 312 364 303 414 309M280 364C348 364 360 330 414 322M280 416C340 416 350 354 414 335" stroke="#86c3ed" strokeWidth="1.35" strokeLinecap="round" />
+      <path d="M280 156C342 156 350 248 414 304M280 208C344 208 360 265 414 304M280 260C350 260 370 286 414 304M280 312C350 312 370 312 414 304M280 364C348 364 360 330 414 304M280 416C340 416 350 350 414 304" stroke="#86c3ed" strokeWidth="1.35" strokeLinecap="round" />
       <path d="M718 304C762 304 764 220 832 220M1032 220C1090 220 1039 444 930 444" stroke="#4d9cf3" strokeWidth="1.5" strokeLinecap="round" />
       <circle cx="280" cy="156" r="3" fill="#4d9cf3" /><circle cx="280" cy="208" r="3" fill="#4d9cf3" /><circle cx="280" cy="260" r="3" fill="#4d9cf3" /><circle cx="280" cy="312" r="3" fill="#4d9cf3" /><circle cx="280" cy="364" r="3" fill="#4d9cf3" /><circle cx="280" cy="416" r="3" fill="#4d9cf3" /><circle cx="414" cy="304" r="3" fill="#4d9cf3" /><circle cx="718" cy="304" r="3" fill="#4d9cf3" /><circle cx="832" cy="220" r="3" fill="#4d9cf3" /><circle cx="1032" cy="220" r="3" fill="#4d9cf3" /><circle cx="930" cy="444" r="3" fill="#4d9cf3" />
     </svg>
@@ -47,13 +47,13 @@ function DesktopConnectors() {
 function BrandGraph({ className = "" }: { className?: string }) {
   return (
     <section className={className} aria-labelledby="create-brand-graph-heading">
-      <div className="relative h-[23rem] overflow-hidden rounded-[1.7rem] border border-[#d5e4ef] bg-[radial-gradient(circle_at_50%_48%,rgba(140,203,255,0.52),transparent_34%),linear-gradient(145deg,#f4f8fc,#dcebf7)] shadow-[0_30px_62px_-42px_rgba(20,65,103,0.65)]">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_13%_16%,rgba(255,255,255,0.9),transparent_26%),radial-gradient(circle_at_86%_84%,rgba(95,173,253,0.23),transparent_38%)]" aria-hidden="true" />
+      <div className="relative h-[23rem] overflow-visible">
+        <div className="pointer-events-none absolute inset-5 rounded-full bg-[radial-gradient(circle_at_50%_48%,rgba(140,203,255,0.34),transparent_42%)] blur-2xl" aria-hidden="true" />
         <GraphPaths />
-        <div className="absolute left-1/2 top-1/2 flex size-36 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[42%_58%_55%_45%/52%_42%_58%_48%] border border-white/90 bg-[radial-gradient(circle_at_34%_28%,rgba(255,255,255,0.98),rgba(217,235,249,0.84)_52%,rgba(156,204,236,0.68))] shadow-[0_22px_42px_-22px_rgba(34,112,188,0.55)]">
+        <div className="absolute left-1/2 top-1/2 flex size-40 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[48%_52%_58%_42%/42%_50%_50%_58%] border border-white/90 bg-[radial-gradient(circle_at_34%_28%,rgba(255,255,255,0.96),rgba(217,235,249,0.8)_52%,rgba(156,204,236,0.58))] shadow-[0_22px_42px_-22px_rgba(34,112,188,0.55)]">
           <div className="flex size-20 flex-col items-center justify-center rounded-2xl border border-white/85 bg-white/80 shadow-[0_10px_22px_-16px_rgba(20,65,103,0.7)]"><img src="/clonao-logo.png" alt="" className="size-8 object-contain" /><span className="mt-1 text-[0.7rem] font-semibold tracking-[-0.03em] text-[#101826]">Clonao</span></div>
         </div>
-        {contextLabels.map((label, index) => <span key={label} className={"absolute " + graphLabelPosition(index)}><span className="mr-1.5 inline-block size-1.5 rounded-full bg-[#4d9cf3] align-middle shadow-[0_0_10px_rgba(77,156,243,0.75)]" aria-hidden="true" />{label}</span>)}
+        {contextLabels.map((label, index) => <span key={label} className={"absolute inline-flex items-center rounded-full border border-white/90 bg-white/75 px-3 py-1.5 text-[0.66rem] font-medium text-[#314d63] shadow-[0_8px_18px_-14px_rgba(20,65,103,0.58)] " + graphLabelPosition(index)}>{label}</span>)}
       </div>
       <h3 id="create-brand-graph-heading" className="mt-4 text-center text-xl font-semibold tracking-[-0.04em] text-[#101826]">Brand Graph</h3><p className="mt-1 text-center text-sm text-[#7893a6]">The context behind the recommendation.</p>
     </section>
@@ -61,7 +61,7 @@ function BrandGraph({ className = "" }: { className?: string }) {
 }
 
 function GraphPaths() {
-  return <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 400 368" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M67 58C126 74 130 122 180 156M321 74C270 84 268 123 222 157M48 183C108 183 122 180 166 181M352 188C294 186 278 184 236 183M96 303C137 277 143 238 176 212M304 298C266 272 260 239 225 211M200 334C200 289 200 252 200 220" stroke="#8fc8ef" strokeWidth="1.2" /><circle cx="180" cy="156" r="2.4" fill="#5fadfd" /><circle cx="222" cy="157" r="2.4" fill="#5fadfd" /><circle cx="166" cy="181" r="2.4" fill="#5fadfd" /><circle cx="236" cy="183" r="2.4" fill="#5fadfd" /><circle cx="176" cy="212" r="2.4" fill="#5fadfd" /><circle cx="225" cy="211" r="2.4" fill="#5fadfd" /></svg>;
+  return <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 400 368" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M0 256C42 256 56 222 105 208M0 256C42 256 58 244 105 224M105 208C142 172 151 134 184 110M105 224C145 205 164 178 184 152M105 256C145 256 160 184 184 184M400 82C352 82 334 116 290 132M400 145C351 145 334 150 290 160M400 212C350 212 334 196 290 188M400 286C350 286 328 237 290 210M200 368C200 310 200 274 200 252" stroke="#8fc8ef" strokeWidth="1.2" strokeLinecap="round" /><circle cx="0" cy="256" r="3" fill="#5fadfd" /><circle cx="105" cy="224" r="2.4" fill="#5fadfd" /><circle cx="184" cy="110" r="2.4" fill="#5fadfd" /><circle cx="184" cy="152" r="2.4" fill="#5fadfd" /><circle cx="184" cy="184" r="2.4" fill="#5fadfd" /><circle cx="290" cy="132" r="2.4" fill="#5fadfd" /><circle cx="290" cy="160" r="2.4" fill="#5fadfd" /><circle cx="290" cy="188" r="2.4" fill="#5fadfd" /><circle cx="290" cy="210" r="2.4" fill="#5fadfd" /></svg>;
 }
 
 function NextMoveCard({ className = "" }: { className?: string }) {
