@@ -38,8 +38,7 @@ function DesktopConnectors() {
   return (
     <svg className="pointer-events-none absolute inset-0 z-0 h-full w-full" viewBox="0 0 1200 608" fill="none" preserveAspectRatio="none" aria-hidden="true">
       <path d="M280 156C342 156 350 248 414 304M280 208C344 208 360 265 414 304M280 260C350 260 370 286 414 304M280 312C350 312 370 312 414 304M280 364C348 364 360 330 414 304M280 416C340 416 350 350 414 304" stroke="#86c3ed" strokeWidth="1.35" strokeLinecap="round" />
-      <path d="M718 304C762 304 764 220 832 220M1032 220C1090 220 1039 444 930 444" stroke="#4d9cf3" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="280" cy="156" r="3" fill="#4d9cf3" /><circle cx="280" cy="208" r="3" fill="#4d9cf3" /><circle cx="280" cy="260" r="3" fill="#4d9cf3" /><circle cx="280" cy="312" r="3" fill="#4d9cf3" /><circle cx="280" cy="364" r="3" fill="#4d9cf3" /><circle cx="280" cy="416" r="3" fill="#4d9cf3" /><circle cx="414" cy="304" r="3" fill="#4d9cf3" /><circle cx="718" cy="304" r="3" fill="#4d9cf3" /><circle cx="832" cy="220" r="3" fill="#4d9cf3" /><circle cx="1032" cy="220" r="3" fill="#4d9cf3" /><circle cx="930" cy="444" r="3" fill="#4d9cf3" />
+      <circle cx="280" cy="156" r="3" fill="#4d9cf3" /><circle cx="280" cy="208" r="3" fill="#4d9cf3" /><circle cx="280" cy="260" r="3" fill="#4d9cf3" /><circle cx="280" cy="312" r="3" fill="#4d9cf3" /><circle cx="280" cy="364" r="3" fill="#4d9cf3" /><circle cx="280" cy="416" r="3" fill="#4d9cf3" /><circle cx="414" cy="304" r="3" fill="#4d9cf3" />
     </svg>
   );
 }
