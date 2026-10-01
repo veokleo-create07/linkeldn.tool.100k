@@ -29,7 +29,7 @@ function isRateLimited(ip: string) {
 
 function getServerConfig() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.SUPABASE_SECRET_KEY;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.SUPABASE_SECRET_KEY ?? process.env.NEXT_SERVICE_ROLE_KEY;
   const resendKey = process.env.RESEND_API_KEY;
 
   if (!url || !key || !resendKey) {
