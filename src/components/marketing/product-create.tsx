@@ -28,7 +28,7 @@ function DesktopCreateSystem() {
       <DesktopConnectors />
       <CreateSourcesCard className="absolute left-0 top-20 z-10" />
       <BrandGraph className="absolute left-[20.5rem] top-12 z-10 w-[25rem]" />
-      <NextMoveCard className="absolute right-[7.5rem] top-24 z-20 w-[20rem]" />
+      <NextMoveCard className="absolute right-[7.5rem] top-24 z-20 lg:w-[17rem]" />
       <DraftCard className="absolute bottom-2 right-0 z-20 w-[25rem]" />
     </div>
   );
@@ -38,6 +38,7 @@ function DesktopConnectors() {
   return (
     <svg className="pointer-events-none absolute inset-0 z-0 h-full w-full" viewBox="0 0 1200 608" fill="none" preserveAspectRatio="none" aria-hidden="true">
       <path d="M280 156C342 156 350 248 414 304M280 208C344 208 360 265 414 304M280 260C350 260 370 286 414 304M280 312C350 312 370 312 414 304M280 364C348 364 360 330 414 304M280 416C340 416 350 350 414 304" stroke="#86c3ed" strokeWidth="1.35" strokeLinecap="round" />
+      <path d="M718 304C758 304 764 220 808 220" stroke="#8cc9f4" strokeWidth="1.35" strokeLinecap="round" />
       <circle cx="280" cy="156" r="3" fill="#4d9cf3" /><circle cx="280" cy="208" r="3" fill="#4d9cf3" /><circle cx="280" cy="260" r="3" fill="#4d9cf3" /><circle cx="280" cy="312" r="3" fill="#4d9cf3" /><circle cx="280" cy="364" r="3" fill="#4d9cf3" /><circle cx="280" cy="416" r="3" fill="#4d9cf3" /><circle cx="414" cy="304" r="3" fill="#4d9cf3" />
     </svg>
   );
@@ -65,10 +66,21 @@ function GraphPaths() {
 
 function NextMoveCard({ className = "" }: { className?: string }) {
   return (
-    <section className={"rounded-[1.35rem] border border-[#dce7ee] bg-white p-5 shadow-[0_28px_52px_-30px_rgba(20,65,103,0.55)] " + className} aria-labelledby="create-next-move-heading">
-      <div className="flex items-start justify-between gap-4"><div><p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#3977a9]">Recommendation</p><h3 id="create-next-move-heading" className="mt-2 text-lg font-semibold tracking-[-0.04em] text-[#101826]">Next Best Move</h3></div><span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#176fe8] text-white shadow-[0_8px_18px_-10px_rgba(23,111,232,0.9)]"><ArrowUpRight className="size-4" strokeWidth={1.8} aria-hidden="true" /></span></div>
-      <div className="mt-5 border-y border-[#dbe6ed] py-4"><p className="text-sm font-semibold leading-5 text-[#172638]">Share your client onboarding framework</p><p className="mt-2 text-xs leading-5 text-[#647384]">This builds authority, shows your process, and speaks directly to your target audience.</p></div>
-      <div className="divide-y divide-[#e1e9ef] text-xs text-[#65768b]"><p className="py-3">Turn a case study into a before/after post</p><p className="py-3">Share your take on a current industry trend</p></div>
+    <section className={"rounded-[1.35rem] border border-[#dce7ee] bg-white p-5 shadow-[0_28px_52px_-30px_rgba(20,65,103,0.55)] lg:w-[17rem] " + className} aria-labelledby="create-next-move-heading">
+      <div className="flex items-center justify-between gap-4">
+        <h3 id="create-next-move-heading" className="text-lg font-semibold tracking-[-0.04em] text-[#101826]">✦ Next Best Move</h3>
+      </div>
+      <div className="mt-5 rounded-xl border border-[#4d9cf3]/55 px-4 py-4">
+        <div className="flex items-start justify-between gap-3">
+          <p className="text-sm font-semibold leading-5 text-[#172638]">Share your client onboarding framework</p>
+          <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#176fe8] text-white shadow-[0_8px_18px_-10px_rgba(23,111,232,0.9)]"><ArrowUpRight className="size-4" strokeWidth={1.8} aria-hidden="true" /></span>
+        </div>
+        <p className="mt-2 text-xs leading-5 text-[#647384]">This builds authority, shows your process, and speaks directly to your target audience.</p>
+      </div>
+      <div className="mt-3 divide-y divide-[#e1e9ef] border-y border-[#e1e9ef] text-xs text-[#65768b]">
+        <p className="py-3">Turn a case study into a before/after post</p>
+        <p className="py-3">Share your take on a current industry trend</p>
+      </div>
     </section>
   );
 }
