@@ -1,3 +1,5 @@
+import { HowItWorksHero } from "@/components/marketing/how-it-works-hero";
+
 export default function HowItWorksPage() {
-  return <h1 className="sr-only">How it works</h1>;
+  return <HowItWorksHero />;
 }
