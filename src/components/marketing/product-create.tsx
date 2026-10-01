@@ -38,10 +38,10 @@ export function ProductCreate() {
 
 function CreateArtifact() {
   return (
-    <article className="overflow-hidden rounded-[1.5rem] border border-[#d7e2e9] bg-white px-6 py-7 shadow-[0_24px_52px_-38px_rgba(20,65,103,0.52)] sm:px-9 sm:py-9 lg:px-11 lg:py-10" aria-label="Content recommendation and draft direction">
-      <div className="relative -mx-6 -mt-7 overflow-hidden border-b border-[#dce6ec] bg-[url('/coral-lavender-gradient.jpg')] bg-cover bg-center pb-8 pt-7 sm:-mx-9 sm:-mt-9 sm:pt-9 lg:-mx-11 lg:-mt-10 lg:pt-10">
-        <div className="pointer-events-none absolute inset-0 bg-white/65" aria-hidden="true" />
-        <div className="relative px-6 sm:px-9 lg:px-11">
+    <article className="relative overflow-hidden rounded-[1.5rem] border border-white/80 bg-[url('/coral-lavender-gradient.jpg')] bg-cover bg-center px-6 py-7 shadow-[0_28px_58px_-38px_rgba(20,65,103,0.6)] sm:px-9 sm:py-9 lg:aspect-square lg:px-11 lg:py-10" aria-label="Content recommendation and draft direction">
+      <div className="pointer-events-none absolute inset-0 bg-white/62" aria-hidden="true" />
+      <div className="relative z-10">
+        <div className="border-b border-[#dce6ec]/90 pb-8">
           <p className="text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[#3977a9]">Next Best Move</p>
           <h3 className="mt-4 max-w-xl text-2xl font-semibold leading-[1.08] tracking-[-0.05em] text-[#101826] sm:text-3xl">Share your client onboarding framework</h3>
 
