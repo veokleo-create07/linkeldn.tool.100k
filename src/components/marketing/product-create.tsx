@@ -39,9 +39,9 @@ function DesktopConnectors() {
   return (
     <svg className="pointer-events-none absolute inset-0 z-0 h-full w-full" viewBox="0 0 1000 600" fill="none" preserveAspectRatio="none" aria-hidden="true">
       <path d="M188 173C244 173 276 252 358 300M188 237C248 237 286 270 358 300M188 301C254 301 298 294 358 300M188 365C254 365 298 322 358 300M188 429C248 429 286 348 358 300M188 493C244 493 276 372 358 300" stroke="#86c3ed" strokeWidth="1.15" strokeLinecap="round" />
-      <path d="M406 300C452 300 486 300 528 300" stroke="#8cc9f4" strokeWidth="1.15" strokeLinecap="round" />
+      <path d="M358 300C424 300 478 300 528 300" stroke="#8cc9f4" strokeWidth="1.15" strokeLinecap="round" />
       <path d="M702 300C710 300 714 300 719 300" stroke="#4d9cf3" strokeWidth="1.15" strokeLinecap="round" />
-      <circle cx="188" cy="173" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="237" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="301" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="365" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="429" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="493" r="2.3" fill="#4d9cf3" /><circle cx="358" cy="300" r="2.3" fill="#4d9cf3" /><circle cx="406" cy="300" r="2.3" fill="#4d9cf3" /><circle cx="528" cy="300" r="2.3" fill="#4d9cf3" /><circle cx="702" cy="300" r="2.3" fill="#4d9cf3" /><circle cx="719" cy="300" r="2.3" fill="#4d9cf3" />
+      <circle cx="188" cy="173" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="237" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="301" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="365" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="429" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="493" r="2.3" fill="#4d9cf3" /><circle cx="358" cy="300" r="2.3" fill="#4d9cf3" /><circle cx="528" cy="300" r="2.3" fill="#4d9cf3" /><circle cx="702" cy="300" r="2.3" fill="#4d9cf3" /><circle cx="719" cy="300" r="2.3" fill="#4d9cf3" />
     </svg>
   );
 }
@@ -52,7 +52,8 @@ function BrandGraph({ className = "" }: { className?: string }) {
       <div className="relative aspect-[1.08] w-full overflow-hidden">
         <div className="pointer-events-none absolute inset-5 rounded-full bg-[radial-gradient(circle_at_50%_48%,rgba(140,203,255,0.34),transparent_42%)] blur-2xl" aria-hidden="true" />
         <div className="absolute left-1/2 top-1/2 flex size-[clamp(7rem,35%,10rem)] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[48%_52%_58%_42%/42%_50%_50%_58%] border border-white/90 bg-[radial-gradient(circle_at_34%_28%,rgba(255,255,255,0.96),rgba(217,235,249,0.8)_52%,rgba(156,204,236,0.58))] shadow-[0_22px_42px_-22px_rgba(34,112,188,0.55)]">
-          <div className="flex size-20 flex-col items-center justify-center rounded-2xl border border-white/85 bg-white/80 shadow-[0_10px_22px_-16px_rgba(20,65,103,0.7)]"><img src="/clonao-logo.png" alt="" className="size-8 object-contain" /><span className="mt-1 text-[0.7rem] font-semibold tracking-[-0.03em] text-[#101826]">Clonao</span></div>
+          <span className="pointer-events-none absolute -inset-3 rounded-[48%_52%_58%_42%/42%_50%_50%_58%] border border-[#8cc9f4]/40 motion-reduce:animate-none animate-[clonao-core-ring_4.8s_ease-out_infinite]" aria-hidden="true" />
+          <span className="relative flex size-[clamp(4.5rem,52%,6.5rem)] items-center justify-center motion-reduce:animate-none animate-[clonao-core-breathe_4.8s_ease-in-out_infinite]"><img src="/clonao-logo.png" alt="Clonao" className="size-full object-contain brightness-0 drop-shadow-[0_8px_14px_rgba(23,50,76,0.18)]" /></span>
         </div>
       </div>
       <h3 id="create-brand-graph-heading" className="mt-4 text-center text-xl font-semibold tracking-[-0.04em] text-[#101826]">Brand Graph</h3><p className="mt-1 text-center text-sm text-[#7893a6]">The context behind the recommendation.</p>
