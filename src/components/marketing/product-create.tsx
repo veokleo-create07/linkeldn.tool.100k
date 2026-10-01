@@ -1,6 +1,5 @@
 import { ArrowUpRight, Linkedin, PencilLine } from "lucide-react";
 import { CreateSourcesCard } from "@/components/marketing/create-sources-card";
-const contextLabels = ["Audience", "Expertise", "Proof", "Stories", "Offers", "Opinions", "Topics"];
 const outline = ["Align on goals and expectations", "Collect and structure key inputs", "Build a tailored strategy", "Set a clear communication rhythm"];
 
 export function ProductCreate() {
@@ -52,19 +51,13 @@ function BrandGraph({ className = "" }: { className?: string }) {
     <section className={className} aria-labelledby="create-brand-graph-heading">
       <div className="relative aspect-[1.08] w-full overflow-hidden">
         <div className="pointer-events-none absolute inset-5 rounded-full bg-[radial-gradient(circle_at_50%_48%,rgba(140,203,255,0.34),transparent_42%)] blur-2xl" aria-hidden="true" />
-        <GraphPaths />
         <div className="absolute left-1/2 top-1/2 flex size-[clamp(7rem,35%,10rem)] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[48%_52%_58%_42%/42%_50%_50%_58%] border border-white/90 bg-[radial-gradient(circle_at_34%_28%,rgba(255,255,255,0.96),rgba(217,235,249,0.8)_52%,rgba(156,204,236,0.58))] shadow-[0_22px_42px_-22px_rgba(34,112,188,0.55)]">
           <div className="flex size-20 flex-col items-center justify-center rounded-2xl border border-white/85 bg-white/80 shadow-[0_10px_22px_-16px_rgba(20,65,103,0.7)]"><img src="/clonao-logo.png" alt="" className="size-8 object-contain" /><span className="mt-1 text-[0.7rem] font-semibold tracking-[-0.03em] text-[#101826]">Clonao</span></div>
         </div>
-        {contextLabels.map((label, index) => <span key={label} className={"absolute inline-flex items-center rounded-full border border-white/90 bg-white/75 px-3 py-1.5 text-[0.66rem] font-medium text-[#314d63] shadow-[0_8px_18px_-14px_rgba(20,65,103,0.58)] " + graphLabelPosition(index)}>{label}</span>)}
       </div>
       <h3 id="create-brand-graph-heading" className="mt-4 text-center text-xl font-semibold tracking-[-0.04em] text-[#101826]">Brand Graph</h3><p className="mt-1 text-center text-sm text-[#7893a6]">The context behind the recommendation.</p>
     </section>
   );
-}
-
-function GraphPaths() {
-  return <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 400 368" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M0 256C42 256 56 222 105 208M0 256C42 256 58 244 105 224M105 208C142 172 151 134 184 110M105 224C145 205 164 178 184 152M105 256C145 256 160 184 184 184M400 82C352 82 334 116 290 132M400 145C351 145 334 150 290 160M400 212C350 212 334 196 290 188M400 286C350 286 328 237 290 210M200 368C200 310 200 274 200 252" stroke="#8fc8ef" strokeWidth="1.2" strokeLinecap="round" /><circle cx="0" cy="256" r="3" fill="#5fadfd" /><circle cx="105" cy="224" r="2.4" fill="#5fadfd" /><circle cx="184" cy="110" r="2.4" fill="#5fadfd" /><circle cx="184" cy="152" r="2.4" fill="#5fadfd" /><circle cx="184" cy="184" r="2.4" fill="#5fadfd" /><circle cx="290" cy="132" r="2.4" fill="#5fadfd" /><circle cx="290" cy="160" r="2.4" fill="#5fadfd" /><circle cx="290" cy="188" r="2.4" fill="#5fadfd" /><circle cx="290" cy="210" r="2.4" fill="#5fadfd" /></svg>;
 }
 
 function NextMoveCard({ className = "" }: { className?: string }) {
@@ -104,10 +97,6 @@ function MobileCreateSystem() {
 
 function MobileConnector() {
   return <div className="flex h-8 items-center justify-center" aria-hidden="true"><span className="relative h-full w-px bg-[#8cc9f4]"><span className="absolute left-1/2 top-1/2 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#4d9cf3]" /></span></div>;
-}
-
-function graphLabelPosition(index: number) {
-  return ["left-5 top-10 text-[0.64rem] font-medium text-[#47677f]", "right-5 top-14 text-[0.64rem] font-medium text-[#47677f]", "left-4 top-1/2 -translate-y-1/2 text-[0.64rem] font-medium text-[#47677f]", "right-5 top-[44%] text-[0.64rem] font-medium text-[#47677f]", "left-10 bottom-10 text-[0.64rem] font-medium text-[#47677f]", "right-9 bottom-12 text-[0.64rem] font-medium text-[#47677f]", "left-1/2 bottom-5 -translate-x-1/2 text-[0.64rem] font-medium text-[#47677f]"][index];
 }
 
 function RecommendationDetails() {
