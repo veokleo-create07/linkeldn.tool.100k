@@ -1,4 +1,4 @@
-import { ArrowUpRight, PencilLine } from "lucide-react";
+import { ArrowUpRight, Linkedin, PencilLine } from "lucide-react";
 import { CreateSourcesCard } from "@/components/marketing/create-sources-card";
 const contextLabels = ["Audience", "Expertise", "Proof", "Stories", "Offers", "Opinions", "Topics"];
 const outline = ["Align on goals and expectations", "Collect and structure key inputs", "Build a tailored strategy", "Set a clear communication rhythm"];
@@ -39,7 +39,8 @@ function DesktopConnectors() {
     <svg className="pointer-events-none absolute inset-0 z-0 h-full w-full" viewBox="0 0 1200 608" fill="none" preserveAspectRatio="none" aria-hidden="true">
       <path d="M280 156C342 156 350 248 414 304M280 208C344 208 360 265 414 304M280 260C350 260 370 286 414 304M280 312C350 312 370 312 414 304M280 364C348 364 360 330 414 304M280 416C340 416 350 350 414 304" stroke="#86c3ed" strokeWidth="1.35" strokeLinecap="round" />
       <path d="M718 304C758 304 764 220 808 220" stroke="#8cc9f4" strokeWidth="1.35" strokeLinecap="round" />
-      <circle cx="280" cy="156" r="3" fill="#4d9cf3" /><circle cx="280" cy="208" r="3" fill="#4d9cf3" /><circle cx="280" cy="260" r="3" fill="#4d9cf3" /><circle cx="280" cy="312" r="3" fill="#4d9cf3" /><circle cx="280" cy="364" r="3" fill="#4d9cf3" /><circle cx="280" cy="416" r="3" fill="#4d9cf3" /><circle cx="414" cy="304" r="3" fill="#4d9cf3" />
+      <path d="M1080 220C1145 220 1120 444 800 444" stroke="#4d9cf3" strokeWidth="1.35" strokeLinecap="round" />
+      <circle cx="280" cy="156" r="3" fill="#4d9cf3" /><circle cx="280" cy="208" r="3" fill="#4d9cf3" /><circle cx="280" cy="260" r="3" fill="#4d9cf3" /><circle cx="280" cy="312" r="3" fill="#4d9cf3" /><circle cx="280" cy="364" r="3" fill="#4d9cf3" /><circle cx="280" cy="416" r="3" fill="#4d9cf3" /><circle cx="414" cy="304" r="3" fill="#4d9cf3" /><circle cx="1080" cy="220" r="3" fill="#4d9cf3" /><circle cx="800" cy="444" r="3" fill="#4d9cf3" />
     </svg>
   );
 }
@@ -87,9 +88,9 @@ function NextMoveCard({ className = "" }: { className?: string }) {
 
 function DraftCard({ className = "" }: { className?: string }) {
   return (
-    <section className={"rounded-[1.35rem] border border-[#dce7ee] bg-white p-5 shadow-[0_26px_50px_-32px_rgba(20,65,103,0.54)] " + className} aria-labelledby="create-draft-heading">
-      <div className="flex items-center justify-between gap-4"><div><p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#3977a9]">Output</p><h3 id="create-draft-heading" className="mt-2 text-lg font-semibold tracking-[-0.04em] text-[#101826]">Draft</h3></div><button type="button" className="inline-flex items-center gap-1.5 text-xs font-medium text-[#3977a9] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4d9cf3]/50"><PencilLine className="size-3.5" strokeWidth={1.6} aria-hidden="true" />Edit</button></div>
-      <div className="mt-5 border-y border-[#dbe6ed] py-4"><p className="text-sm font-semibold leading-5 text-[#172638]">The client onboarding framework I use (and why it works)</p><p className="mt-3 text-xs leading-5 text-[#647384]">A clear onboarding process sets the tone for the entire client relationship. Here’s the exact framework I use to get clients clarity and results from day one...</p></div>
+    <section className={"rounded-[1.35rem] border border-[#dce7ee] bg-white p-5 shadow-[0_26px_50px_-32px_rgba(20,65,103,0.54)] lg:rotate-[1.2deg] lg:translate-y-1 " + className} aria-labelledby="create-draft-heading">
+      <div className="flex items-center justify-between gap-4"><div className="flex items-center gap-2.5"><span className="flex size-7 items-center justify-center rounded-[0.45rem] bg-[#0a66c2] text-white"><Linkedin className="size-4" strokeWidth={2.1} aria-hidden="true" /></span><h3 id="create-draft-heading" className="text-lg font-semibold tracking-[-0.04em] text-[#101826]">Draft</h3></div><button type="button" className="inline-flex items-center gap-1.5 text-xs font-medium text-[#3977a9] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4d9cf3]/50"><PencilLine className="size-3.5" strokeWidth={1.6} aria-hidden="true" />Edit</button></div>
+      <div className="mt-5 border-y border-[#dbe6ed] py-4"><p className="text-sm font-semibold leading-5 text-[#172638]">The client onboarding framework I use (and why it works)</p><p className="mt-3 text-xs leading-5 text-[#647384]">A clear onboarding process sets the tone for the entire client relationship. Here’s the exact framework I use to give clients clarity and results from day one…</p></div>
       <ol className="mt-4 space-y-2 text-xs text-[#26394d]">{outline.map((item, index) => <li key={item} className="flex gap-2.5"><span className="font-semibold text-[#3977a9]">{index + 1}.</span><span>{item}</span></li>)}</ol>
     </section>
   );
