@@ -3,21 +3,21 @@ import { Network, Sparkles, Waypoints } from "lucide-react";
 const pillars = [
   {
     title: "Brand Graph",
-    description: "The complete context of who you are.",
+    description: "Clonao organizes your expertise, stories, opinions, proof, audience, offers, and content history into one living model of your personal brand.",
     image: "https://i.postimg.cc/xqrBLF3j/Chat-GPT-Image-Oct-1-2026-12-18-26-AM.png",
     alt: "Brand Graph connecting the knowledge behind a personal brand",
     icon: Network,
   },
   {
     title: "Strategy",
-    description: "A personalized plan for what matters next.",
+    description: "Clonao turns what it understands about your brand into a focused strategy built around your goals, positioning, audience, and what matters most right now.",
     image: "https://i.postimg.cc/mr54tjqd/Chat-GPT-Image-Oct-1-2026-12-26-48-AM.png",
     alt: "Clonao strategy screen organizing a focused plan",
     icon: Waypoints,
   },
   {
     title: "Next Best Moves",
-    description: "Clear, prioritized actions you can take now.",
+    description: "Instead of leaving you with insights, Clonao prioritizes the specific actions most likely to move your brand forward and explains why each one matters.",
     image: "https://i.postimg.cc/MTfSRRJp/Chat-GPT-Image-Oct-1-2026-12-27-14-AM.png",
     alt: "Clonao next best moves screen showing prioritized actions",
     icon: Sparkles,
