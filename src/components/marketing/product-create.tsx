@@ -39,10 +39,10 @@ function DesktopCreateSystem() {
 function DesktopConnectors() {
   return (
     <svg className="pointer-events-none absolute inset-0 z-0 h-full w-full" viewBox="0 0 1000 600" fill="none" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M188 173C222 173 250 248 330 300M188 237C226 237 260 270 330 300M188 301C236 301 275 296 330 300M188 365C236 365 275 320 330 300M188 429C226 429 260 346 330 300M188 493C222 493 250 370 330 300" stroke="#86c3ed" strokeWidth="1.15" strokeLinecap="round" />
-      <path d="M511 300C518 300 522 300 528 300" stroke="#8cc9f4" strokeWidth="1.15" strokeLinecap="round" />
+      <path d="M188 173C244 173 276 252 358 300M188 237C248 237 286 270 358 300M188 301C254 301 298 294 358 300M188 365C254 365 298 322 358 300M188 429C248 429 286 348 358 300M188 493C244 493 276 372 358 300" stroke="#86c3ed" strokeWidth="1.15" strokeLinecap="round" />
+      <path d="M406 300C452 300 486 300 528 300" stroke="#8cc9f4" strokeWidth="1.15" strokeLinecap="round" />
       <path d="M702 300C710 300 714 300 719 300" stroke="#4d9cf3" strokeWidth="1.15" strokeLinecap="round" />
-      <circle cx="188" cy="173" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="237" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="301" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="365" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="429" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="493" r="2.3" fill="#4d9cf3" /><circle cx="330" cy="300" r="2.3" fill="#4d9cf3" /><circle cx="511" cy="300" r="2.3" fill="#4d9cf3" /><circle cx="528" cy="300" r="2.3" fill="#4d9cf3" /><circle cx="702" cy="300" r="2.3" fill="#4d9cf3" /><circle cx="719" cy="300" r="2.3" fill="#4d9cf3" />
+      <circle cx="188" cy="173" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="237" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="301" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="365" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="429" r="2.3" fill="#4d9cf3" /><circle cx="188" cy="493" r="2.3" fill="#4d9cf3" /><circle cx="358" cy="300" r="2.3" fill="#4d9cf3" /><circle cx="406" cy="300" r="2.3" fill="#4d9cf3" /><circle cx="528" cy="300" r="2.3" fill="#4d9cf3" /><circle cx="702" cy="300" r="2.3" fill="#4d9cf3" /><circle cx="719" cy="300" r="2.3" fill="#4d9cf3" />
     </svg>
   );
 }
