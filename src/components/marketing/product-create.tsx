@@ -1,13 +1,5 @@
-import { ArrowUpRight, FileText, Files, Globe2, NotebookPen, PencilLine, PlaySquare, Tags, UserRound } from "lucide-react";
-
-const sources = [
-  ["LinkedIn history", UserRound],
-  ["Website", Globe2],
-  ["Notes & ideas", NotebookPen],
-  ["Case studies", Files],
-  ["Videos & podcasts", PlaySquare],
-  ["Offers & expertise", Tags],
-] as const;
+import { ArrowUpRight, PencilLine } from "lucide-react";
+import { CreateSourcesCard } from "@/components/marketing/create-sources-card";
 const contextLabels = ["Audience", "Expertise", "Proof", "Stories", "Offers", "Opinions", "Topics"];
 const outline = ["Align on goals and expectations", "Collect and structure key inputs", "Build a tailored strategy", "Set a clear communication rhythm"];
 
@@ -34,7 +26,7 @@ function DesktopCreateSystem() {
   return (
     <div className="relative mt-14 hidden h-[38rem] lg:mt-16 lg:block" aria-label="Sources flow into the Brand Graph, next best move, and draft">
       <DesktopConnectors />
-      <SourcesPanel className="absolute left-0 top-20 z-10 w-[17.5rem]" />
+      <CreateSourcesCard className="absolute left-0 top-20 z-10" />
       <BrandGraph className="absolute left-[20.5rem] top-12 z-10 w-[25rem]" />
       <NextMoveCard className="absolute right-[7.5rem] top-24 z-20 w-[20rem]" />
       <DraftCard className="absolute bottom-2 right-0 z-20 w-[25rem]" />
@@ -49,16 +41,6 @@ function DesktopConnectors() {
       <path d="M718 304C762 304 764 220 832 220M1032 220C1090 220 1039 444 930 444" stroke="#4d9cf3" strokeWidth="1.5" strokeLinecap="round" />
       <circle cx="280" cy="156" r="3" fill="#4d9cf3" /><circle cx="280" cy="208" r="3" fill="#4d9cf3" /><circle cx="280" cy="260" r="3" fill="#4d9cf3" /><circle cx="280" cy="312" r="3" fill="#4d9cf3" /><circle cx="280" cy="364" r="3" fill="#4d9cf3" /><circle cx="280" cy="416" r="3" fill="#4d9cf3" /><circle cx="414" cy="304" r="3" fill="#4d9cf3" /><circle cx="718" cy="304" r="3" fill="#4d9cf3" /><circle cx="832" cy="220" r="3" fill="#4d9cf3" /><circle cx="1032" cy="220" r="3" fill="#4d9cf3" /><circle cx="930" cy="444" r="3" fill="#4d9cf3" />
     </svg>
-  );
-}
-
-function SourcesPanel({ className = "" }: { className?: string }) {
-  return (
-    <section className={"rounded-[1.35rem] border border-[#dce7ee] bg-white/90 p-5 shadow-[0_24px_48px_-38px_rgba(20,65,103,0.6)] " + className} aria-labelledby="create-sources-heading">
-      <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#3977a9]">Sources</p>
-      <h3 id="create-sources-heading" className="mt-2 text-xl font-semibold tracking-[-0.045em] text-[#101826]">Your Sources</h3>
-      <div className="mt-5 divide-y divide-[#e1e9ef]">{sources.map(([label, Icon]) => <div key={label} className="flex items-center gap-3 py-3 first:pt-0 last:pb-0"><span className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-[#f1f6fa] text-[#53697b]"><Icon className="size-3.5" strokeWidth={1.6} aria-hidden="true" /></span><span className="text-sm font-medium text-[#26394d]">{label}</span></div>)}</div>
-    </section>
   );
 }
 
@@ -103,7 +85,7 @@ function DraftCard({ className = "" }: { className?: string }) {
 }
 
 function MobileCreateSystem() {
-  return <div className="mt-12 space-y-8 lg:hidden" aria-label="Create flow from sources to draft"><SourcesPanel /><div className="flex justify-center text-[#4d9cf3]" aria-hidden="true">↓</div><BrandGraph /><div className="flex justify-center text-[#4d9cf3]" aria-hidden="true">↓</div><NextMoveCard /><div className="flex justify-center text-[#4d9cf3]" aria-hidden="true">↓</div><DraftCard /></div>;
+  return <div className="mt-12 space-y-8 lg:hidden" aria-label="Create flow from sources to draft"><CreateSourcesCard /><div className="flex justify-center text-[#4d9cf3]" aria-hidden="true">↓</div><BrandGraph /><div className="flex justify-center text-[#4d9cf3]" aria-hidden="true">↓</div><NextMoveCard /><div className="flex justify-center text-[#4d9cf3]" aria-hidden="true">↓</div><DraftCard /></div>;
 }
 
 function graphLabelPosition(index: number) {
