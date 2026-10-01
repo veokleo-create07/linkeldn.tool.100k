@@ -31,11 +31,13 @@ export function ProductLearn() {
 
         <div className="mt-14 border-y border-black/20 sm:mt-16">
           <div className="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
-            <div className="py-8 sm:py-10 lg:pr-16">
-              <div className="flex items-center justify-between gap-6">
+            <div className="relative overflow-hidden bg-[url('/pastel-aqua-gradient.jpg')] bg-cover bg-center py-8 sm:py-10 lg:pr-16">
+              <div className="pointer-events-none absolute inset-0 bg-white/68" aria-hidden="true" />
+              <div className="relative z-10">
+                <div className="flex items-center justify-between gap-6">
                 <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#101010]">Performance patterns</p>
                 <span className="text-xs text-[#404040]">What changed</span>
-              </div>
+                </div>
 
               <div className="mt-8 h-36 w-full" aria-label="Illustrative performance trend showing stronger response over time" role="img">
                 <svg viewBox="0 0 640 144" className="h-full w-full overflow-visible" fill="none" preserveAspectRatio="none">
@@ -50,33 +52,37 @@ export function ProductLearn() {
                 </svg>
               </div>
 
-              <div className="mt-7 divide-y divide-black/20 border-y border-black/20">
+                <div className="mt-7 divide-y divide-black/20 border-y border-black/20">
                 {insights.map(([label, detail]) => (
                   <div key={label} className="flex items-center justify-between gap-5 py-4">
                     <span className="text-sm font-semibold text-[#101010]">{label}</span>
                     <span className="text-right text-sm text-[#404040]">{detail}</span>
                   </div>
                 ))}
+                </div>
               </div>
             </div>
 
-            <div className="border-t border-black/20 py-8 sm:py-10 lg:border-l lg:border-t-0 lg:pl-16">
-              <div className="flex items-center gap-3">
+            <div className="relative overflow-hidden border-t border-black/20 bg-[url('/ethereal-aqua-gradient.jpg')] bg-cover bg-center py-8 sm:py-10 lg:border-l lg:border-t-0 lg:pl-16">
+              <div className="pointer-events-none absolute inset-0 bg-white/68" aria-hidden="true" />
+              <div className="relative z-10">
+                <div className="flex items-center gap-3">
                 <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#101010]">Strategy update</p>
                 <ArrowRight className="size-4 text-[#101010]" strokeWidth={1.5} aria-hidden="true" />
                 <span className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#101010]">Better recommendation</span>
-              </div>
-              <h3 className="mt-5 text-2xl font-semibold tracking-[-0.045em] text-[#090909] sm:text-3xl">What Clonao changes next.</h3>
+                </div>
+                <h3 className="mt-5 text-2xl font-semibold tracking-[-0.045em] text-[#090909] sm:text-3xl">What Clonao changes next.</h3>
 
-              <div className="mt-8 divide-y divide-black/20 border-y border-black/20">
+                <div className="mt-8 divide-y divide-black/20 border-y border-black/20">
                 {changes.map((change) => (
                   <div key={change} className="flex items-center gap-3 py-4">
                     <Check className="size-4 shrink-0 text-[#101010]" strokeWidth={1.7} aria-hidden="true" />
                     <span className="text-sm font-medium text-[#202020]">{change}</span>
                   </div>
                 ))}
+                </div>
+                <p className="mt-6 text-sm leading-6 text-[#404040]">Performance becomes context for the next decision, not a report you check once.</p>
               </div>
-              <p className="mt-6 text-sm leading-6 text-[#404040]">Performance becomes context for the next decision, not a report you check once.</p>
             </div>
           </div>
         </div>
