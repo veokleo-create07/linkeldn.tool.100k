@@ -1,11 +1,61 @@
-import { ArrowRight, FileText, Lightbulb, PenLine } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-const flow = ["Recommendation", "Brand context", "Sources", "Draft"];
+const flow = ["Next Best Move", "Brand Context", "Sources", "Draft"];
 
 export function ProductCreate() {
-  return <section aria-labelledby="product-create-heading" className="bg-[#f8fbfd] py-24 sm:py-28 lg:py-36"><div className="marketing-container grid items-center gap-14 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-20"><div className="max-w-xl"><p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#3977a9]">Create</p><h2 id="product-create-heading" className="text-balance mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.06em] text-[#101826] sm:text-5xl lg:text-[3.8rem]">Create from strategy, not from a blank page.</h2><p className="mt-6 max-w-lg text-base leading-7 text-[#647384] sm:text-lg sm:leading-8">Every draft starts with the reason it should exist, the goal it serves, and the real knowledge that supports it.</p></div><CreatePreview /></div></section>;
-}
+  return (
+    <section aria-labelledby="product-create-heading" className="bg-[#f8fbfd] py-24 sm:py-28 lg:py-36">
+      <div className="marketing-container">
+        <div className="max-w-3xl">
+          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#3977a9]">Create</p>
+          <h2 id="product-create-heading" className="text-balance mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.06em] text-[#101826] sm:text-5xl lg:text-[3.8rem]">
+            Turn the next best move into content.
+          </h2>
+          <p className="mt-6 max-w-2xl text-base leading-7 text-[#647384] sm:text-lg sm:leading-8">
+            Clonao uses your strategy, Brand Graph, stories, proof, opinions, and source material to turn each recommendation into content grounded in what you actually know.
+          </p>
+        </div>
 
-function CreatePreview() {
-  return <div aria-label="Recommendation to grounded draft flow" className="relative"><div className="border-y border-[#cad9e3] py-5 sm:py-6"><div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-3 lg:justify-start">{flow.map((step, index) => <div key={step} className="flex items-center gap-3"><span className={`text-sm font-semibold ${index === flow.length - 1 ? "text-[#172638]" : "text-[#3977a9]"}`}>{step}</span>{index < flow.length - 1 ? <ArrowRight className="size-4 text-[#8aa0b0]" strokeWidth={1.5} aria-hidden="true" /> : null}</div>)}</div></div><div className="mt-8 grid gap-8 sm:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] sm:gap-10"><section aria-labelledby="recommendation-context-heading"><div className="flex items-center gap-2.5"><Lightbulb className="size-5 text-[#101826]" strokeWidth={1.55} aria-hidden="true" /><h3 id="recommendation-context-heading" className="text-xl font-semibold tracking-[-0.045em] text-[#101826]">Recommendation</h3></div><p className="mt-4 text-sm font-medium leading-6 text-[#26394d]">Share your client onboarding framework</p><dl className="mt-5 divide-y divide-[#cad9e3] border-y border-[#cad9e3] text-xs"><div className="grid grid-cols-[4.5rem_minmax(0,1fr)] gap-2 py-3"><dt className="text-[#7893a6]">Goal</dt><dd className="font-medium text-[#26394d]">Authority</dd></div><div className="grid grid-cols-[4.5rem_minmax(0,1fr)] gap-2 py-3"><dt className="text-[#7893a6]">Context</dt><dd className="font-medium text-[#26394d]">Onboarding systems + client education</dd></div><div className="grid grid-cols-[4.5rem_minmax(0,1fr)] gap-2 py-3"><dt className="text-[#7893a6]">Sources</dt><dd className="flex items-center gap-1.5 font-medium text-[#26394d]"><FileText className="size-3.5 text-[#3977a9]" /> Case study, LinkedIn</dd></div></dl></section><section aria-labelledby="draft-preview-heading"><div className="flex items-center gap-2.5"><PenLine className="size-5 text-[#101826]" strokeWidth={1.55} aria-hidden="true" /><h3 id="draft-preview-heading" className="text-xl font-semibold tracking-[-0.045em] text-[#101826]">Draft</h3></div><div className="mt-4 border-y border-[#cad9e3] py-4"><p className="text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-[#3977a9]">Hook</p><p className="mt-2 text-base font-semibold leading-6 tracking-[-0.025em] text-[#172638]">The best onboarding frameworks do more than welcome a client.</p><p className="mt-3 text-sm leading-6 text-[#26394d]">They make the path to a meaningful result feel obvious. Start by showing people what happens next, and why the method works.</p></div><p className="mt-4 text-xs leading-5 text-[#7893a6]">Grounded in the recommendation, Brand Graph, and real source material.</p></section></div></div>;
+        <div className="mt-14 border-y border-[#cad9e3] py-6 sm:mt-16 sm:py-7">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-3 lg:flex-nowrap lg:justify-between">
+            {flow.map((step, index) => (
+              <div key={step} className="flex items-center gap-4">
+                <span className={index === flow.length - 1 ? "text-base font-semibold tracking-[-0.025em] text-[#101826]" : "text-base font-medium tracking-[-0.025em] text-[#3977a9]"}>
+                  {step}
+                </span>
+                {index < flow.length - 1 ? <ArrowRight className="size-4 shrink-0 text-[#8aa0b0]" strokeWidth={1.5} aria-hidden="true" /> : null}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-12 grid gap-12 sm:mt-14 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
+          <div>
+            <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#3977a9]">Recommendation</p>
+            <h3 className="mt-4 max-w-md text-2xl font-semibold leading-tight tracking-[-0.045em] text-[#101826] sm:text-3xl">
+              Share your client onboarding framework
+            </h3>
+
+            <div className="mt-8 border-y border-[#cad9e3]">
+              <div className="grid grid-cols-[6rem_minmax(0,1fr)] gap-4 border-b border-[#cad9e3] py-4">
+                <span className="text-sm text-[#7893a6]">Sources</span>
+                <span className="text-sm font-medium text-[#26394d]">Case study · LinkedIn history · Brand Graph</span>
+              </div>
+              <div className="grid grid-cols-[6rem_minmax(0,1fr)] gap-4 py-4">
+                <span className="text-sm text-[#7893a6]">Grounding</span>
+                <span className="text-sm font-medium text-[#26394d]">Built from what you already know</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:pt-1">
+            <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#3977a9]">Draft direction</p>
+            <blockquote className="mt-5 max-w-2xl border-l-2 border-[#6daeff] pl-6 text-2xl font-medium leading-[1.18] tracking-[-0.045em] text-[#172638] sm:text-3xl lg:text-[2.5rem]">
+              The best onboarding frameworks do more than welcome a client. They create clarity around the result from day one.
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
