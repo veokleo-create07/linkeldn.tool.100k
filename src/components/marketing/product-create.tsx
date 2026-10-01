@@ -97,7 +97,11 @@ function DraftCard({ className = "" }: { className?: string }) {
 }
 
 function MobileCreateSystem() {
-  return <div className="mt-12 space-y-8 lg:hidden" aria-label="Create flow from sources to draft"><CreateSourcesCard /><div className="flex justify-center text-[#4d9cf3]" aria-hidden="true">↓</div><BrandGraph /><div className="flex justify-center text-[#4d9cf3]" aria-hidden="true">↓</div><NextMoveCard /><div className="flex justify-center text-[#4d9cf3]" aria-hidden="true">↓</div><DraftCard /></div>;
+  return <div className="mt-12 space-y-8 lg:hidden" aria-label="Create flow from sources to draft"><CreateSourcesCard /><MobileConnector /><BrandGraph /><MobileConnector /><NextMoveCard /><MobileConnector /><DraftCard /></div>;
+}
+
+function MobileConnector() {
+  return <div className="flex h-8 items-center justify-center" aria-hidden="true"><span className="relative h-full w-px bg-[#8cc9f4]"><span className="absolute left-1/2 top-1/2 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#4d9cf3]" /></span></div>;
 }
 
 function graphLabelPosition(index: number) {
