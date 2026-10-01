@@ -7,7 +7,6 @@ const pillars = [
     image: "https://i.postimg.cc/xqrBLF3j/Chat-GPT-Image-Oct-1-2026-12-18-26-AM.png",
     alt: "Brand Graph connecting the knowledge behind a personal brand",
     icon: Network,
-    tone: "bg-[#06142e]",
   },
   {
     title: "Strategy",
@@ -15,7 +14,6 @@ const pillars = [
     image: "https://i.postimg.cc/mr54tjqd/Chat-GPT-Image-Oct-1-2026-12-26-48-AM.png",
     alt: "Clonao strategy screen organizing a focused plan",
     icon: Waypoints,
-    tone: "bg-[#17181f]",
   },
   {
     title: "Next Best Moves",
@@ -23,7 +21,6 @@ const pillars = [
     image: "https://i.postimg.cc/MTfSRRJp/Chat-GPT-Image-Oct-1-2026-12-27-14-AM.png",
     alt: "Clonao next best moves screen showing prioritized actions",
     icon: Sparkles,
-    tone: "bg-[#dcebfa]",
   },
 ] as const;
 
@@ -36,10 +33,10 @@ export function ProductCards() {
         </h2>
 
         <div className="grid gap-10 sm:gap-12 lg:grid-cols-3 lg:gap-5 xl:gap-6">
-          {pillars.map(({ title, description, image, alt, icon: Icon, tone }) => (
+          {pillars.map(({ title, description, image, alt, icon: Icon }) => (
             <article key={title} className="group min-w-0">
-              <div className={`relative aspect-[1.34] overflow-hidden rounded-[1.35rem] border border-white/80 ${tone} shadow-[0_28px_58px_-34px_rgba(20,65,103,0.58)] transition-transform duration-500 ease-out group-hover:-translate-y-1`}>
-                <img src={image} alt={alt} className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]" />
+              <div className="relative overflow-hidden rounded-[1.35rem] transition-transform duration-500 ease-out group-hover:-translate-y-1">
+                <img src={image} alt={alt} className="block h-auto w-full transition-transform duration-700 ease-out group-hover:scale-[1.025]" />
               </div>
 
               <div className="mt-4 flex items-center gap-3 px-1 sm:mt-5 sm:gap-4">
