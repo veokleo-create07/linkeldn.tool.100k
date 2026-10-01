@@ -38,25 +38,28 @@ export function ProductCreate() {
 
 function CreateArtifact() {
   return (
-    <article className="rounded-[1.5rem] border border-[#d7e2e9] bg-white px-6 py-7 shadow-[0_24px_52px_-38px_rgba(20,65,103,0.52)] sm:px-9 sm:py-9 lg:px-11 lg:py-10" aria-label="Content recommendation and draft direction">
-      <div className="border-b border-[#dce6ec] pb-8">
-        <p className="text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[#3977a9]">Next Best Move</p>
-        <h3 className="mt-4 max-w-xl text-2xl font-semibold leading-[1.08] tracking-[-0.05em] text-[#101826] sm:text-3xl">Share your client onboarding framework</h3>
+    <article className="overflow-hidden rounded-[1.5rem] border border-[#d7e2e9] bg-white px-6 py-7 shadow-[0_24px_52px_-38px_rgba(20,65,103,0.52)] sm:px-9 sm:py-9 lg:px-11 lg:py-10" aria-label="Content recommendation and draft direction">
+      <div className="relative -mx-6 -mt-7 overflow-hidden border-b border-[#dce6ec] bg-[url('/coral-lavender-gradient.jpg')] bg-cover bg-center pb-8 pt-7 sm:-mx-9 sm:-mt-9 sm:pt-9 lg:-mx-11 lg:-mt-10 lg:pt-10">
+        <div className="pointer-events-none absolute inset-0 bg-white/65" aria-hidden="true" />
+        <div className="relative px-6 sm:px-9 lg:px-11">
+          <p className="text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[#3977a9]">Next Best Move</p>
+          <h3 className="mt-4 max-w-xl text-2xl font-semibold leading-[1.08] tracking-[-0.05em] text-[#101826] sm:text-3xl">Share your client onboarding framework</h3>
 
-        <dl className="mt-8 grid gap-6 text-sm sm:grid-cols-3 sm:gap-5">
-          <div>
-            <dt className="text-xs font-medium text-[#7893a6]">Goal</dt>
-            <dd className="mt-2 font-medium text-[#26394d]">Authority</dd>
-          </div>
-          <div>
-            <dt className="text-xs font-medium text-[#7893a6]">Why this</dt>
-            <dd className="mt-2 max-w-[14rem] leading-5 text-[#26394d]">Strong expertise signal with low recent coverage.</dd>
-          </div>
-          <div>
-            <dt className="text-xs font-medium text-[#7893a6]">Sources used</dt>
-            <dd className="mt-2 max-w-[14rem] leading-5 text-[#26394d]">Case study · LinkedIn history · Brand Graph</dd>
-          </div>
-        </dl>
+          <dl className="mt-8 grid gap-6 text-sm sm:grid-cols-3 sm:gap-5">
+            <div>
+              <dt className="text-xs font-medium text-[#7893a6]">Goal</dt>
+              <dd className="mt-2 font-medium text-[#26394d]">Authority</dd>
+            </div>
+            <div>
+              <dt className="text-xs font-medium text-[#7893a6]">Why this</dt>
+              <dd className="mt-2 max-w-[14rem] leading-5 text-[#26394d]">Strong expertise signal with low recent coverage.</dd>
+            </div>
+            <div>
+              <dt className="text-xs font-medium text-[#7893a6]">Sources used</dt>
+              <dd className="mt-2 max-w-[14rem] leading-5 text-[#26394d]">Case study · LinkedIn history · Brand Graph</dd>
+            </div>
+          </dl>
+        </div>
       </div>
 
       <div className="pt-8">
