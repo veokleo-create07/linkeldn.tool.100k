@@ -32,7 +32,7 @@ export function ProductCards() {
           The Clonao personal brand system
         </h2>
 
-        <div className="grid gap-10 sm:gap-12 lg:grid-cols-3 lg:gap-5 xl:gap-6">
+        <div className="grid gap-10 sm:gap-12 lg:-mx-6 lg:grid-cols-3 lg:gap-4 xl:gap-5">
           {pillars.map(({ title, description, image, alt, icon: Icon }) => (
             <article key={title} className="group min-w-0">
               <div className="relative overflow-hidden rounded-[1.35rem] transition-transform duration-500 ease-out group-hover:-translate-y-1">
