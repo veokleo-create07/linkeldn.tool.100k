@@ -7,7 +7,7 @@ export function WaitlistForm() {
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
     const email = new FormData(form).get("email");
@@ -19,11 +19,28 @@ export function WaitlistForm() {
 
     setError("");
     setSubmitting(true);
-    window.setTimeout(() => {
-      setSubmitting(false);
+
+    try {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+
+      const result = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        setError(result.error ?? "We couldn’t add you right now. Please try again.");
+        return;
+      }
+
       setSubmitted(true);
       form.reset();
-    }, 650);
+    } catch {
+      setError("We couldn’t connect right now. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
