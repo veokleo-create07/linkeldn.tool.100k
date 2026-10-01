@@ -7,8 +7,10 @@ const stripItems = [
 
 export function ProductCreate() {
   return (
-    <section aria-labelledby="product-create-heading" className="bg-[#f8fbfd] py-24 sm:py-28 lg:py-36">
-      <div className="marketing-container">
+    <section aria-labelledby="product-create-heading" className="relative isolate overflow-hidden bg-[#f8fbfd] py-24 sm:py-28 lg:py-36">
+      <div className="pointer-events-none absolute inset-0 -z-20 bg-[url('/coral-lavender-gradient.jpg')] bg-cover bg-center opacity-[0.24]" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(248,251,253,0.94)_0%,rgba(248,251,253,0.7)_48%,rgba(248,251,253,0.92)_100%)]" aria-hidden="true" />
+      <div className="marketing-container relative z-10">
         <div className="grid items-start gap-14 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-24">
           <div className="max-w-xl lg:pt-8">
             <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#3977a9]">Create</p>
