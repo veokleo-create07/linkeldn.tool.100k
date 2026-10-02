@@ -10,7 +10,7 @@ export function HowItWorksHero() {
           <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-white/80">How it works</p>
           <h1 id="how-it-works-heading" className="text-balance mt-5 max-w-4xl text-[2.75rem] font-semibold leading-[1.02] tracking-tightest text-white sm:text-6xl lg:text-[4.5rem]">From what you know to what you should do next.</h1>
           <p className="mt-6 max-w-2xl text-balance text-base font-medium leading-7 text-white/90 sm:text-lg sm:leading-8">Clonao learns your knowledge, understands your brand, finds what matters, and turns it into clear actions you can actually execute.</p>
-          <Link href="/sign-up" className="metallic-cta mt-8 inline-flex h-11 items-center justify-center rounded-md px-5 text-sm font-medium text-white">Join the waitlist</Link>
+          <Link href="/sign-up" className="metallic-cta mt-8 inline-flex h-11 items-center justify-center rounded-md px-5 text-sm font-medium text-white">Start for free</Link>
         </div>
 
         <ol className="mt-20 grid gap-0 sm:mt-24 lg:grid-cols-6" aria-label="Clonao process">

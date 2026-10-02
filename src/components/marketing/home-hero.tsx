@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { WaitlistForm } from "@/components/marketing/waitlist-form";
+import Link from "next/link";
 
 export function HomeHero() {
   return (
@@ -21,7 +21,7 @@ export function HomeHero() {
         </div>
 
         <div className="hero-reveal hero-reveal-delay-2 mt-5 flex items-center justify-center sm:mt-6">
-          <WaitlistForm />
+          <Link href="/sign-up" className="metallic-cta inline-flex h-11 items-center justify-center rounded-md px-5 text-sm font-medium text-white">Start for free</Link>
         </div>
 
         <div className="hero-reveal hero-reveal-delay-3 mt-0 w-full max-w-[1040px]">

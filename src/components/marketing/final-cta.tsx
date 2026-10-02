@@ -16,7 +16,7 @@ export function FinalCta() {
               href="/sign-up"
               className="metallic-cta inline-flex min-h-11 items-center justify-center rounded-md px-5 text-sm font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563a6] focus-visible:ring-offset-2"
             >
-              Join the waitlist
+              Start for free
             </Link>
           </div>
         </div>
