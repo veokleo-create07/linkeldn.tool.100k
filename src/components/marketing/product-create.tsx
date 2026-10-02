@@ -13,8 +13,7 @@ export function ProductCreate() {
       <div className="marketing-container relative z-10">
         <div className="grid items-start gap-14 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-24">
           <div className="max-w-xl lg:pt-8">
-            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#101010]">Create</p>
-            <h2 id="product-create-heading" className="text-balance mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.06em] text-[#090909] sm:text-5xl lg:text-[3.8rem]">Turn the next best move into content.</h2>
+            <h2 id="product-create-heading" className="text-balance text-4xl font-semibold leading-[1.02] tracking-[-0.06em] text-[#050505] sm:text-5xl lg:text-[3.8rem]">Turn the next best move into content.</h2>
             <p className="mt-6 max-w-lg text-base leading-7 text-[#333333] sm:text-lg sm:leading-8">Clonao turns your strategy and real knowledge into content with a clear reason behind every post.</p>
           </div>
 

@@ -20,8 +20,7 @@ export function ProductLearn() {
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(248,251,253,0.94)_0%,rgba(248,251,253,0.72)_48%,rgba(248,251,253,0.92)_100%)]" aria-hidden="true" />
       <div className="marketing-container relative z-10">
         <div className="max-w-3xl">
-          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#101010]">Learn</p>
-          <h2 id="product-learn-heading" className="text-balance mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.06em] text-[#090909] sm:text-5xl lg:text-[3.8rem]">
+          <h2 id="product-learn-heading" className="text-balance text-4xl font-semibold leading-[1.02] tracking-[-0.06em] text-[#050505] sm:text-5xl lg:text-[3.8rem]">
             Every post makes the next decision smarter.
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-7 text-[#333333] sm:text-lg sm:leading-8">
@@ -29,14 +28,14 @@ export function ProductLearn() {
           </p>
         </div>
 
-        <div className="mt-14 border-y border-black/20 sm:mt-16">
-          <div className="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
-            <div className="relative overflow-hidden bg-[url('/pastel-aqua-gradient.jpg')] bg-cover bg-center py-8 sm:py-10 lg:pr-16">
-              <div className="pointer-events-none absolute inset-0 bg-white/68" aria-hidden="true" />
+        <div className="mt-14 sm:mt-16">
+          <div className="grid gap-5 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+            <div className="relative overflow-hidden rounded-[1.35rem] border border-black/15 bg-[url('/pastel-aqua-gradient.jpg')] bg-cover bg-center px-6 py-8 shadow-[0_22px_46px_-38px_rgba(20,65,103,0.5)] sm:px-8 sm:py-10 lg:px-10">
+              <div className="pointer-events-none absolute inset-0 bg-white/80" aria-hidden="true" />
               <div className="relative z-10">
                 <div className="flex items-center justify-between gap-6">
-                <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#101010]">Performance patterns</p>
-                <span className="text-xs text-[#404040]">What changed</span>
+                  <p className="text-sm font-semibold tracking-[-0.02em] text-[#050505]">Performance patterns</p>
+                  <span className="text-xs text-[#202020]">What changed</span>
                 </div>
 
               <div className="mt-8 h-36 w-full" aria-label="Illustrative performance trend showing stronger response over time" role="img">
@@ -63,15 +62,15 @@ export function ProductLearn() {
               </div>
             </div>
 
-            <div className="relative overflow-hidden border-t border-black/20 bg-[url('/ethereal-aqua-gradient.jpg')] bg-cover bg-center py-8 sm:py-10 lg:border-l lg:border-t-0 lg:pl-16">
-              <div className="pointer-events-none absolute inset-0 bg-white/68" aria-hidden="true" />
+            <div className="relative overflow-hidden rounded-[1.35rem] border border-black/15 bg-[url('/ethereal-aqua-gradient.jpg')] bg-cover bg-center px-6 py-8 shadow-[0_22px_46px_-38px_rgba(20,65,103,0.5)] sm:px-8 sm:py-10 lg:px-10">
+              <div className="pointer-events-none absolute inset-0 bg-white/80" aria-hidden="true" />
               <div className="relative z-10">
                 <div className="flex items-center gap-3">
-                <p className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#101010]">Strategy update</p>
-                <ArrowRight className="size-4 text-[#101010]" strokeWidth={1.5} aria-hidden="true" />
-                <span className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#101010]">Better recommendation</span>
+                  <p className="text-sm font-semibold tracking-[-0.02em] text-[#050505]">Strategy update</p>
+                  <ArrowRight className="size-4 text-[#101010]" strokeWidth={1.5} aria-hidden="true" />
+                  <span className="text-sm font-semibold tracking-[-0.02em] text-[#050505]">Better recommendation</span>
                 </div>
-                <h3 className="mt-5 text-2xl font-semibold tracking-[-0.045em] text-[#090909] sm:text-3xl">What Clonao changes next.</h3>
+                <h3 className="mt-5 text-2xl font-semibold tracking-[-0.045em] text-[#050505] sm:text-3xl">What Clonao changes next.</h3>
 
                 <div className="mt-8 divide-y divide-black/20 border-y border-black/20">
                 {changes.map((change) => (
