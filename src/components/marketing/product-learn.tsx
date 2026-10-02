@@ -30,7 +30,8 @@ export function ProductLearn() {
 
         <div className="mt-14 sm:mt-16">
           <div className="grid gap-5 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
-            <div className="relative overflow-hidden rounded-[1.35rem] border border-black/15 bg-transparent px-6 py-8 sm:px-8 sm:py-10 lg:px-10">
+            <div className="relative overflow-hidden rounded-[1.35rem] border border-black/15 bg-[url('/pastel-aqua-gradient.jpg')] bg-cover bg-center px-6 py-8 sm:px-8 sm:py-10 lg:px-10">
+              <div className="pointer-events-none absolute inset-0 bg-white/38" aria-hidden="true" />
               <div className="relative z-10">
                 <div className="flex items-center justify-between gap-6">
                   <p className="text-sm font-semibold tracking-[-0.02em] text-[#050505]">Performance patterns</p>
@@ -61,7 +62,8 @@ export function ProductLearn() {
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-[1.35rem] border border-black/15 bg-transparent px-6 py-8 sm:px-8 sm:py-10 lg:px-10">
+            <div className="relative overflow-hidden rounded-[1.35rem] border border-black/15 bg-[url('/ethereal-aqua-gradient.jpg')] bg-cover bg-center px-6 py-8 sm:px-8 sm:py-10 lg:px-10">
+              <div className="pointer-events-none absolute inset-0 bg-white/38" aria-hidden="true" />
               <div className="relative z-10">
                 <div className="flex items-center gap-3">
                   <p className="text-sm font-semibold tracking-[-0.02em] text-[#050505]">Strategy update</p>
