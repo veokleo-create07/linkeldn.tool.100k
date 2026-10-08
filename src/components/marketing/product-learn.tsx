@@ -62,8 +62,8 @@ export function ProductLearn() {
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-[1.35rem] border border-black/15 bg-[url('/ethereal-aqua-gradient.jpg')] bg-cover bg-center px-6 py-8 sm:px-8 sm:py-10 lg:px-10">
-              <div className="pointer-events-none absolute inset-0 bg-white/38" aria-hidden="true" />
+            <div className="relative overflow-hidden rounded-[1.35rem] border border-black/15 bg-[url('/lavender-blue-gradient.jpg')] bg-cover bg-center px-6 py-8 sm:px-8 sm:py-10 lg:px-10">
+              <div className="pointer-events-none absolute inset-0 bg-white/62" aria-hidden="true" />
               <div className="relative z-10">
                 <div className="flex items-center gap-3">
                   <p className="text-sm font-semibold tracking-[-0.02em] text-[#050505]">Strategy update</p>
