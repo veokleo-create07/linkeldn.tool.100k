@@ -58,9 +58,9 @@ export function HowItWorks({ features }: HowItWorksProps) {
                     <div className={`relative flex min-h-[218px] flex-col overflow-hidden rounded-[15px] border bg-cover bg-center p-4 ${theme.border}`} style={{ backgroundImage: cardBackgrounds[index % cardBackgrounds.length] }}>
                       <div className="pointer-events-none absolute inset-0 bg-white/58" aria-hidden="true" />
                       <div className="relative z-10">
-                        <span className={`mb-5 block text-4xl font-semibold tracking-[-0.08em] ${theme.text}`}>{String(index + 1).padStart(2, "0")}</span>
+                        <span className="mb-5 block text-4xl font-semibold tracking-[-0.08em] text-[#050505]">{String(index + 1).padStart(2, "0")}</span>
                         <h3 className="mb-2 text-2xl font-semibold leading-none tracking-[-0.055em] text-neutral-900">{step.title}</h3>
-                        <p className="text-sm leading-5 tracking-[-0.02em] text-neutral-600">{step.description}</p>
+                        <p className="text-sm font-medium leading-5 tracking-[-0.02em] text-[#050505]">{step.description}</p>
                       </div>
                     </div>
                   </div>
