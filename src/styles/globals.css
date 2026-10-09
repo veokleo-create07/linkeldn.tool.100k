@@ -171,6 +171,18 @@
   }
 }
 
+@keyframes how-it-works-dash {
+  to {
+    stroke-dashoffset: -140;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe\:animate-\[how-it-works-dash_3s_linear_infinite\] {
+    animation: none;
+  }
+}
+
 @keyframes problem-reflection {
   0%,
   20% {
