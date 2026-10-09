@@ -31,7 +31,7 @@ export function HowItWorks({ features }: HowItWorksProps) {
   const height = features.length > 4 ? 1180 : features.length > 2 ? 850 : 500;
 
   return (
-    <section className="hero-atmosphere relative overflow-hidden px-6 py-16 sm:px-8 sm:py-20 lg:py-24" aria-label="How Clonao works">
+    <section className="relative overflow-hidden bg-[#f8fbfd] px-6 py-16 sm:px-8 sm:py-20 lg:py-24" aria-label="How Clonao works">
       <div className="relative mx-auto max-w-6xl">
         <div className="relative mx-auto w-full max-w-[1000px] md:h-[var(--steps-height)]" style={{ "--steps-height": `${height}px` } as CSSProperties}>
           {features.length > 1 ? (
