@@ -12,11 +12,20 @@ type HowItWorksProps = {
   features: HowItWorksStep[];
 };
 
-const themeClasses: Record<CardTheme, { bg: string; text: string; border: string }> = {
-  orange: { bg: "bg-orange-50", text: "text-orange-500", border: "border-orange-100" },
-  blue: { bg: "bg-blue-50", text: "text-blue-600", border: "border-blue-100" },
-  purple: { bg: "bg-purple-50", text: "text-purple-600", border: "border-purple-100" },
+const themeClasses: Record<CardTheme, { text: string; border: string }> = {
+  orange: { text: "text-orange-500", border: "border-orange-100" },
+  blue: { text: "text-blue-600", border: "border-blue-100" },
+  purple: { text: "text-purple-600", border: "border-purple-100" },
 };
+
+const cardBackgrounds = [
+  "url('/dreamy-blue-gradient.jpg')",
+  "url('/ethereal-aqua-gradient.jpg')",
+  "url('/lavender-blue-gradient.jpg')",
+  "url('/coral-lavender-gradient.jpg')",
+  "url('/pastel-aqua-gradient.jpg')",
+  "linear-gradient(135deg, #dceeff 0%, #8ccbff 52%, #f8fbfd 100%)",
+];
 
 const positions = [
   "md:absolute md:left-[8%] md:top-0 md:rotate-6",
@@ -46,10 +55,13 @@ export function HowItWorks({ features }: HowItWorksProps) {
               return (
                 <article key={step.title} className={`w-full transition-transform duration-300 hover:z-20 hover:scale-[1.025] md:w-[280px] ${positions[index % positions.length]}`}>
                   <div className="rounded-[25px] border border-neutral-100 bg-white p-2 shadow-[0_10px_20px_0_rgba(211,211,211,0.75)]">
-                    <div className={`relative flex min-h-[218px] flex-col overflow-hidden rounded-[15px] border p-4 ${theme.bg} ${theme.border}`}>
-                      <span className={`mb-5 text-4xl font-semibold tracking-[-0.08em] ${theme.text}`}>{String(index + 1).padStart(2, "0")}</span>
-                      <h3 className="mb-2 text-2xl font-semibold leading-none tracking-[-0.055em] text-neutral-900">{step.title}</h3>
-                      <p className="text-sm leading-5 tracking-[-0.02em] text-neutral-500">{step.description}</p>
+                    <div className={`relative flex min-h-[218px] flex-col overflow-hidden rounded-[15px] border bg-cover bg-center p-4 ${theme.border}`} style={{ backgroundImage: cardBackgrounds[index % cardBackgrounds.length] }}>
+                      <div className="pointer-events-none absolute inset-0 bg-white/58" aria-hidden="true" />
+                      <div className="relative z-10">
+                        <span className={`mb-5 block text-4xl font-semibold tracking-[-0.08em] ${theme.text}`}>{String(index + 1).padStart(2, "0")}</span>
+                        <h3 className="mb-2 text-2xl font-semibold leading-none tracking-[-0.055em] text-neutral-900">{step.title}</h3>
+                        <p className="text-sm leading-5 tracking-[-0.02em] text-neutral-600">{step.description}</p>
+                      </div>
                     </div>
                   </div>
                 </article>
